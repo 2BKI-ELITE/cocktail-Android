@@ -24,23 +24,19 @@ public class MainActivity extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
         }
 
+        System.out.println("0");
+
         CommunicationManager.establishConnection();
 
-        CommunicationManager.onMessageReceive(new JedisPubSub() {
-            @Override
-            public void onMessage(String channel, String message) {
-                try {
-                    JSONObject object = new JSONObject(message);
+        System.out.println("1");
 
-                    System.out.println("Received message on channel [" + channel + "]");
-                    System.out.println(object.toString());
-                } catch (JSONException ex) {
-                    ex.printStackTrace();
-                }
-            }
-        }, "general");
+        CommunicationManager.setupSubscriber();
+
+        System.out.println("2");
 
         int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+
+        System.out.println("3");
 
         switch(currentNightMode) {
             case Configuration.UI_MODE_NIGHT_YES:
@@ -50,7 +46,10 @@ public class MainActivity extends AppCompatActivity {
                 setTheme(R.style.AppTheme);
         }
 
+        System.out.println("4");
+
         super.onCreate(savedInstanceState);
+        System.out.println("5");
         setContentView(R.layout.activity_main_screen);
 
     }

@@ -21,9 +21,7 @@ public class CommunicationManager {
         jedis = new Jedis("192.168.1.1");
         //jedis.auth("projektarbeitPasswort");
 
-        if(jedis.isConnected()) {
-            System.out.println("Connected to Redis server!");
-        }
+        System.out.println("Connected to Redis server!");
     }
 
     public static void publishMessage(String channel, JSONObject object) {
@@ -39,7 +37,23 @@ public class CommunicationManager {
         jedis.publish(channel, object.toString());
     }
 
-    public static void onMessageReceive(JedisPubSub jedisPubSub, String channel) {
-        jedis.subscribe(jedisPubSub, channel);
+    public static void setupSubscriber() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                jedis.subscribe(new JedisPubSub() {
+                    @Override
+                    public void onMessage(String channel, String message) {
+                        try {
+                            JSONObject object = new JSONObject(message);
+
+                            // TODO: 05.02.2020 Do something 
+                        } catch (JSONException ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+                }, "general");
+            }
+        }, "subscriberThread").start();
     }
 }
