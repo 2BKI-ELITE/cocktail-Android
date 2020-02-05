@@ -2,7 +2,7 @@
 
     <!-- LIGHT MODE -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">#000000</item>
+        <item name="colorPrimary">#ECF0F1</item>
         <item name="colorPrimaryDark">#000000</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="backgroundcolor">#ecf0f1</item>
