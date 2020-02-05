@@ -1,7 +1,6 @@
 package com.example.cocktail_android;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -21,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_screen);
 
     }
 }

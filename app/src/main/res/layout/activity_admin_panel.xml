@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="?attr/backgroundcolor"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".AdminPanelActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -84,4 +84,5 @@
             android:background="@null"
             app:srcCompat="@drawable/cocktail_about_bt" />
     </RelativeLayout>
+
 </LinearLayout>

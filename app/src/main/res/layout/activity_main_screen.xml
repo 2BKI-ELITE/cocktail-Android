@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/backgroundcolor"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_1sdp"
+        android:layout_marginRight="@dimen/_1sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_40sdp"
+            >
+
+            <TextView
+                android:id="@+id/titleTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wähle deinen Cocktail"
+                android:textSize="@dimen/_20sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"/>
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="@dimen/_33sdp"
+                android:layout_height="@dimen/_33sdp"
+                android:scaleType="centerInside"
+                tools:srcCompat="@tools:sample/avatars"
+                android:layout_toRightOf="@id/titleTv"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+
+
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

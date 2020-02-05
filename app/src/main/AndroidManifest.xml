@@ -3,11 +3,11 @@
     package="com.example.cocktail_android">
 
     <supports-screens
-        android:smallScreens="false"
+        android:largeScreens="false"
         android:normalScreens="true"
-        android:largeScreens= "false"
         android:requiresSmallestWidthDp="600"
-        />
+        android:smallScreens="false" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,6 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".AdminPanelActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
