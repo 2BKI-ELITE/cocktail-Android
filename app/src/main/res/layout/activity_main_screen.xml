@@ -30,7 +30,7 @@
                 android:layout_centerVertical="true"/>
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/adminPanelBt"
                 android:layout_width="@dimen/_33sdp"
                 android:layout_height="@dimen/_33sdp"
                 android:scaleType="centerInside"
