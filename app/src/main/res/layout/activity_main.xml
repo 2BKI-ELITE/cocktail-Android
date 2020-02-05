@@ -31,20 +31,20 @@
 
             <ImageButton
                 android:id="@+id/btAdminPanel"
-                android:layout_width="@dimen/_33sdp"
-                android:layout_height="@dimen/_33sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:scaleType="centerInside"
-                tools:srcCompat="@drawable/cocktails_admin_bt"
+                app:srcCompat="@drawable/cocktails_admin_bt"
                 android:layout_toRightOf="@id/tvTitle"
                 android:background="@null"
                 android:layout_marginLeft="@dimen/_13sdp"
                 android:layout_centerVertical="true" />
             <ImageButton
                 android:id="@+id/btInfo"
-                android:layout_width="@dimen/_33sdp"
-                android:layout_height="@dimen/_33sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:scaleType="centerInside"
-                tools:srcCompat="@drawable/cocktails_info_bt"
+                app:srcCompat="@drawable/cocktails_info_bt"
                 android:layout_toLeftOf="@id/tvTitle"
                 android:background="@null"
                 android:layout_marginRight="@dimen/_13sdp"

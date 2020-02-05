@@ -29,11 +29,11 @@ public class MainActivity extends AppCompatActivity {
 
         System.out.println("0");
 
-        CommunicationManager.establishConnection();
+      //  CommunicationManager.establishConnection();
 
         System.out.println("1");
 
-        CommunicationManager.setupSubscriber();
+      //  CommunicationManager.setupSubscriber();
 
         System.out.println("2");
 
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final ImageButton adminPanelBt = findViewById(R.id.adminPanelBt);
+        final ImageButton adminPanelBt = findViewById(R.id.btAdminPanel);
         adminPanelBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
