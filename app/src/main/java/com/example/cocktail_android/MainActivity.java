@@ -14,6 +14,9 @@ import org.json.JSONObject;
 import java.util.UUID;
 
 import redis.clients.jedis.JedisPubSub;
+import android.view.View;
+import android.widget.ImageButton;
+import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,11 +49,19 @@ public class MainActivity extends AppCompatActivity {
                 setTheme(R.style.AppTheme);
         }
 
-        System.out.println("4");
+
 
         super.onCreate(savedInstanceState);
-        System.out.println("5");
-        setContentView(R.layout.activity_main_screen);
+        setContentView(R.layout.activity_main);
+        final ImageButton adminPanelBt = findViewById(R.id.adminPanelBt);
+        adminPanelBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(MainActivity.this, AdminPanelActivity.class);
+                startActivity(intent1);
+
+            }
+        });
 
     }
 }

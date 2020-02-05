@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40sdp"
+        >
+
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adminbereich"
+            android:textSize="@dimen/_20sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+
+
+    </RelativeLayout>
+
+
+
+
+    <TextView
+        android:id="@+id/tvText1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bitte halte einen Admin RFID-Chip\nan das Lesegerät"
+        android:layout_marginTop="@dimen/_94sdp"
+        android:textSize="@dimen/_16sdp"
+        android:textAlignment="center" />
+    <ImageView
+        android:id="@+id/ivCocktail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/cocktails_rfid_icon"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_18sdp"/>
+    <TextView
+        android:id="@+id/tvText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="um dich als Admin zu authentifizieren"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:textSize="@dimen/_16sdp"
+        android:textAlignment="center" />
+
+
+
+
+</LinearLayout>

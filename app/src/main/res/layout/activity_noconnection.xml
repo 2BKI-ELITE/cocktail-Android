@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="@dimen/_220sdp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_120sdp"
+        android:text="Es konnte keine Verbindung zum System aufgebaut werden"
+        android:textSize="@dimen/_15sdp"
+        android:textAlignment="center"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_22sdp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/cocktail_error_icon" />
+
+    <TextView
+        android:id="@+id/tvSubtitle1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ursachen:"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textSize="@dimen/_19sdp"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:id="@+id/tvText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="- Du bist mit dem falschen WLAN-Netzwerk verbunden\n- Die Cocktail-Maschine ist nicht hochgefahren"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:id="@+id/tvSubtitle2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lösung:"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textSize="@dimen/_19sdp"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:id="@+id/tvText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="- Verbinde dich mit dem WLAN-Netzwerk\n 'Cocktailmaschine'\n- Überprüfe, ob die Cocktail-Maschine mit Strom\nversorgt wird"
+        android:textAlignment="center"/>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_55sdp"
+        app:srcCompat="@drawable/cocktail_refresh_icon" />
+</LinearLayout>
