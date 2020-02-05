@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_screen);
+        setContentView(R.layout.activity_main);
         final ImageButton adminPanelBt = findViewById(R.id.adminPanelBt);
         adminPanelBt.setOnClickListener(new View.OnClickListener() {
             @Override

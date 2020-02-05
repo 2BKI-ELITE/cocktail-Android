@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_40sdp"
+            >
+
+            <TextView
+                android:id="@+id/titleTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Zubereitung"
+                android:textSize="@dimen/_20sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"/>
+
+
+        </RelativeLayout>
+
+
+        <ImageView
+            android:id="@+id/ivCocktail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cocktails_cocktail_icon"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_41sdp"/>
+
+        <TextView
+            android:id="@+id/tvDescriptionTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hinweis"
+            android:layout_marginTop="@dimen/_65sdp"
+            android:textSize="@dimen/_19sdp"
+            android:textAlignment="center" />
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="@dimen/_220sdp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Bevor die Zubereitung gestartet werden kann muss zunächst ein Glas in das Gerät gestellt werden. Sollte das Glas während der Zubereitung vorzeitig entfernt werden, so wird der Zubereitungsprozess unterbrochen. Bitte betätige den Button erst, wenn ein Glas im Gerät platziert wurde."
+            android:textAlignment="center"/>
+
+        <ImageButton
+            android:id="@+id/btStartMixing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/cocktail_startmixing_bt"
+            android:background="@null"
+            android:layout_marginTop="@dimen/_100sdp"/>
+
+
+</LinearLayout>
