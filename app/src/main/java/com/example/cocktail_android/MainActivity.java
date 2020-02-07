@@ -22,46 +22,26 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (android.os.Build.VERSION.SDK_INT > 9) {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-        }
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 
-        System.out.println("0");
-
-      //  CommunicationManager.establishConnection();
-
-        System.out.println("1");
-
-      //  CommunicationManager.setupSubscriber();
-
-        System.out.println("2");
+        //CommunicationManager.establishConnection();
+        //CommunicationManager.setupSubscriber();
 
         int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
 
-        System.out.println("3");
-
-        switch(currentNightMode) {
-            case Configuration.UI_MODE_NIGHT_YES:
-                setTheme(R.style.darktheme);
-                break;
-            default:
-                setTheme(R.style.AppTheme);
-        }
-
-
+        if (currentNightMode == Configuration.UI_MODE_NIGHT_YES)
+            setTheme(R.style.darktheme);
+        else
+            setTheme(R.style.AppTheme);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         final ImageButton adminPanelBt = findViewById(R.id.btAdminPanel);
-        adminPanelBt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent1 = new Intent(MainActivity.this, AdminPanelActivity.class);
-                startActivity(intent1);
-
-            }
+        adminPanelBt.setOnClickListener(view -> {
+            Intent intent1 = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent1);
         });
-
     }
 }
