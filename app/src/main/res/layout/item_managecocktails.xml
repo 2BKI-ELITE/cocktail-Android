@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/colorAccent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+
+        <ImageView
+            android:id="@+id/manageitem_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:srcCompat="@drawable/cocktails_rvitem_manage_background" />
+
+        <ImageView
+            android:id="@+id/manageitem_ivCocktail"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_alignLeft="@id/manageitem_background"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_23sdp"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/manageitem_tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Screwdriver"
+            android:textSize="@dimen/_19sdp"
+            android:layout_alignTop="@id/manageitem_ivCocktail"
+            android:layout_marginTop="@dimen/_11sdp"
+            android:layout_marginLeft="@dimen/_14sdp"
+            android:layout_toRightOf="@+id/manageitem_ivCocktail"
+            />
+
+        <TextView
+            android:id="@+id/manageitem_tvDescription"
+            android:layout_width="@dimen/_176sdp"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet "
+            android:layout_alignLeft="@id/manageitem_tvTitle"
+            android:textSize="@dimen/_11sdp"
+            android:layout_below="@id/manageitem_tvTitle"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_toRightOf="@id/manageitem_ivCocktail"
+            android:textAlignment="center" />
+
+
+    </RelativeLayout>
+</LinearLayout>

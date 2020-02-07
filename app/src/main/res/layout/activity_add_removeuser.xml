@@ -16,7 +16,7 @@
             android:id="@+id/titleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Benutzer hinzufügen"
+            android:text="Benutzer"
             android:textSize="@dimen/_20sdp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"/>
@@ -24,26 +24,21 @@
 
     </RelativeLayout>
 
-
-
-
-    <TextView
-        android:id="@+id/tvText1"
+    <ImageButton
+        android:id="@+id/btAddUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bitte halte den RFID-Chip, der \nhinzugefügt werden soll \nan das Lesegerät"
-        android:layout_marginTop="@dimen/_94sdp"
-        android:textSize="@dimen/_16sdp"
-        android:textAlignment="center" />
-    <ImageView
-        android:id="@+id/ivCocktail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
-        android:src="@drawable/cocktails_rfid_icon"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/_10sdp"/>
+        android:background="@null"
+        app:srcCompat="@drawable/cocktails_user_add_bt"
+        android:layout_marginTop="@dimen/_21sdp"/>
 
+    <ImageButton
+        android:id="@+id/btEditUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:layout_marginTop="@dimen/_11sdp"
+        app:srcCompat="@drawable/cocktails_user_edit_bt" />
 
 
 
