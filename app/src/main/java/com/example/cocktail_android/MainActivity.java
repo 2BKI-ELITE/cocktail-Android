@@ -1,6 +1,7 @@
 package com.example.cocktail_android;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         adminPanelBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1 = new Intent(MainActivity.this, AdminPanelActivity.class);
+                Intent intent1 = new Intent(MainActivity.this, RecyclerActivity.class);
                 startActivity(intent1);
 
             }

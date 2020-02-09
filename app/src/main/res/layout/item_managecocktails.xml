@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/colorAccent">
+    android:layout_margin="@dimen/_20sdp"
+    android:background="@null"
+    app:cardCornerRadius="@dimen/_5sdp">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@null"
         >
 
 
         <ImageView
             android:id="@+id/manageitem_background"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_120sdp"
             tools:srcCompat="@drawable/cocktails_rvitem_manage_background" />
 
         <ImageView
@@ -25,7 +28,7 @@
             android:layout_alignLeft="@id/manageitem_background"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/_23sdp"
-            android:scaleType="centerCrop"
+            android:scaleType="centerInside"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
@@ -50,8 +53,8 @@
             android:layout_below="@id/manageitem_tvTitle"
             android:layout_marginTop="@dimen/_3sdp"
             android:layout_toRightOf="@id/manageitem_ivCocktail"
-            android:textAlignment="center" />
+             />
 
 
     </RelativeLayout>
-</LinearLayout>
+</androidx.cardview.widget.CardView>
