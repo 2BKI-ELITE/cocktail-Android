@@ -1,6 +1,7 @@
 package com.example.cocktail_android;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -37,6 +38,12 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final ImageButton adminPanelBt = findViewById(R.id.btAdminPanel);
+        adminPanelBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(MainActivity.this, RecyclerActivity.class);
+                startActivity(intent1);
 
         final ImageButton adminPanelBt = findViewById(R.id.btAdminPanel);
         adminPanelBt.setOnClickListener(view -> {

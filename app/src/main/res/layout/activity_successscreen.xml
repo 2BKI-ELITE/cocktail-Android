@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
     android:background="?attr/backgroundcolor">
 
 
@@ -18,7 +16,7 @@
             android:id="@+id/titleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Adminbereich"
+            android:text="_Error Title_"
             android:textSize="@dimen/_20sdp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"/>
@@ -27,32 +25,24 @@
     </RelativeLayout>
 
 
-
-
-    <TextView
-        android:id="@+id/tvText1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Bitte halte einen Admin RFID-Chip\nan das Lesegerät"
-        android:layout_marginTop="@dimen/_94sdp"
-        android:textSize="@dimen/_16sdp"
-        android:textAlignment="center" />
     <ImageView
-        android:id="@+id/ivCocktail"
+        android:id="@+id/ivSuccess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
-        android:src="@drawable/cocktails_rfid_icon"
+        android:src="@drawable/cocktails_success_icon"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/_18sdp"/>
+        android:layout_marginTop="@dimen/_27sdp"/>
+
+
     <TextView
-        android:id="@+id/tvText2"
-        android:layout_width="match_parent"
+        android:id="@+id/tvDescription"
+        android:layout_width="@dimen/_220sdp"
         android:layout_height="wrap_content"
-        android:text="um dich als Admin zu authentifizieren"
-        android:layout_marginTop="@dimen/_16sdp"
-        android:textSize="@dimen/_16sdp"
-        android:textAlignment="center" />
+        android:layout_gravity="center_horizontal"
+        android:text="This is a placeholder success message you will have to replace with the correct message"
+        android:textAlignment="center"
+        android:layout_marginTop="@dimen/_35sdp"/>
 
 
 
