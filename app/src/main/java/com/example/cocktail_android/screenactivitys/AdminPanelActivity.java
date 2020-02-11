@@ -5,11 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.cocktail_android.R;
 
-public class AdminPanelActivity extends AppCompatActivity {
+public class AdminPanelActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,16 +29,35 @@ public class AdminPanelActivity extends AppCompatActivity {
 
         //Listener for Manage Button
         final ImageButton mManageBt = findViewById(R.id.adminpanel_btManage);
-        mManageBt.setOnClickListener(view -> {
-            Intent intent1 = new Intent(AdminPanelActivity.this, ManageActivity.class);
-            startActivity(intent1);
-        });
+        mManageBt.setOnClickListener(this);
 
         //Listener for Clean Button
         final ImageButton mCleanBt = findViewById(R.id.adminpanel_btClean);
-        mManageBt.setOnClickListener(view1 -> {
-            Intent intent1 = new Intent(AdminPanelActivity.this, CleanActivity.class);
-            startActivity(intent1);
-        });
+        mCleanBt.setOnClickListener(this);
+    }
+
+
+
+
+
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()) {
+
+            case R.id.adminpanel_btClean:
+                Intent intent1 = new Intent(AdminPanelActivity.this, CleanActivity.class);
+                startActivity(intent1);
+                break;
+
+            case R.id.adminpanel_btManage:
+                Intent intent2 = new Intent(AdminPanelActivity.this, ManageActivity.class);
+                startActivity(intent2);
+                break;
+
+            default:
+                break;
+        }
     }
 }
