@@ -13,7 +13,7 @@
             >
 
             <TextView
-                android:id="@+id/titleTv"
+                android:id="@+id/confirm_tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Zubereitung"
@@ -26,7 +26,7 @@
 
 
         <ImageView
-            android:id="@+id/ivCocktail"
+            android:id="@+id/confirm_ivCocktail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
@@ -35,7 +35,7 @@
             android:layout_marginTop="@dimen/_41sdp"/>
 
         <TextView
-            android:id="@+id/tvDescriptionTitle"
+            android:id="@+id/confirm_tvDescriptionTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hinweis"
@@ -43,7 +43,7 @@
             android:textSize="@dimen/_19sdp"
             android:textAlignment="center" />
         <TextView
-            android:id="@+id/tvDescription"
+            android:id="@+id/confirm_tvDescription"
             android:layout_width="@dimen/_220sdp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -51,7 +51,7 @@
             android:textAlignment="center"/>
 
         <ImageButton
-            android:id="@+id/btStartMixing"
+            android:id="@+id/confirm_btStartMixing"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/cocktail_startmixing_bt"

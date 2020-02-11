@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="?attr/backgroundcolor"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".screenactivitys.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             >
 
             <TextView
-                android:id="@+id/tvTitle"
+                android:id="@+id/main_tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Wähle deinen Cocktail"
@@ -30,22 +30,22 @@
                 android:layout_centerVertical="true"/>
 
             <ImageButton
-                android:id="@+id/btAdminPanel"
+                android:id="@+id/main_btAdminPanel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/cocktails_admin_bt"
-                android:layout_toRightOf="@id/tvTitle"
+                android:layout_toRightOf="@id/main_tvTitle"
                 android:background="@null"
                 android:layout_marginLeft="@dimen/_13sdp"
                 android:layout_centerVertical="true" />
             <ImageButton
-                android:id="@+id/btInfo"
+                android:id="@+id/main_btInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/cocktails_info_bt"
-                android:layout_toLeftOf="@id/tvTitle"
+                android:layout_toLeftOf="@id/main_tvTitle"
                 android:background="@null"
                 android:layout_marginRight="@dimen/_13sdp"
                 android:layout_centerVertical="true" />

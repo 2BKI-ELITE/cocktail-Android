@@ -13,7 +13,7 @@
         >
 
         <TextView
-            android:id="@+id/titleTv"
+            android:id="@+id/adduserrfid_tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Benutzer hinzufügen"
@@ -28,7 +28,7 @@
 
 
     <TextView
-        android:id="@+id/tvText1"
+        android:id="@+id/adduserrfid_tvText1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Bitte halte den RFID-Chip, der \nhinzugefügt werden soll \nan das Lesegerät"
@@ -36,7 +36,7 @@
         android:textSize="@dimen/_16sdp"
         android:textAlignment="center" />
     <ImageView
-        android:id="@+id/ivCocktail"
+        android:id="@+id/adduserrfid_ivCocktail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"

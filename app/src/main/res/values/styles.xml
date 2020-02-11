@@ -7,7 +7,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="backgroundcolor">#ecf0f1</item>
         <item name="cardbackground">#ecf0f1</item>
-        <item name="textcolorPrimary">#000000</item>
+        <item name="textcolorPrimary">#2c3e50</item>
         <item name="textcolorSecondary">#707070</item>
         <item name="tintcolor">#ffffff</item>
         <item name="buttoncolor">#000000</item>

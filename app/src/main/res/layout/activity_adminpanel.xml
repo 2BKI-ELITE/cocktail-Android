@@ -6,14 +6,15 @@
     android:layout_height="match_parent"
     android:background="?attr/backgroundcolor"
     android:orientation="vertical"
-    tools:context=".AdminPanelActivity">
+    tools:context=".screenactivitys.AdminPanelActivity">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="bottom">
+        android:gravity="bottom"
+        android:background="?attr/backgroundcolor">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -23,7 +24,7 @@
             android:layout_marginBottom="@dimen/_34sdp">
 
             <LinearLayout
-                android:id="@+id/centerSpace"
+                android:id="@+id/adminpanel_centerSpace"
                 android:layout_width="@dimen/_15sdp"
                 android:layout_height="match_parent"
                 android:layout_centerHorizontal="true"
@@ -31,61 +32,61 @@
                 android:orientation="vertical"></LinearLayout>
 
             <ImageButton
-                android:id="@+id/cleanBt"
+                android:id="@+id/adminpanel_btManage"
                 android:layout_width="@dimen/_130sdp"
                 android:layout_height="@dimen/_130sdp"
-                android:layout_toLeftOf="@id/centerSpace"
+                android:layout_toLeftOf="@id/adminpanel_centerSpace"
                 android:background="@null"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/cocktail_manage_bt" />
 
             <ImageButton
-                android:id="@+id/ingredientsBt"
+                android:id="@+id/adminpanel_btIngredients"
                 android:layout_width="@dimen/_130sdp"
                 android:layout_height="@dimen/_130sdp"
-                android:layout_toRightOf="@id/centerSpace"
+                android:layout_toRightOf="@id/adminpanel_centerSpace"
                 android:background="@null"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/cocktail_ingredients_bt" />
 
             <ImageButton
-                android:id="@+id/cocktailsBt"
+                android:id="@+id/adminpanel_btClean"
                 android:layout_width="@dimen/_130sdp"
                 android:layout_height="@dimen/_130sdp"
-                android:layout_below="@id/cleanBt"
-                android:layout_alignLeft="@id/cleanBt"
+                android:layout_below="@id/adminpanel_btManage"
+                android:layout_alignLeft="@id/adminpanel_btManage"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:background="@null"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/cocktail_cleaning_bt" />
 
             <ImageButton
-                android:id="@+id/fillLevelBt"
+                android:id="@+id/adminpanel_btStatistics"
                 android:layout_width="@dimen/_130sdp"
                 android:layout_height="@dimen/_130sdp"
-                android:layout_alignLeft="@id/ingredientsBt"
-                android:layout_alignTop="@id/cocktailsBt"
+                android:layout_alignLeft="@id/adminpanel_btIngredients"
+                android:layout_alignTop="@id/adminpanel_btClean"
                 android:background="@null"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/cocktail_statistics_bt" />
 
             <ImageButton
-                android:id="@+id/statisticsBt"
+                android:id="@+id/adminpanel_btUser"
                 android:layout_width="@dimen/_130sdp"
                 android:layout_height="@dimen/_130sdp"
-                android:layout_below="@id/fillLevelBt"
-                android:layout_alignLeft="@id/cleanBt"
+                android:layout_below="@id/adminpanel_btStatistics"
+                android:layout_alignLeft="@id/adminpanel_btManage"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:background="@null"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/cocktail_settings_bt" />
 
             <ImageButton
-                android:id="@+id/aboutBt"
+                android:id="@+id/adminpanel_btSettings"
                 android:layout_width="@dimen/_130sdp"
                 android:layout_height="@dimen/_130sdp"
-                android:layout_alignLeft="@id/ingredientsBt"
-                android:layout_alignTop="@id/statisticsBt"
+                android:layout_alignLeft="@id/adminpanel_btIngredients"
+                android:layout_alignTop="@id/adminpanel_btUser"
                 android:background="@null"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/cocktail_about_bt" />

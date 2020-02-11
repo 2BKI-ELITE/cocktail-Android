@@ -1,11 +1,11 @@
 package com.example.cocktail_android;
 
-public class ExampleItem {
+public class ManageItem {
 
     private int mImageResource;
     private String mTest1, mText2;
 
-    public ExampleItem(int mImageResource, String mTest1, String mText2){
+    public ManageItem(int mImageResource, String mTest1, String mText2){
         this.mImageResource = mImageResource;
         this.mTest1 = mTest1;
         this.mText2 = mText2;

@@ -1,23 +1,16 @@
-package com.example.cocktail_android;
+package com.example.cocktail_android.screenactivitys;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.StrictMode;
 
-import com.example.cocktail_android.redis.CommunicationManager;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.UUID;
-
-import redis.clients.jedis.JedisPubSub;
-import android.view.View;
 import android.widget.ImageButton;
 import android.content.Intent;
+
+import com.example.cocktail_android.LoginActivity;
+import com.example.cocktail_android.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,16 +31,11 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final ImageButton adminPanelBt = findViewById(R.id.btAdminPanel);
-        adminPanelBt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent1 = new Intent(MainActivity.this, RecyclerActivity.class);
-                startActivity(intent1);
 
-        final ImageButton adminPanelBt = findViewById(R.id.btAdminPanel);
+
+        final ImageButton adminPanelBt = findViewById(R.id.main_btAdminPanel);
         adminPanelBt.setOnClickListener(view -> {
-            Intent intent1 = new Intent(MainActivity.this, LoginActivity.class);
+            Intent intent1 = new Intent(MainActivity.this, AdminPanelActivity.class);
             startActivity(intent1);
         });
     }

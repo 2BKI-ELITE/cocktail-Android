@@ -6,7 +6,7 @@
     android:background="?attr/backgroundcolor">
 
     <TextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/noconnection_tvTitle"
         android:layout_width="@dimen/_220sdp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -16,7 +16,7 @@
         android:textAlignment="center"/>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/noconnection_imageView"
         android:layout_width="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/_22sdp"
@@ -24,7 +24,7 @@
         app:srcCompat="@drawable/cocktail_error_icon" />
 
     <TextView
-        android:id="@+id/tvSubtitle1"
+        android:id="@+id/noconnection_tvSubtitle1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ursachen:"
@@ -33,7 +33,7 @@
         android:textAlignment="center"/>
 
     <TextView
-        android:id="@+id/tvText1"
+        android:id="@+id/noconnection_tvText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -41,7 +41,7 @@
         android:textAlignment="center"/>
 
     <TextView
-        android:id="@+id/tvSubtitle2"
+        android:id="@+id/noconnection_tvSubtitle2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Lösung:"
@@ -50,7 +50,7 @@
         android:textAlignment="center"/>
 
     <TextView
-        android:id="@+id/tvText2"
+        android:id="@+id/noconnection_tvText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -58,7 +58,7 @@
         android:textAlignment="center"/>
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/noconnection_imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@null"
