@@ -17,11 +17,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".screenactivitys.CleanActivity"></activity>
+        <activity android:name=".screenactivities.UserActivity"></activity>
+        <activity android:name=".screenactivities.CleanActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".screenactivitys.AdminPanelActivity" />
-        <activity android:name=".screenactivitys.ManageActivity" />
-        <activity android:name=".screenactivitys.MainActivity">
+        <activity android:name=".screenactivities.AdminPanelActivity" />
+        <activity android:name=".screenactivities.ManageActivity" />
+        <activity android:name=".screenactivities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

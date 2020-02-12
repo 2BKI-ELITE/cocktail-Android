@@ -1,4 +1,4 @@
-package com.example.cocktail_android.screenactivitys;
+package com.example.cocktail_android.screenactivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -33,15 +33,15 @@ public class ManageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recycler);
 
         ArrayList<ManageItem> exampleList = new ArrayList<>();
-        exampleList.add(new ManageItem(R.drawable.test_cocktail_pic,"moin", "servis"));
-        exampleList.add(new ManageItem(R.drawable.test_cocktail_pic,"moin", "servis"));
-        exampleList.add(new ManageItem(R.drawable.test_cocktail_pic,"moin", "servis"));
-        exampleList.add(new ManageItem(R.drawable.test_cocktail_pic,"moin", "servis"));
-        exampleList.add(new ManageItem(R.drawable.test_cocktail_pic,"moin", "servis"));
-        exampleList.add(new ManageItem(R.drawable.test_cocktail_pic,"moin", "servis"));
-        exampleList.add(new ManageItem(R.drawable.test_cocktail_pic,"moin", "servis"));
-        exampleList.add(new ManageItem(R.drawable.test_cocktail_pic,"moin", "servis"));
-        exampleList.add(new ManageItem(R.drawable.test_cocktail_pic,"moin", "servis"));
+        exampleList.add(new ManageItem(R.drawable.test_cocktail_pic,"Ich", "servis"));
+        exampleList.add(new ManageItem(R.drawable.test_cocktail_pic,"hab", "servis"));
+        exampleList.add(new ManageItem(R.drawable.test_cocktail_pic,"keine", "servis"));
+        exampleList.add(new ManageItem(R.drawable.test_cocktail_pic,"Lust", "servis"));
+        exampleList.add(new ManageItem(R.drawable.test_cocktail_pic,"mehr", "servis"));
+        exampleList.add(new ManageItem(R.drawable.test_cocktail_pic,"ich", "servis"));
+        exampleList.add(new ManageItem(R.drawable.test_cocktail_pic,"will", "servis"));
+        exampleList.add(new ManageItem(R.drawable.test_cocktail_pic,"nach", "servis"));
+        exampleList.add(new ManageItem(R.drawable.test_cocktail_pic,"hause", "servis"));
 
         mRecyclerView = findViewById(R.id.manageview_rv);
         mRecyclerView.setHasFixedSize(true);

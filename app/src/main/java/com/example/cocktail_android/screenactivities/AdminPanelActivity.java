@@ -1,4 +1,4 @@
-package com.example.cocktail_android.screenactivitys;
+package com.example.cocktail_android.screenactivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -34,6 +34,9 @@ public class AdminPanelActivity extends AppCompatActivity implements View.OnClic
         //Listener for Clean Button
         final ImageButton mCleanBt = findViewById(R.id.adminpanel_btClean);
         mCleanBt.setOnClickListener(this);
+
+        final ImageButton mUserBt = findViewById(R.id.adminpanel_btUser);
+        mUserBt.setOnClickListener(this);
     }
 
 
@@ -54,6 +57,11 @@ public class AdminPanelActivity extends AppCompatActivity implements View.OnClic
             case R.id.adminpanel_btManage:
                 Intent intent2 = new Intent(AdminPanelActivity.this, ManageActivity.class);
                 startActivity(intent2);
+                break;
+
+            case R.id.adminpanel_btUser:
+                Intent intente = new Intent(AdminPanelActivity.this, UserActivity.class);
+                startActivity(intente);
                 break;
 
             default:

@@ -1,4 +1,4 @@
-package com.example.cocktail_android.screenactivitys;
+package com.example.cocktail_android.screenactivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.cocktail_android.R;
 
-public class CleanActivity extends AppCompatActivity {
+public class UserActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cleanscreen);
+        setContentView(R.layout.activity_add_removeuser);
     }
 }

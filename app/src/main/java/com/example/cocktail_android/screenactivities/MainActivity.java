@@ -1,4 +1,4 @@
-package com.example.cocktail_android.screenactivitys;
+package com.example.cocktail_android.screenactivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,6 @@ import android.os.StrictMode;
 import android.widget.ImageButton;
 import android.content.Intent;
 
-import com.example.cocktail_android.LoginActivity;
 import com.example.cocktail_android.R;
 
 public class MainActivity extends AppCompatActivity {

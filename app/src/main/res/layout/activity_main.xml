@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="?attr/backgroundcolor"
     android:orientation="vertical"
-    tools:context=".screenactivitys.MainActivity">
+    tools:context=".screenactivities.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -25,6 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Wähle deinen Cocktail"
+                android:textColor="?attr/textcolorPrimary"
                 android:textSize="@dimen/_20sdp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"/>
