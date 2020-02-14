@@ -57,7 +57,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/cocktails_info_bt" />
 
-        <androidx.recyclerview.widget.RecyclerView
+        <com.example.cocktail_android.test.StickyRecyclerView
             android:id="@+id/main_rv1"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_160sdp"
@@ -65,7 +65,7 @@
             app:layout_constraintBottom_toTopOf="@id/main_rv2"
             />
 
-        <androidx.recyclerview.widget.RecyclerView
+        <com.example.cocktail_android.test.StickyRecyclerView
             android:id="@+id/main_rv2"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_160sdp"
