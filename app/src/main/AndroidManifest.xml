@@ -17,13 +17,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".screenactivities.PieChartActitivty"></activity>
-        <activity android:name=".screenactivities.UserActivity" />
-        <activity android:name=".screenactivities.CleanActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".screenactivities.AdminPanelActivity" />
-        <activity android:name=".screenactivities.ManageActivity" />
-        <activity android:name=".screenactivities.MainActivity">
+        <activity android:name=".screenactivities.IngredientsActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".screenactivities.PieChartActitivty"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".screenactivities.UserActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".screenactivities.CleanActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".screenactivities.AdminPanelActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".screenactivities.ManageActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".screenactivities.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -37,6 +37,9 @@ public class AdminPanelActivity extends AppCompatActivity implements View.OnClic
 
         final ImageButton mUserBt = findViewById(R.id.adminpanel_btUser);
         mUserBt.setOnClickListener(this);
+
+        final ImageButton mIngredientsBt = findViewById(R.id.adminpanel_btIngredients);
+        mIngredientsBt.setOnClickListener(this);
     }
 
 
@@ -60,8 +63,13 @@ public class AdminPanelActivity extends AppCompatActivity implements View.OnClic
                 break;
 
             case R.id.adminpanel_btUser:
-                Intent intente = new Intent(AdminPanelActivity.this, PieChartActitivty.class);
-                startActivity(intente);
+                Intent intent4 = new Intent(AdminPanelActivity.this, UserActivity.class);
+                startActivity(intent4);
+                break;
+
+            case R.id.adminpanel_btIngredients:
+                Intent intent3 = new Intent(AdminPanelActivity.this, IngredientsActivity.class);
+                startActivity(intent3);
                 break;
 
             default:
