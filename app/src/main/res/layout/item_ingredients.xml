@@ -16,7 +16,7 @@
 
 
         <RelativeLayout
-            android:id="@+id/manageitem_background"
+            android:id="@+id/ingredientsItem_background"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_120sdp"
 
@@ -24,7 +24,7 @@
 
 
         <TextView
-            android:id="@+id/manageitem_tvTitle"
+            android:id="@+id/ingredientsItem_tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Wodka"
@@ -33,18 +33,17 @@
 
             android:layout_marginTop="@dimen/_35sdp"
             android:layout_marginLeft="@dimen/_30sdp"
-            android:layout_toRightOf="@+id/manageitem_ivCocktail"
             />
 
         <TextView
-            android:id="@+id/manageitem_tvDescription"
+            android:id="@+id/ingredientsItem__tvPump"
             android:layout_width="@dimen/_76sdp"
             android:layout_height="wrap_content"
             android:text="Pumpe1"
-            android:layout_alignLeft="@id/manageitem_tvTitle"
+            android:layout_alignLeft="@id/ingredientsItem_tvTitle"
             android:textSize="@dimen/_11sdp"
             android:textColor="?attr/textcolorPrimary"
-            android:layout_below="@id/manageitem_tvTitle"
+            android:layout_below="@id/ingredientsItem_tvTitle"
             android:layout_marginTop="@dimen/_1sdp"
 
             />
@@ -59,7 +58,7 @@
 
             <!-- ProgressBar that represents a total of 100% -->
             <ProgressBar
-                android:id="@+id/background_progressbar"
+                android:id="@+id/ingredientsItem_background_progressbar"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -75,7 +74,7 @@
 
             <!-- ProgressBar that represents a chart slice, where "android:progress" is the % value of the slice -->
             <ProgressBar
-                android:id="@+id/stats_progressbar"
+                android:id="@+id/ingredientsItem_stats_progressbar"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -91,7 +90,7 @@
 
             <!-- The text that goes in a center of the chart -->
             <TextView
-                android:id="@+id/number_of_calories"
+                android:id="@+id/ingredientsItem_number_of_calories"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1500/2000"
