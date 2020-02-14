@@ -38,6 +38,14 @@ public class AdminPanelActivity extends AppCompatActivity implements View.OnClic
         final ImageButton mUserBt = findViewById(R.id.adminpanel_btUser);
         mUserBt.setOnClickListener(this);
 
+        final ImageButton mInformationBt = findViewById(R.id.adminpanel_btSettings);
+        mInformationBt.setOnClickListener(this);
+
+        final ImageButton mIngredientsBt = findViewById(R.id.adminpanel_btIngredients);
+        mIngredientsBt.setOnClickListener(this);
+
+
+
       }
 
 
