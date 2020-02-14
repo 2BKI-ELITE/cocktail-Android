@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_10sdp"
+    android:background="@null"
+    app:cardBackgroundColor="@android:color/transparent"
+    app:cardElevation="0dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        >
+
+
+        <RelativeLayout
+            android:id="@+id/mainitem_background"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_80sdp"
+
+            />
+
+        <ImageView
+            android:id="@+id/mainitem_ivCocktail"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:scaleType="centerInside"
+            tools:srcCompat="@drawable/test_cocktail_pic" />
+
+        <TextView
+            android:id="@+id/mainitem_tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Screwdriver"
+            android:textSize="@dimen/_12sdp"
+            android:layout_centerHorizontal="true"
+            android:textColor="?attr/textcolorPrimary"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:layout_below="@+id/mainitem_ivCocktail"
+            />
+
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

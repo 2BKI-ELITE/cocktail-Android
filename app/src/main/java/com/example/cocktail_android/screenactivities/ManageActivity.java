@@ -2,7 +2,9 @@ package com.example.cocktail_android.screenactivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SnapHelper;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -50,5 +52,6 @@ public class ManageActivity extends AppCompatActivity {
 
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(mLayoutManager);
+
     }
 }

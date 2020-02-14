@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/_284sdp"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_20sdp"
+    android:background="?attr/backgroundcolor"
+    app:cardCornerRadius="@dimen/_5sdp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="?attr/backgroundcolor"
+        >
+
+
+        <RelativeLayout
+            android:id="@+id/manageitem_background"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_120sdp"
+
+            />
+
+
+        <TextView
+            android:id="@+id/manageitem_tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wodka"
+            android:textSize="@dimen/_19sdp"
+            android:textColor="?attr/textcolorPrimary"
+
+            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_toRightOf="@+id/manageitem_ivCocktail"
+            />
+
+        <TextView
+            android:id="@+id/manageitem_tvDescription"
+            android:layout_width="@dimen/_76sdp"
+            android:layout_height="wrap_content"
+            android:text="Pumpe1"
+            android:layout_alignLeft="@id/manageitem_tvTitle"
+            android:textSize="@dimen/_11sdp"
+            android:textColor="?attr/textcolorPrimary"
+            android:layout_below="@id/manageitem_tvTitle"
+            android:layout_marginTop="@dimen/_1sdp"
+
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/_20sdp">
+
+            <!-- ProgressBar that represents a total of 100% -->
+            <ProgressBar
+                android:id="@+id/background_progressbar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="100"
+                android:progressDrawable="@drawable/stats_full"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- ProgressBar that represents a chart slice, where "android:progress" is the % value of the slice -->
+            <ProgressBar
+                android:id="@+id/stats_progressbar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="75"
+                android:progressDrawable="@drawable/stats_progress"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- The text that goes in a center of the chart -->
+            <TextView
+                android:id="@+id/number_of_calories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1500/2000"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

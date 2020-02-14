@@ -60,7 +60,7 @@ public class AdminPanelActivity extends AppCompatActivity implements View.OnClic
                 break;
 
             case R.id.adminpanel_btUser:
-                Intent intente = new Intent(AdminPanelActivity.this, UserActivity.class);
+                Intent intente = new Intent(AdminPanelActivity.this, PieChartActitivty.class);
                 startActivity(intente);
                 break;
 

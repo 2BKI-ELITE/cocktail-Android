@@ -6,56 +6,90 @@
     android:layout_height="match_parent"
     android:background="?attr/backgroundcolor"
     android:orientation="vertical"
+    android:id="@+id/main_mainlayout"
     tools:context=".screenactivities.MainActivity">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_1sdp"
-        android:layout_marginRight="@dimen/_1sdp">
+        android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+
+        <TextView
+            android:id="@+id/main_tvTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_40sdp"
-            >
+            android:layout_marginBottom="1dp"
+            android:text="Wähle deinen Cocktail"
+            android:textColor="?attr/textcolorPrimary"
+            android:textSize="@dimen/_20sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/main_btAdminPanel"
+            app:layout_constraintEnd_toStartOf="@+id/main_btAdminPanel"
+            app:layout_constraintStart_toEndOf="@+id/main_btInfo" />
 
-            <TextView
-                android:id="@+id/main_tvTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Wähle deinen Cocktail"
-                android:textColor="?attr/textcolorPrimary"
-                android:textSize="@dimen/_20sdp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"/>
+        <ImageButton
+            android:id="@+id/main_btAdminPanel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginRight="7dp"
+            android:background="@null"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/main_tvTitle"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/cocktails_admin_bt" />
 
-            <ImageButton
-                android:id="@+id/main_btAdminPanel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/cocktails_admin_bt"
-                android:layout_toRightOf="@id/main_tvTitle"
-                android:background="@null"
-                android:layout_marginLeft="@dimen/_13sdp"
-                android:layout_centerVertical="true" />
-            <ImageButton
-                android:id="@+id/main_btInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/cocktails_info_bt"
-                android:layout_toLeftOf="@id/main_tvTitle"
-                android:background="@null"
-                android:layout_marginRight="@dimen/_13sdp"
-                android:layout_centerVertical="true" />
-        </RelativeLayout>
+        <ImageButton
+            android:id="@+id/main_btInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginRight="1dp"
+            android:background="@null"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toStartOf="@+id/main_tvTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/cocktails_info_bt" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/main_rv1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_160sdp"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toTopOf="@id/main_rv2"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/main_rv2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_160sdp"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
 
-    </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
 
 
 </LinearLayout>
