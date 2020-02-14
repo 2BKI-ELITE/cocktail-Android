@@ -37,6 +37,9 @@ public class AdminPanelActivity extends AppCompatActivity implements View.OnClic
 
         final ImageButton mUserBt = findViewById(R.id.adminpanel_btUser);
         mUserBt.setOnClickListener(this);
+
+        final ImageButton mSettingsBt = findViewById(R.id.adminpanel_btSettings);
+        mSettingsBt.setOnClickListener(this);
     }
 
 
@@ -64,6 +67,9 @@ public class AdminPanelActivity extends AppCompatActivity implements View.OnClic
                 startActivity(intente);
                 break;
 
+            case R.id.adminpanel_btSettings:
+                Intent intente4 = new Intent(AdminPanelActivity.this, InformationActivity.class);
+                startActivity(intente4);
             default:
                 break;
         }
