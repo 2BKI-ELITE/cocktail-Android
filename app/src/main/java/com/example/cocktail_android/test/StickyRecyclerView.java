@@ -52,11 +52,8 @@ public class StickyRecyclerView extends RecyclerView {
         }
     }
 
-    @Override
-    public boolean fling(int velocityX, int velocityY) {
-        smoothScrollToCenter();
-        return true;
-    }
+
+
 
     private float getPercentageFromCenter(View child) {
         float centerX = (getMeasuredWidth() / 2);
@@ -89,27 +86,7 @@ public class StickyRecyclerView extends RecyclerView {
         }
     }
 
-    private void smoothScrollToCenter() {
-        LinearLayoutManager linearLayoutManager = (LinearLayoutManager) getLayoutManager();
-        int lastVisibleView = linearLayoutManager.findLastVisibleItemPosition();
-        int firstVisibleView = linearLayoutManager.findFirstVisibleItemPosition();
-        View firstView = linearLayoutManager.findViewByPosition(firstVisibleView);
-        View lastView = linearLayoutManager.findViewByPosition(lastVisibleView);
-        int screenWidth = this.getWidth();
 
-        int leftMargin = (screenWidth - lastView.getWidth()) / 2;
-        int rightMargin = (screenWidth - firstView.getWidth()) / 2 + firstView.getWidth();
-        int leftEdge = lastView.getLeft();
-        int rightEdge = firstView.getRight();
-        int scrollDistanceLeft = leftEdge - leftMargin;
-        int scrollDistanceRight = rightMargin - rightEdge;
-
-        if (mScrollDirection == SCROLL_DIRECTION_LEFT) {
-            smoothScrollBy(scrollDistanceLeft, 0);
-        } else if (mScrollDirection == SCROLL_DIRECTION_RIGHT) {
-            smoothScrollBy(-scrollDistanceRight, 0);
-        }
-    }
 
     public int getScrollDirection() {
         return mScrollDirection;

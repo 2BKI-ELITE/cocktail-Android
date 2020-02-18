@@ -29,7 +29,7 @@
             android:layout_height="@dimen/_100sdp"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:scaleType="centerInside"
+            android:scaleType="fitCenter"
             tools:srcCompat="@drawable/test_cocktail_pic" />
 
         <TextView

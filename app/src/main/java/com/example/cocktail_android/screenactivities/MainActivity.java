@@ -10,7 +10,9 @@ import android.widget.ImageButton;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SnapHelper;
 
 import com.example.cocktail_android.MainCocktailItem;
 import com.example.cocktail_android.MainCocktailItemAdapter;
@@ -66,19 +68,20 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.addItemDecoration(new ItemDecoration(mRecyclerView.getPaddingStart(), mRecyclerView.getPaddingEnd()));
         mLayoutManager = new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false);
         mAdapter = new MainCocktailItemAdapter(exampleList);
-
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(mLayoutManager);
+        SnapHelper snapHelper = new LinearSnapHelper();
+        snapHelper.attachToRecyclerView(mRecyclerView);
 
         mRecyclerView2 = findViewById(R.id.main_rv2);
-        //mRecyclerView2.addItemDecoration(new ItemDecoration(mRecyclerView2.getPaddingStart(), mRecyclerView.getPaddingEnd()));
+        mRecyclerView2.addItemDecoration(new ItemDecoration(mRecyclerView2.getPaddingStart(), mRecyclerView2.getPaddingEnd()));
         mRecyclerView2.setHasFixedSize(true);
-
         mLayoutManager2 = new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false);
         mAdapter2 = new MainCocktailItemAdapter(exampleList);
-
         mRecyclerView2.setAdapter(mAdapter2);
         mRecyclerView2.setLayoutManager(mLayoutManager2);
+        SnapHelper snapHelper2 = new LinearSnapHelper();
+        snapHelper2.attachToRecyclerView(mRecyclerView2);
 
 
     }

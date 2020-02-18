@@ -31,7 +31,7 @@
             android:id="@+id/main_btAdminPanel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="@dimen/_41sdp"
             android:layout_marginEnd="7dp"
             android:layout_marginRight="7dp"
             android:background="@null"
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
             android:layout_marginLeft="7dp"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="@dimen/_41sdp"
             android:layout_marginEnd="1dp"
             android:layout_marginRight="1dp"
             android:background="@null"
@@ -56,6 +56,71 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/cocktails_info_bt" />
+
+        <View
+            android:layout_width="@dimen/_104sdp"
+            android:id="@+id/main_lineview"
+            android:background="@android:color/darker_gray"
+            android:layout_height="2dp"
+            app:layout_constraintBottom_toTopOf="@id/main_rv2"
+            app:layout_constraintLeft_toLeftOf="parent">
+
+        </View>
+
+        <View
+            android:layout_width="@dimen/_104sdp"
+            android:background="@android:color/darker_gray"
+            android:layout_height="2dp"
+            app:layout_constraintBottom_toTopOf="@id/main_rv2"
+            app:layout_constraintRight_toRightOf="parent">
+
+        </View>
+
+        <TextView
+            android:id="@+id/main_tvAlcohol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alkoholfrei"
+            android:textSize="@dimen/_15sdp"
+            android:textColor="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="@id/main_lineview"
+            app:layout_constraintTop_toTopOf="@id/main_lineview"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+
+        <View
+            android:layout_width="@dimen/_104sdp"
+            android:id="@+id/main_lineview2"
+            android:background="@android:color/darker_gray"
+            android:layout_height="2dp"
+            app:layout_constraintBottom_toTopOf="@id/main_rv1"
+            app:layout_constraintLeft_toLeftOf="parent">
+
+        </View>
+
+        <View
+            android:layout_width="@dimen/_104sdp"
+            android:background="@android:color/darker_gray"
+            android:layout_height="2dp"
+            app:layout_constraintBottom_toTopOf="@id/main_rv1"
+            app:layout_constraintRight_toRightOf="parent">
+
+        </View>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alkoholhaltig"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/_15sdp"
+            app:layout_constraintBottom_toBottomOf="@id/main_lineview2"
+            app:layout_constraintTop_toTopOf="@id/main_lineview2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
 
         <com.example.cocktail_android.test.StickyRecyclerView
             android:id="@+id/main_rv1"
