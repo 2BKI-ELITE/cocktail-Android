@@ -6,14 +6,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.cocktail_android.R;
+import com.example.cocktail_android.objects.Cocktail;
 
 public class ChooseSizeActvitity extends AppCompatActivity implements View.OnClickListener {
+
+    private Cocktail cocktail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        cocktail = MainActivity.alcoholicCocktails.get(getIntent().getIntExtra("cocktailPosition", 0)).getCocktail();
         setContentView(R.layout.activity_cocktaildetails);
 
         // Listener for Shot size
@@ -27,6 +32,9 @@ public class ChooseSizeActvitity extends AppCompatActivity implements View.OnCli
         // Listener for Large size
         final ImageButton mBtBigSize = findViewById(R.id.confirm_bigSize);
         mBtBigSize.setOnClickListener(this);
+
+        TextView title = findViewById(R.id.cocktaildetails_tvTitle);
+        title.setText(cocktail.getName());
     }
 
 

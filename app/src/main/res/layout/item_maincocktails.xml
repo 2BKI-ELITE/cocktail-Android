@@ -36,7 +36,7 @@
             android:id="@+id/mainitem_tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Screwdriver"
+            android:text="asd"
             android:textSize="@dimen/_12sdp"
             android:layout_centerHorizontal="true"
             android:textColor="?attr/textcolorPrimary"

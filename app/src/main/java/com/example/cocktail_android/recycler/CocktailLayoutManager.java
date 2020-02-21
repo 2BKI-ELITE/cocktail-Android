@@ -1,5 +1,4 @@
-package com.example.cocktail_android;
-
+package com.example.cocktail_android.recycler;
 
 import android.content.Context;
 

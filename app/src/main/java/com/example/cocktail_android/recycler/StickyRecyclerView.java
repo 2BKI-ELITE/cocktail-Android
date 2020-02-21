@@ -1,10 +1,9 @@
-package com.example.cocktail_android.test;
+package com.example.cocktail_android.recycler;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class StickyRecyclerView extends RecyclerView {
@@ -13,7 +12,7 @@ public class StickyRecyclerView extends RecyclerView {
     public static final int SCROLL_DIRECTION_RIGHT = 1;
 
     private int mScrollDirection;
-    private OnCenterItemChangedListener mCenterItemChangedListener;
+    private StickyRecyclerView.OnCenterItemChangedListener mCenterItemChangedListener;
 
     public StickyRecyclerView(Context context) {
         super(context);
@@ -52,9 +51,6 @@ public class StickyRecyclerView extends RecyclerView {
         }
     }
 
-
-
-
     private float getPercentageFromCenter(View child) {
         float centerX = (getMeasuredWidth() / 2);
         float childCenterX = child.getX() + (child.getWidth() / 2);
@@ -86,8 +82,6 @@ public class StickyRecyclerView extends RecyclerView {
         }
     }
 
-
-
     public int getScrollDirection() {
         return mScrollDirection;
     }
@@ -96,7 +90,7 @@ public class StickyRecyclerView extends RecyclerView {
         mScrollDirection = dx >= 0 ? SCROLL_DIRECTION_LEFT : SCROLL_DIRECTION_RIGHT;
     }
 
-    public void setOnCenterItemChangedListener(OnCenterItemChangedListener listener) {
+    public void setOnCenterItemChangedListener(StickyRecyclerView.OnCenterItemChangedListener listener) {
         mCenterItemChangedListener = listener;
     }
 

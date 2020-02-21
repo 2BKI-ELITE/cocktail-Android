@@ -1,13 +1,13 @@
-package com.example.cocktail_android;
+package com.example.cocktail_android.recycler;
 
 import com.example.cocktail_android.objects.Cocktail;
 
-public class MainCocktailItem {
+public class CocktailItem {
     private int mImageResource;
     private String mText1;
     private Cocktail cocktail;
 
-    public MainCocktailItem(int mImageResource, String mText1, Cocktail cocktail) {
+    public CocktailItem(int mImageResource, String mText1, Cocktail cocktail) {
         this.mImageResource = mImageResource;
         this.mText1 = mText1;
         this.cocktail = cocktail;
@@ -26,4 +26,3 @@ public class MainCocktailItem {
         return cocktail;
     }
 }
-

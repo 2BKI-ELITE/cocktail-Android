@@ -3,10 +3,10 @@ package com.example.cocktail_android.redis.controllers;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import com.example.cocktail_android.MainCocktailItem;
 import com.example.cocktail_android.R;
 import com.example.cocktail_android.mysql.DatabaseManager;
 import com.example.cocktail_android.objects.Cocktail;
+import com.example.cocktail_android.recycler.CocktailItem;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,8 +24,8 @@ public class CocktailController {
     
     public static ArrayList<Cocktail> cocktails = new ArrayList<Cocktail>();
 
-    public static ArrayList<MainCocktailItem> fillDummyCocktails() {
-        ArrayList<MainCocktailItem> cocktails = new ArrayList<>();
+    public static ArrayList<CocktailItem> fillDummyCocktails() {
+        ArrayList<CocktailItem> cocktails = new ArrayList<>();
 
         for(int i = 0; i < 20; i++) {
             Cocktail cocktail = new Cocktail(UUID.randomUUID(), "Dummy Cocktail " + (i + 1), "Dummy Cocktail Description", new HashMap<>(), new Date());
@@ -62,7 +62,7 @@ public class CocktailController {
         return null;
     }
 
-    public static MainCocktailItem convertToCocktailItem(Cocktail cocktail) {
-        return new MainCocktailItem(R.drawable.test_cocktail_pic, cocktail.getName(), cocktail);
+    public static CocktailItem convertToCocktailItem(Cocktail cocktail) {
+        return new CocktailItem(R.drawable.test_cocktail_pic, cocktail.getName(), cocktail);
     }
 }

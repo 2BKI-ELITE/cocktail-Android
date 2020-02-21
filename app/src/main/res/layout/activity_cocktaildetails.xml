@@ -20,7 +20,7 @@
             >
 
             <TextView
-                android:id="@+id/removeuser_tvTitle"
+                android:id="@+id/cocktaildetails_tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="_Cocktailname_"

@@ -62,7 +62,7 @@
             android:id="@+id/main_lineview"
             android:background="@android:color/darker_gray"
             android:layout_height="2dp"
-            app:layout_constraintBottom_toTopOf="@id/main_rv2"
+            app:layout_constraintBottom_toTopOf="@id/main_rv_non_alcoholic"
             app:layout_constraintLeft_toLeftOf="parent">
 
         </View>
@@ -71,7 +71,7 @@
             android:layout_width="@dimen/_104sdp"
             android:background="@android:color/darker_gray"
             android:layout_height="2dp"
-            app:layout_constraintBottom_toTopOf="@id/main_rv2"
+            app:layout_constraintBottom_toTopOf="@id/main_rv_non_alcoholic"
             app:layout_constraintRight_toRightOf="parent">
 
         </View>
@@ -95,7 +95,7 @@
             android:id="@+id/main_lineview2"
             android:background="@android:color/darker_gray"
             android:layout_height="2dp"
-            app:layout_constraintBottom_toTopOf="@id/main_rv1"
+            app:layout_constraintBottom_toTopOf="@id/main_rv_alcoholic"
             app:layout_constraintLeft_toLeftOf="parent">
 
         </View>
@@ -104,7 +104,7 @@
             android:layout_width="@dimen/_104sdp"
             android:background="@android:color/darker_gray"
             android:layout_height="2dp"
-            app:layout_constraintBottom_toTopOf="@id/main_rv1"
+            app:layout_constraintBottom_toTopOf="@id/main_rv_alcoholic"
             app:layout_constraintRight_toRightOf="parent">
 
         </View>
@@ -122,16 +122,16 @@
             app:layout_constraintRight_toRightOf="parent"
             />
 
-        <com.example.cocktail_android.test.StickyRecyclerView
-            android:id="@+id/main_rv1"
+        <com.example.cocktail_android.recycler.StickyRecyclerView
+            android:id="@+id/main_rv_alcoholic"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_160sdp"
             android:layout_gravity="center"
-            app:layout_constraintBottom_toTopOf="@id/main_rv2"
+            app:layout_constraintBottom_toTopOf="@id/main_rv_non_alcoholic"
             />
 
-        <com.example.cocktail_android.test.StickyRecyclerView
-            android:id="@+id/main_rv2"
+        <com.example.cocktail_android.recycler.StickyRecyclerView
+            android:id="@+id/main_rv_non_alcoholic"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_160sdp"
             android:layout_gravity="center"

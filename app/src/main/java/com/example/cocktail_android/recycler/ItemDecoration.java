@@ -1,4 +1,4 @@
-package com.example.cocktail_android.test;
+package com.example.cocktail_android.recycler;
 
 import android.graphics.Rect;
 import android.view.View;
