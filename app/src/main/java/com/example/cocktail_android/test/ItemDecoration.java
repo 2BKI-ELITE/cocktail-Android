@@ -16,20 +16,17 @@ public class ItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     @Override
-    public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
-                               RecyclerView.State state) {
-
+    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         int totalWidth = parent.getWidth();
 
         if (parent.getChildAdapterPosition(view) == 0) {
-            int firstPadding = (totalWidth - startPadding) / 2;
+            int firstPadding = (totalWidth - startPadding) / 3;
             firstPadding = Math.max(0, firstPadding);
             outRect.set(firstPadding, 0, 0, 0);
         }
 
-        if (parent.getChildAdapterPosition(view) == parent.getAdapter().getItemCount() - 1 &&
-                parent.getAdapter().getItemCount() > 1) {
-            int lastPadding = (totalWidth - endPadding) / 2;
+        if (parent.getChildAdapterPosition(view) == parent.getAdapter().getItemCount() - 1 && parent.getAdapter().getItemCount() > 1) {
+            int lastPadding = (totalWidth - endPadding) / 3;
             lastPadding = Math.max(0, lastPadding);
             outRect.set(0, 0, lastPadding, 0);
         }
