@@ -1,13 +1,18 @@
 package com.example.cocktail_android.objects;
 
+import java.util.UUID;
+
 public class Ingredient {
+
+    private UUID ingredientId;
     private String name;
     private boolean containsAlcohol;
     private int pump;
     private int fillLevel;
     private int fillCapacity;
 
-    public Ingredient(String name, boolean containsAlcohol, int pump, int fillLevel, int fillCapacity) {
+    public Ingredient(UUID ingredientId, String name, boolean containsAlcohol, int pump, int fillLevel, int fillCapacity) {
+        this.ingredientId = ingredientId;
         this.name = name;
         this.containsAlcohol = containsAlcohol;
         this.pump = pump;
