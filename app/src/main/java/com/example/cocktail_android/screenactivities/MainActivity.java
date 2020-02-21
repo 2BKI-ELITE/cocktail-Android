@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.SnapHelper;
 import com.example.cocktail_android.MainCocktailItem;
 import com.example.cocktail_android.MainCocktailItemAdapter;
 import com.example.cocktail_android.R;
+import com.example.cocktail_android.redis.controllers.CocktailController;
 import com.example.cocktail_android.test.ItemDecoration;
 import com.example.cocktail_android.test.StickyRecyclerView;
 
@@ -30,14 +31,17 @@ public class MainActivity extends AppCompatActivity {
     private StickyRecyclerView.Adapter mAdapter2;
     private StickyRecyclerView.LayoutManager mLayoutManager2;
 
+    public static ArrayList<MainCocktailItem> alcoholicCocktails = new ArrayList<>();
+    public static ArrayList<MainCocktailItem> nonAlcoholicCocktails = new ArrayList<>();
+
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        //CommunicationManager.establishConnection();
-        //CommunicationManager.setupSubscriber();
+       // CommunicationManager.establishConnection();
+       // CommunicationManager.setupSubscriber();
 
         int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
 
@@ -56,18 +60,14 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent1);
         });
 
-        ArrayList<MainCocktailItem> exampleList = new ArrayList<>();
-        for(int i = 0; i < 20; i++) {
-            exampleList.add(new MainCocktailItem(R.drawable.test_cocktail_pic,"Ich"));
-        }
-
-
+        alcoholicCocktails = CocktailController.fillDummyCocktails();
+        nonAlcoholicCocktails = CocktailController.fillDummyCocktails();
 
         mRecyclerView = findViewById(R.id.main_rv1);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.addItemDecoration(new ItemDecoration(mRecyclerView.getPaddingStart(), mRecyclerView.getPaddingEnd()));
         mLayoutManager = new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false);
-        mAdapter = new MainCocktailItemAdapter(exampleList);
+        mAdapter = new MainCocktailItemAdapter(alcoholicCocktails);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(mLayoutManager);
         SnapHelper snapHelper = new LinearSnapHelper();
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView2.addItemDecoration(new ItemDecoration(mRecyclerView2.getPaddingStart(), mRecyclerView2.getPaddingEnd()));
         mRecyclerView2.setHasFixedSize(true);
         mLayoutManager2 = new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false);
-        mAdapter2 = new MainCocktailItemAdapter(exampleList);
+        mAdapter2 = new MainCocktailItemAdapter(nonAlcoholicCocktails);
         mRecyclerView2.setAdapter(mAdapter2);
         mRecyclerView2.setLayoutManager(mLayoutManager2);
         SnapHelper snapHelper2 = new LinearSnapHelper();
@@ -85,4 +85,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 }

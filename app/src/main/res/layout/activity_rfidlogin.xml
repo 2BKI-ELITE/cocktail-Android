@@ -54,7 +54,11 @@
         android:textSize="@dimen/_16sdp"
         android:textAlignment="center" />
 
-
+    <Button
+        android:id="@+id/rfidlogin_btBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
 
 
 </LinearLayout>

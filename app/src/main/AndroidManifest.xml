@@ -17,23 +17,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".screenactivities.IngredientsActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".screenactivities.PieChartActitivty"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".screenactivities.UserActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".screenactivities.CleanActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".LoginActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".screenactivities.AdminPanelActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".screenactivities.ManageActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".screenactivities.InformationActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".screenactivities.MainActivity"
+        <activity android:name=".screenactivities.ConfirmCocktail"></activity>
+        <activity android:name=".screenactivities.ChooseSizeActvitity" />
+        <activity
+            android:name=".screenactivities.IngredientsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".screenactivities.PieChartActitivty"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".screenactivities.UserActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".screenactivities.CleanActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".screenactivities.AdminPanelActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".screenactivities.ManageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".screenactivities.InformationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".screenactivities.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
