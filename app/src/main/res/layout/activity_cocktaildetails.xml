@@ -50,7 +50,7 @@
             android:textSize="@dimen/_19sdp"
             android:textAlignment="center" />
         <TextView
-            android:id="@+id/tvDescription"
+            android:id="@+id/cocktaildetails_tvDescription"
             android:layout_width="@dimen/_220sdp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

@@ -33,8 +33,8 @@ public class ChooseSizeActvitity extends AppCompatActivity implements View.OnCli
         final ImageButton mBtBigSize = findViewById(R.id.confirm_bigSize);
         mBtBigSize.setOnClickListener(this);
 
-        TextView title = findViewById(R.id.cocktaildetails_tvTitle);
-        title.setText(cocktail.getName());
+        ((TextView) findViewById(R.id.cocktaildetails_tvTitle)).setText(cocktail.getName());
+        ((TextView) findViewById(R.id.cocktaildetails_tvDescription)).setText(cocktail.getDescription());
     }
 
 
