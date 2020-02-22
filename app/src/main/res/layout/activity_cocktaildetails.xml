@@ -33,7 +33,7 @@
 
 
         <ImageView
-            android:id="@+id/ivCocktail"
+            android:id="@+id/cocktaildetails_ivImage"
             android:layout_width="@dimen/_90sdp"
             android:layout_height="@dimen/_150sdp"
             android:scaleType="centerCrop"
@@ -67,7 +67,7 @@
             android:textAlignment="center" />
 
         <TextView
-            android:id="@+id/tvIngredients"
+            android:id="@+id/cocktaildetails_tvIngredients"
             android:layout_width="@dimen/_220sdp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

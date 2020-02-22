@@ -1,5 +1,6 @@
 package com.example.cocktail_android.redis.controllers;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
@@ -8,6 +9,8 @@ import com.example.cocktail_android.mysql.DatabaseManager;
 import com.example.cocktail_android.objects.Cocktail;
 import com.example.cocktail_android.objects.Ingredient;
 import com.example.cocktail_android.recycler.CocktailItem;
+import com.example.cocktail_android.screenactivities.ChooseSizeActvitity;
+import com.example.cocktail_android.screenactivities.MainActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,21 +29,21 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class CocktailController {
-    
+
     public static ArrayList<Cocktail> cocktails = new ArrayList<Cocktail>();
 
-    public static ArrayList<CocktailItem> fillDummyCocktails() {
+    public static ArrayList<CocktailItem> fillDummyCocktails(Context context) {
         ArrayList<CocktailItem> cocktails = new ArrayList<>();
 
         for(int i = 0; i < 20; i++) {
-            Cocktail cocktail = new Cocktail(UUID.randomUUID(), "Dummy Cocktail " + (i + 1), "Dummy Cocktail Description", new HashMap<>(), true, new Date());
+            Cocktail cocktail = new Cocktail(context, UUID.randomUUID(), "Dummy Cocktail " + (i + 1), "Dummy Cocktail Description", new HashMap<>(), true, new Date());
             cocktails.add(convertToCocktailItem(cocktail));
         }
 
         return cocktails;
     }
 
-    public static void getCocktails() {
+    public static void getCocktails(Context context) {
         cocktails.clear();
 
         try {
@@ -64,25 +67,33 @@ public class CocktailController {
                         }
                     }
 
-                    Cocktail cocktail = new Cocktail(UUID.fromString(resultSet.getString("cocktailId")), resultSet.getString("name"), resultSet.getString("description"), ingredientsList, enabled, resultSet.getDate("createdAt"));
+                    Cocktail cocktail = new Cocktail(context, UUID.fromString(resultSet.getString("cocktailId")), resultSet.getString("name"), resultSet.getString("description"), ingredientsList, enabled, resultSet.getDate("createdAt"));
                     cocktails.add(cocktail);
                 } catch (JSONException ignored) {}
             }
         } catch (SQLException e) {}
     }
 
-    public static Bitmap getBitmapFromURL(UUID cocktailId) {
+    public static Bitmap getBitmapFromURL(Context context, UUID cocktailId) {
+        Bitmap bitmap;
+
         try {
-            URL url = new URL("http://192.168.0.1/images/" + cocktailId.toString());
+            //URL url = new URL("http://192.168.0.1/images/" + cocktailId.toString());
+            URL url = new URL("https://www.cocktailwelt.net/wp-content/uploads/2018/06/cocktail-rezept-zombie-500x500.jpg");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoInput(true);
             connection.connect();
-            InputStream input = connection.getInputStream();
-            Bitmap bitmap = BitmapFactory.decodeStream(input);
-            return bitmap;
-        } catch (IOException e) {}
+            if(connection.getResponseCode() == 200) {
+                InputStream input = connection.getInputStream();
+                bitmap = BitmapFactory.decodeStream(input);
+            } else {
+                bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.cocktails_cocktail_icon);
+            }
+        } catch (IOException e) {
+            bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.cocktails_cocktail_icon);
+        }
 
-        return null;
+        return bitmap;
     }
 
     public static CocktailItem convertToCocktailItem(Cocktail cocktail) {

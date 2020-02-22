@@ -55,12 +55,12 @@ public class MainActivity extends AppCompatActivity {
 
         if(!DUMMY_MODE) {
             IngredientController.getIngredients();
-            CocktailController.getCocktails();
+            CocktailController.getCocktails(getApplicationContext());
         }
 
         if(DUMMY_MODE) {
-            alcoholicCocktails = CocktailController.fillDummyCocktails();
-            nonAlcoholicCocktails = CocktailController.fillDummyCocktails();
+            alcoholicCocktails = CocktailController.fillDummyCocktails(getApplicationContext());
+            nonAlcoholicCocktails = CocktailController.fillDummyCocktails(getApplicationContext());
         } else {
             for(int i = 0; i < CocktailController.cocktails.size(); i++) {
                 Cocktail cocktail = CocktailController.cocktails.get(i);
