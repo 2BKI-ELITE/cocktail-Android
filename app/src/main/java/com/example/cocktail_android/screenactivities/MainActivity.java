@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
 import com.example.cocktail_android.R;
+import com.example.cocktail_android.mysql.DatabaseManager;
 import com.example.cocktail_android.objects.Cocktail;
 import com.example.cocktail_android.objects.Ingredient;
 import com.example.cocktail_android.recycler.CocktailItem;
@@ -22,7 +23,9 @@ import com.example.cocktail_android.recycler.ItemDecoration;
 import com.example.cocktail_android.recycler.StickyRecyclerView;
 import com.example.cocktail_android.recycler.alcoholic.AlcoholicCocktailItemAdapter;
 import com.example.cocktail_android.recycler.nonalcoholic.NonAlcoholicCocktailItemAdapter;
+import com.example.cocktail_android.redis.CommunicationManager;
 import com.example.cocktail_android.redis.controllers.CocktailController;
+import com.example.cocktail_android.redis.controllers.IngredientController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,8 +49,15 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        // CommunicationManager.establishConnection();
-        // CommunicationManager.setupSubscriber();
+        if(!DUMMY_MODE) {
+            DatabaseManager.connect();
+
+            IngredientController.getIngredients();
+            CocktailController.getCocktails();
+
+            CommunicationManager.establishConnection();
+            CommunicationManager.setupSubscriber();
+        }
 
         int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
 
