@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<CocktailItem> alcoholicCocktails = new ArrayList<>();
     public static ArrayList<CocktailItem> nonAlcoholicCocktails = new ArrayList<>();
 
-    public static final boolean DUMMY_MODE = false;
+    public static final boolean DUMMY_MODE = true;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
