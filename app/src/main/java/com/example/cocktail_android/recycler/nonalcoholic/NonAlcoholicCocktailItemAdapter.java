@@ -53,7 +53,7 @@ public class NonAlcoholicCocktailItemAdapter extends RecyclerView.Adapter<NonAlc
     @Override
     public void onBindViewHolder(@NonNull NonAlcoholicCocktailItemAdapter.NonAlcoholicCocktailViewHolder holder, int position) {
         CocktailItem currentItem = MainActivity.nonAlcoholicCocktails.get(position);
-        holder.mImageView.setImageResource(currentItem.getmImageResource());
+        holder.mImageView.setImageBitmap(currentItem.getImage());
         holder.mTextView1.setText(currentItem.getmText1());
     }
 }

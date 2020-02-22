@@ -1,20 +1,22 @@
 package com.example.cocktail_android.recycler;
 
+import android.graphics.Bitmap;
+
 import com.example.cocktail_android.objects.Cocktail;
 
 public class CocktailItem {
-    private int mImageResource;
+    private Bitmap image;
     private String mText1;
     private Cocktail cocktail;
 
-    public CocktailItem(int mImageResource, String mText1, Cocktail cocktail) {
-        this.mImageResource = mImageResource;
+    public CocktailItem(Bitmap image, String mText1, Cocktail cocktail) {
+        this.image = image;
         this.mText1 = mText1;
         this.cocktail = cocktail;
     }
 
-    public int getmImageResource() {
-        return mImageResource;
+    public Bitmap getImage() {
+        return image;
     }
 
 

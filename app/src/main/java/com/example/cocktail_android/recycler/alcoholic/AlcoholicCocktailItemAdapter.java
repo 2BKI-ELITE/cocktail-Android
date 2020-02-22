@@ -54,7 +54,7 @@ public class AlcoholicCocktailItemAdapter extends RecyclerView.Adapter<Alcoholic
     @Override
     public void onBindViewHolder(@NonNull AlcoholicCocktailItemAdapter.AlcoholicCocktailViewHolder holder, int position) {
         CocktailItem currentItem = MainActivity.alcoholicCocktails.get(position);
-        holder.mImageView.setImageResource(currentItem.getmImageResource());
+        holder.mImageView.setImageBitmap(currentItem.getImage());
         holder.mTextView1.setText(currentItem.getmText1());
 
     }

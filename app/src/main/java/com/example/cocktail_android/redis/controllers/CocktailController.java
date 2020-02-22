@@ -78,8 +78,7 @@ public class CocktailController {
         Bitmap bitmap;
 
         try {
-            //URL url = new URL("http://192.168.0.1/images/" + cocktailId.toString());
-            URL url = new URL("https://www.cocktailwelt.net/wp-content/uploads/2018/06/cocktail-rezept-zombie-500x500.jpg");
+            URL url = new URL("http://192.168.0.1/images/" + cocktailId.toString());
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoInput(true);
             connection.connect();
@@ -87,16 +86,16 @@ public class CocktailController {
                 InputStream input = connection.getInputStream();
                 bitmap = BitmapFactory.decodeStream(input);
             } else {
-                bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.cocktails_cocktail_icon);
+                bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.test_cocktail_pic);
             }
         } catch (IOException e) {
-            bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.cocktails_cocktail_icon);
+            bitmap = BitmapFactory.decodeResource(context.getResources(),R.drawable.test_cocktail_pic);
         }
 
         return bitmap;
     }
 
     public static CocktailItem convertToCocktailItem(Cocktail cocktail) {
-        return new CocktailItem(R.drawable.test_cocktail_pic, cocktail.getName(), cocktail);
+        return new CocktailItem(cocktail.getImage(), cocktail.getName(), cocktail);
     }
 }
