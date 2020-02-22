@@ -46,6 +46,14 @@
         <activity
             android:name=".screenactivities.MainActivity"
             android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".screenactivities.NoConnectionActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".screenactivities.LoadingActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

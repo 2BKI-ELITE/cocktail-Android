@@ -41,24 +41,11 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<CocktailItem> alcoholicCocktails = new ArrayList<>();
     public static ArrayList<CocktailItem> nonAlcoholicCocktails = new ArrayList<>();
 
-    public static final boolean DUMMY_MODE = true;
+    public static final boolean DUMMY_MODE = false;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-
-        if(!DUMMY_MODE) {
-            DatabaseManager.connect();
-
-            IngredientController.getIngredients();
-            CocktailController.getCocktails();
-
-            CommunicationManager.establishConnection();
-            CommunicationManager.setupSubscriber();
-        }
-
         int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
 
         if (currentNightMode == Configuration.UI_MODE_NIGHT_YES)
@@ -66,15 +53,10 @@ public class MainActivity extends AppCompatActivity {
         else
             setTheme(R.style.AppTheme);
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-
-        final ImageButton adminPanelBt = findViewById(R.id.main_btAdminPanel);
-        adminPanelBt.setOnClickListener(view -> {
-            Intent intent1 = new Intent(MainActivity.this, AdminPanelActivity.class);
-            startActivity(intent1);
-        });
+        if(!DUMMY_MODE) {
+            IngredientController.getIngredients();
+            CocktailController.getCocktails();
+        }
 
         if(DUMMY_MODE) {
             alcoholicCocktails = CocktailController.fillDummyCocktails();
@@ -101,6 +83,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        final ImageButton adminPanelBt = findViewById(R.id.main_btAdminPanel);
+        adminPanelBt.setOnClickListener(view -> {
+            Intent intent1 = new Intent(MainActivity.this, AdminPanelActivity.class);
+            startActivity(intent1);
+        });
 
         mRecyclerView = findViewById(R.id.main_rv_alcoholic);
         mRecyclerView.setHasFixedSize(true);

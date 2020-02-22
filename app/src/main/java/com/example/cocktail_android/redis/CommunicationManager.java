@@ -19,10 +19,12 @@ public class CommunicationManager {
     private static Jedis jedisPub;
     private static Jedis jedisSub;
 
-    public static void establishConnection() {
+    public static boolean establishConnection() {
         jedisPub = new Jedis("192.168.1.1");
         jedisSub = new Jedis("192.168.1.1");
         //jedis.auth("projektarbeitPasswort");
+
+        return jedisPub.isConnected() && jedisSub.isConnected();
     }
 
     public static void publishMessage(JSONObject object) {
