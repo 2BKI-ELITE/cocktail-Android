@@ -6,7 +6,12 @@ import android.graphics.BitmapFactory;
 import com.example.cocktail_android.R;
 import com.example.cocktail_android.mysql.DatabaseManager;
 import com.example.cocktail_android.objects.Cocktail;
+import com.example.cocktail_android.objects.Ingredient;
 import com.example.cocktail_android.recycler.CocktailItem;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,7 +33,7 @@ public class CocktailController {
         ArrayList<CocktailItem> cocktails = new ArrayList<>();
 
         for(int i = 0; i < 20; i++) {
-            Cocktail cocktail = new Cocktail(UUID.randomUUID(), "Dummy Cocktail " + (i + 1), "Dummy Cocktail Description", new HashMap<>(), new Date());
+            Cocktail cocktail = new Cocktail(UUID.randomUUID(), "Dummy Cocktail " + (i + 1), "Dummy Cocktail Description", new HashMap<>(), true, new Date());
             cocktails.add(convertToCocktailItem(cocktail));
         }
 
@@ -43,7 +48,25 @@ public class CocktailController {
             ResultSet resultSet = statement.executeQuery();
 
             while(resultSet.next()) {
+                try {
+                    boolean enabled = resultSet.getBoolean("enabled");
 
+                    JSONArray ingredients = new JSONArray(resultSet.getString("ingredients"));
+                    HashMap<Ingredient, Integer> ingredientsList = new HashMap<>();
+
+                    for(int i = 0; i < ingredients.length(); i++) {
+                        JSONObject ingredient = ingredients.getJSONObject(i);
+
+                        if(IngredientController.ingredients.containsKey(UUID.fromString(ingredient.getString("ingredientId")))) {
+                            ingredientsList.put(IngredientController.ingredients.get(UUID.fromString(ingredient.getString("ingredientId"))), ingredient.getInt("amount"));
+                        } else {
+                            enabled = false;
+                        }
+                    }
+
+                    Cocktail cocktail = new Cocktail(UUID.fromString(resultSet.getString("cocktailId")), resultSet.getString("name"), resultSet.getString("description"), ingredientsList, enabled, resultSet.getDate("createdAt"));
+                    cocktails.add(cocktail);
+                } catch (JSONException ignored) {}
             }
         } catch (SQLException e) {}
     }

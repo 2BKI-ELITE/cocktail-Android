@@ -14,14 +14,16 @@ public class Cocktail {
     private String description;
     private Bitmap image;
     private HashMap<Ingredient, Integer> ingredients;
+    private boolean enabled;
     private Date createdAt;
 
-    public Cocktail(UUID cocktailId, String name, String description, HashMap<Ingredient, Integer> ingredients, Date createdAt) {
+    public Cocktail(UUID cocktailId, String name, String description, HashMap<Ingredient, Integer> ingredients, boolean enabled, Date createdAt) {
         this.cocktailId = cocktailId;
         this.name = name;
         this.description = description;
         this.image = CocktailController.getBitmapFromURL(cocktailId);
         this.ingredients = ingredients;
+        this.enabled = enabled;
         this.createdAt = createdAt;
     }
 
@@ -43,6 +45,10 @@ public class Cocktail {
 
     public HashMap<Ingredient, Integer> getIngredients() {
         return ingredients;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
     }
 
     public Date getCreatedAt() {

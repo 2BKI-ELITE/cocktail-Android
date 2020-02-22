@@ -14,9 +14,6 @@ public class AdminPanelActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
-
         int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
 
         if (currentNightMode == Configuration.UI_MODE_NIGHT_YES)
@@ -27,31 +24,26 @@ public class AdminPanelActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adminpanel);
 
-        //Listener for Manage Button
+        // Listener for Manage Button
         final ImageButton mManageBt = findViewById(R.id.adminpanel_btManage);
         mManageBt.setOnClickListener(this);
 
-        //Listener for Clean Button
+        // Listener for Clean Button
         final ImageButton mCleanBt = findViewById(R.id.adminpanel_btClean);
         mCleanBt.setOnClickListener(this);
 
+        // Listener for Users Button
         final ImageButton mUserBt = findViewById(R.id.adminpanel_btUser);
         mUserBt.setOnClickListener(this);
 
-        final ImageButton mInformationBt = findViewById(R.id.adminpanel_btSettings);
-        mInformationBt.setOnClickListener(this);
+        // Listener for Settings Button
+        final ImageButton mSettingsBt = findViewById(R.id.adminpanel_btSettings);
+        mSettingsBt.setOnClickListener(this);
 
+        // Listener for Ingredients Button
         final ImageButton mIngredientsBt = findViewById(R.id.adminpanel_btIngredients);
         mIngredientsBt.setOnClickListener(this);
-
-
-
       }
-
-
-
-
-
 
     @Override
     public void onClick(View view) {

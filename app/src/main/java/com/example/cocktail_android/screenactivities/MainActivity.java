@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
 import com.example.cocktail_android.R;
+import com.example.cocktail_android.objects.Cocktail;
+import com.example.cocktail_android.objects.Ingredient;
 import com.example.cocktail_android.recycler.CocktailItem;
 import com.example.cocktail_android.recycler.ItemDecoration;
 import com.example.cocktail_android.recycler.StickyRecyclerView;
@@ -23,6 +25,7 @@ import com.example.cocktail_android.recycler.nonalcoholic.NonAlcoholicCocktailIt
 import com.example.cocktail_android.redis.controllers.CocktailController;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private StickyRecyclerView mRecyclerView;
@@ -35,14 +38,16 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<CocktailItem> alcoholicCocktails = new ArrayList<>();
     public static ArrayList<CocktailItem> nonAlcoholicCocktails = new ArrayList<>();
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
+    public static final boolean DUMMY_MODE = true;
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-       // CommunicationManager.establishConnection();
-       // CommunicationManager.setupSubscriber();
+        // CommunicationManager.establishConnection();
+        // CommunicationManager.setupSubscriber();
 
         int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
 
@@ -61,8 +66,31 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent1);
         });
 
-        alcoholicCocktails = CocktailController.fillDummyCocktails();
-        nonAlcoholicCocktails = CocktailController.fillDummyCocktails();
+        if(DUMMY_MODE) {
+            alcoholicCocktails = CocktailController.fillDummyCocktails();
+            nonAlcoholicCocktails = CocktailController.fillDummyCocktails();
+        } else {
+            for(int i = 0; i < CocktailController.cocktails.size(); i++) {
+                Cocktail cocktail = CocktailController.cocktails.get(i);
+
+                if(cocktail.isEnabled()) {
+                    boolean containsAlcohol = false;
+                    List<Ingredient> ingredientList = new ArrayList<>(cocktail.getIngredients().keySet());
+
+                    for(int j = 0; j < ingredientList.size(); j++) {
+                        Ingredient ingredient = ingredientList.get(j);
+
+                        if(ingredient.containsAlcohol())
+                            containsAlcohol = true;
+                    }
+
+                    if(containsAlcohol)
+                        alcoholicCocktails.add(CocktailController.convertToCocktailItem(cocktail));
+                    else
+                        nonAlcoholicCocktails.add(CocktailController.convertToCocktailItem(cocktail));
+                }
+            }
+        }
 
         mRecyclerView = findViewById(R.id.main_rv_alcoholic);
         mRecyclerView.setHasFixedSize(true);
