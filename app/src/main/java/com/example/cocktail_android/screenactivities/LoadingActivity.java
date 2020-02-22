@@ -1,9 +1,14 @@
 package com.example.cocktail_android.screenactivities;
 
+import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,32 +42,17 @@ public class LoadingActivity extends AppCompatActivity {
                 if(jedisConnected) {
                     CommunicationManager.setupSubscriber();
                 } else {
-                    openErrorScreen();
+                    openErrorActivity();
                 }
             } else {
-                openErrorScreen();
+                openErrorActivity();
             }
         } else {
-            Thread welcomeThread = new Thread() {
-
-                @Override
-                public void run() {
-                    try {
-                        super.run();
-                        sleep(5000);
-                    } catch (Exception e) {
-                    } finally {
-                        Intent intent = new Intent(LoadingActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                }
-            };
-            welcomeThread.start();
+            openMainActivity();
         }
     }
 
-    private void openErrorScreen() {
+    private void openErrorActivity() {
         Thread welcomeThread = new Thread() {
 
             @Override
@@ -73,6 +63,25 @@ public class LoadingActivity extends AppCompatActivity {
                 } catch (Exception e) {
                 } finally {
                     Intent intent = new Intent(LoadingActivity.this, NoConnectionActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        };
+        welcomeThread.start();
+    }
+
+    private void openMainActivity() {
+        Thread welcomeThread = new Thread() {
+
+            @Override
+            public void run() {
+                try {
+                    super.run();
+                    sleep(5000);
+                } catch (Exception e) {
+                } finally {
+                    Intent intent = new Intent(LoadingActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 }
