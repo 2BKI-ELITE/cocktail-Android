@@ -1,5 +1,7 @@
 package com.example.cocktail_android.redis;
 
+import android.content.Context;
+
 import com.example.cocktail_android.redis.controllers.AdminAuthController;
 
 import org.json.JSONException;
@@ -45,7 +47,7 @@ public class CommunicationManager {
         jedisPub.publish("general", object.toString());
     }
 
-    public static void setupSubscriber() {
+    public static void setupSubscriber(Context context) {
         new Thread(() -> jedisSub.subscribe(new JedisPubSub() {
             @Override
             public void onMessage(String channel, String message) {
@@ -54,7 +56,7 @@ public class CommunicationManager {
 
                     if(object.getJSONObject("to").getString("uuid").equalsIgnoreCase(uuid.toString())) {
                         if(object.getString("action").equalsIgnoreCase("admin_auth_response")) {
-                            AdminAuthController.response(object);
+                            AdminAuthController.response(context, object);
                         }
                     }
                 } catch (JSONException ex) {

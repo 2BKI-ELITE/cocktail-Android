@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.widget.ImageButton;
 
 import androidx.annotation.RequiresApi;
@@ -15,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
 import com.example.cocktail_android.R;
-import com.example.cocktail_android.mysql.DatabaseManager;
 import com.example.cocktail_android.objects.Cocktail;
 import com.example.cocktail_android.objects.Ingredient;
 import com.example.cocktail_android.recycler.CocktailItem;
@@ -23,7 +21,6 @@ import com.example.cocktail_android.recycler.ItemDecoration;
 import com.example.cocktail_android.recycler.StickyRecyclerView;
 import com.example.cocktail_android.recycler.alcoholic.AlcoholicCocktailItemAdapter;
 import com.example.cocktail_android.recycler.nonalcoholic.NonAlcoholicCocktailItemAdapter;
-import com.example.cocktail_android.redis.CommunicationManager;
 import com.example.cocktail_android.redis.controllers.CocktailController;
 import com.example.cocktail_android.redis.controllers.IngredientController;
 

@@ -40,7 +40,7 @@ public class LoadingActivity extends AppCompatActivity {
                 boolean jedisConnected = CommunicationManager.establishConnection();
 
                 if(jedisConnected) {
-                    CommunicationManager.setupSubscriber();
+                    CommunicationManager.setupSubscriber(getBaseContext());
                 } else {
                     openErrorActivity();
                 }

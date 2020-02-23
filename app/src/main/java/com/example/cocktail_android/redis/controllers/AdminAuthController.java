@@ -44,17 +44,15 @@ public class AdminAuthController {
         }
     }
 
-    public static void response(JSONObject object) {
+    public static void response(Context context, JSONObject object) {
         try {
             if(CommunicationManager.activeActions.get("admin_auth").toString().equalsIgnoreCase(object.getString("action_id"))) {
                 if(object.getString("response").equalsIgnoreCase("test")) {
                     CommunicationManager.activeActions.remove("admin_auth");
 
-                    Context mContext = LoginActivity.getAppContext();
-
-                    Intent intent = new Intent(mContext, AdminPanelActivity.class);
+                    Intent intent = new Intent(context, AdminPanelActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    mContext.startActivity(intent);
+                    context.startActivity(intent);
                 } else {
                     // TODO: 07.02.2020 DO SOMETHING FOR WRONG RFID CHIP
                 }

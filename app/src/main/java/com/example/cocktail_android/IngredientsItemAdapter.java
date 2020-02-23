@@ -1,23 +1,16 @@
 package com.example.cocktail_android;
 
-
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cocktail_android.objects.Ingredient;
 import com.example.cocktail_android.screenactivities.IngredientsItem;
 
 import java.util.ArrayList;
-
-
-
 
 public class IngredientsItemAdapter extends RecyclerView.Adapter<IngredientsItemAdapter.IngredientsItemViewHolder> {
     private ArrayList<IngredientsItem> mExampleList;
@@ -27,8 +20,6 @@ public class IngredientsItemAdapter extends RecyclerView.Adapter<IngredientsItem
             super(itemView);
             mIngredientName = itemView.findViewById(R.id.ingredientsItem_tvTitle);
             mPump = itemView.findViewById(R.id.ingredientsItem__tvPump);
-
-
         }
     }
 
