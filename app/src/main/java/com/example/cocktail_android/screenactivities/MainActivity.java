@@ -93,6 +93,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent1);
         });
 
+        final ImageButton infoBt = findViewById(R.id.main_btInfo);
+        infoBt.setOnClickListener(view -> {
+            Intent intent1 = new Intent(MainActivity.this, InformationActivity.class);
+            startActivity(intent1);
+        });
+
         mRecyclerView = findViewById(R.id.main_rv_alcoholic);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.addItemDecoration(new ItemDecoration(mRecyclerView.getPaddingStart(), mRecyclerView.getPaddingEnd()));
