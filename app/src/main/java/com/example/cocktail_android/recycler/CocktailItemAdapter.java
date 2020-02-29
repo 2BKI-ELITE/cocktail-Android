@@ -1,4 +1,4 @@
-package com.example.cocktail_android.recycler.nonalcoholic;
+package com.example.cocktail_android.recycler;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,17 +12,21 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cocktail_android.R;
-import com.example.cocktail_android.recycler.CocktailItem;
 import com.example.cocktail_android.screenactivities.ChooseSizeActvitity;
 import com.example.cocktail_android.screenactivities.MainActivity;
 
-public class NonAlcoholicCocktailItemAdapter extends RecyclerView.Adapter<NonAlcoholicCocktailItemAdapter.NonAlcoholicCocktailViewHolder> {
+import java.util.ArrayList;
 
-    public static class NonAlcoholicCocktailViewHolder extends RecyclerView.ViewHolder{
+public class CocktailItemAdapter extends RecyclerView.Adapter<CocktailItemAdapter.CocktailViewHolder> {
+
+    public ArrayList<CocktailItem> cocktails;
+
+    public static class CocktailViewHolder extends RecyclerView.ViewHolder {
         public ImageView mImageView;
         public TextView mTextView1;
         private final Context context;
-        public NonAlcoholicCocktailViewHolder(@NonNull View itemView) {
+
+        public CocktailViewHolder(@NonNull View itemView) {
             super(itemView);
             context = itemView.getContext();
             mImageView = itemView.findViewById(R.id.mainitem_ivCocktail);
@@ -34,26 +38,30 @@ public class NonAlcoholicCocktailItemAdapter extends RecyclerView.Adapter<NonAlc
                 itemView.getContext().startActivity(intent);
             });
         }
+    }
 
+    public CocktailItemAdapter(ArrayList<CocktailItem> cocktails) {
+        this.cocktails = cocktails;
     }
 
     @Override
     public int getItemCount() {
-        return MainActivity.nonAlcoholicCocktails.size();
+        return cocktails.size();
     }
 
     @NonNull
     @Override
-    public NonAlcoholicCocktailItemAdapter.NonAlcoholicCocktailViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CocktailItemAdapter.CocktailViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_maincocktails,parent,false);
-        NonAlcoholicCocktailItemAdapter.NonAlcoholicCocktailViewHolder evh = new NonAlcoholicCocktailItemAdapter.NonAlcoholicCocktailViewHolder(v);
+        CocktailItemAdapter.CocktailViewHolder evh = new CocktailItemAdapter.CocktailViewHolder(v);
         return evh;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NonAlcoholicCocktailItemAdapter.NonAlcoholicCocktailViewHolder holder, int position) {
-        CocktailItem currentItem = MainActivity.nonAlcoholicCocktails.get(position);
+    public void onBindViewHolder(@NonNull CocktailItemAdapter.CocktailViewHolder holder, int position) {
+        CocktailItem currentItem = cocktails.get(position);
         holder.mImageView.setImageBitmap(currentItem.getImage());
         holder.mTextView1.setText(currentItem.getmText1());
+
     }
 }

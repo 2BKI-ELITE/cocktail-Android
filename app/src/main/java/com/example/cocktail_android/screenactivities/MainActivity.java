@@ -17,10 +17,9 @@ import com.example.cocktail_android.R;
 import com.example.cocktail_android.objects.Cocktail;
 import com.example.cocktail_android.objects.Ingredient;
 import com.example.cocktail_android.recycler.CocktailItem;
+import com.example.cocktail_android.recycler.CocktailItemAdapter;
 import com.example.cocktail_android.recycler.ItemDecoration;
 import com.example.cocktail_android.recycler.StickyRecyclerView;
-import com.example.cocktail_android.recycler.alcoholic.AlcoholicCocktailItemAdapter;
-import com.example.cocktail_android.recycler.nonalcoholic.NonAlcoholicCocktailItemAdapter;
 import com.example.cocktail_android.redis.controllers.CocktailController;
 import com.example.cocktail_android.redis.controllers.IngredientController;
 
@@ -40,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final boolean DUMMY_MODE = true;
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
@@ -100,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.addItemDecoration(new ItemDecoration(mRecyclerView.getPaddingStart(), mRecyclerView.getPaddingEnd()));
         mLayoutManager = new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false);
-        mAdapter = new AlcoholicCocktailItemAdapter();
+        mAdapter = new CocktailItemAdapter(alcoholicCocktails);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(mLayoutManager);
         SnapHelper snapHelper = new LinearSnapHelper();
@@ -110,14 +109,10 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView2.addItemDecoration(new ItemDecoration(mRecyclerView2.getPaddingStart(), mRecyclerView2.getPaddingEnd()));
         mRecyclerView2.setHasFixedSize(true);
         mLayoutManager2 = new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false);
-        mAdapter2 = new NonAlcoholicCocktailItemAdapter();
+        mAdapter2 = new CocktailItemAdapter(nonAlcoholicCocktails);
         mRecyclerView2.setAdapter(mAdapter2);
         mRecyclerView2.setLayoutManager(mLayoutManager2);
         SnapHelper snapHelper2 = new LinearSnapHelper();
         snapHelper2.attachToRecyclerView(mRecyclerView2);
-
-
     }
-
-
 }
