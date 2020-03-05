@@ -9,6 +9,7 @@ import com.example.cocktail_android.mysql.DatabaseManager;
 import com.example.cocktail_android.objects.Cocktail;
 import com.example.cocktail_android.objects.Ingredient;
 import com.example.cocktail_android.recycler.CocktailItem;
+import com.example.cocktail_android.redis.CommunicationManager;
 import com.example.cocktail_android.screenactivities.ChooseSizeActvitity;
 import com.example.cocktail_android.screenactivities.MainActivity;
 
@@ -97,5 +98,20 @@ public class CocktailController {
 
     public static CocktailItem convertToCocktailItem(Cocktail cocktail) {
         return new CocktailItem(cocktail.getImage(), cocktail.getName(), cocktail);
+    }
+
+    public static void makeCocktail(Cocktail cocktail) {
+        JSONObject message = new JSONObject();
+        UUID actionId = UUID.randomUUID();
+
+        try {
+            message.put("action", "make_cocktail_start");
+            message.put("action_id", actionId);
+            message.put("cocktail_id", cocktail.getCocktailId());
+        } catch(JSONException ignored) {}
+
+        CommunicationManager.activeActions.remove("make_cocktail");
+        CommunicationManager.activeActions.put("make_cocktail", actionId);
+        CommunicationManager.publishMessage(message);
     }
 }
