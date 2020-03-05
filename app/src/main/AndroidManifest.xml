@@ -32,7 +32,7 @@
         <activity android:name=".screenactivities.ManageActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".screenactivities.MainActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"/>
         <activity android:name=".screenactivities.InformationActivity"
             android:screenOrientation="portrait">
             <intent-filter>

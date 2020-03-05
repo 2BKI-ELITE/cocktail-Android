@@ -37,7 +37,7 @@
         android:id="@+id/editcocktail_llName"
         android:layout_width="@dimen/_271sdp"
         android:layout_marginTop="@dimen/_6sdp"
-        android:layout_height="@dimen/_55sdp"
+        android:layout_height="@dimen/_50sdp"
         android:orientation="vertical"
         android:background="@drawable/shapeshadow_white"
         android:layout_gravity="center_horizontal"
