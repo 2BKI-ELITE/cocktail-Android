@@ -90,7 +90,7 @@
                 android:layout_alignTop="@id/adminpanel_btUser"
                 android:background="@null"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/cocktail_about_bt" />
+                app:srcCompat="@drawable/cocktail_settings_bt" />
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>
