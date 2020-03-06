@@ -1,5 +1,6 @@
 package com.example.cocktail_android.mysql;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -10,13 +11,14 @@ public class DatabaseManager {
 
     public static boolean connect() {
         try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Class.forName("org.mariadb.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mariadb://192.168.1.1:3306/projektarbeit", "projektarbeit", "test123");
 
-            connection = DriverManager.getConnection("jdbc:mysql://192.168.0.1:3306/projektarbeit", "", "");
             createTables();
 
             return true;
         } catch (Exception ex) {
+            ex.printStackTrace();
             return false;
         }
     }

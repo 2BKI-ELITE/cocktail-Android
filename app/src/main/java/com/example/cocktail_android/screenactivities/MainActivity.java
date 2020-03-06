@@ -37,9 +37,9 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<CocktailItem> alcoholicCocktails = new ArrayList<>();
     public static ArrayList<CocktailItem> nonAlcoholicCocktails = new ArrayList<>();
 
-    public static final boolean DUMMY_MODE = true;
+    public static final boolean DUMMY_MODE = false;
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
+    @RequiresApi(28)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;

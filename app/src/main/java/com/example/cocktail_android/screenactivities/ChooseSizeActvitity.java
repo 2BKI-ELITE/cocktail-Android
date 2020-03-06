@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.example.cocktail_android.R;
 import com.example.cocktail_android.objects.Cocktail;
 import com.example.cocktail_android.objects.Ingredient;
+import com.example.cocktail_android.redis.controllers.CocktailController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +37,9 @@ public class ChooseSizeActvitity extends AppCompatActivity implements View.OnCli
 
         // Listener for Small size
         final ImageButton mBtSmallSize = findViewById(R.id.confirm_smallSize);
-        mBtSmallSize.setOnClickListener(this);
+        mBtSmallSize.setOnClickListener(v -> {
+            CocktailController.makeCocktail(cocktail);
+        });
 
         // Listener for Large size
         final ImageButton mBtBigSize = findViewById(R.id.confirm_bigSize);
@@ -73,11 +76,6 @@ public class ChooseSizeActvitity extends AppCompatActivity implements View.OnCli
             case R.id.confirm_shotSize:
                 Intent intent1 = new Intent(ChooseSizeActvitity.this, ConfirmCocktail.class);
                 startActivity(intent1);
-                break;
-
-            case R.id.confirm_smallSize:
-                Intent intent2 = new Intent(ChooseSizeActvitity.this, ConfirmCocktail.class);
-                startActivity(intent2);
                 break;
 
             case R.id.confirm_bigSize:

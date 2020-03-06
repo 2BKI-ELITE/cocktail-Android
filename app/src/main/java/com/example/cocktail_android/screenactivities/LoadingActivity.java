@@ -33,23 +33,20 @@ public class LoadingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
 
-        if(!MainActivity.DUMMY_MODE) {
-            boolean databaseConnected = DatabaseManager.connect();
+        boolean databaseConnected = DatabaseManager.connect();
 
-            if(databaseConnected) {
-                boolean jedisConnected = CommunicationManager.establishConnection();
+        if(databaseConnected) {
+            if(CommunicationManager.establishConnection()) {
+                CommunicationManager.setupSubscriber(getApplicationContext());
 
-                if(jedisConnected) {
-                    CommunicationManager.setupSubscriber(getBaseContext());
-                } else {
-                    openErrorActivity();
-                }
+                openMainActivity();
             } else {
                 openErrorActivity();
             }
         } else {
-            openMainActivity();
+            openErrorActivity();
         }
+
     }
 
     private void openErrorActivity() {
@@ -63,6 +60,9 @@ public class LoadingActivity extends AppCompatActivity {
                 } catch (Exception e) {
                 } finally {
                     Intent intent = new Intent(LoadingActivity.this, NoConnectionActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     finish();
                 }
