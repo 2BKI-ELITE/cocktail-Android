@@ -1,4 +1,4 @@
-package com.example.cocktail_android.screenactivities;
+package com.example.cocktail_android.screenactivities.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.cocktail_android.R;
+import com.example.cocktail_android.screenactivities.InformationActivity;
 
 public class AdminPanelActivity extends AppCompatActivity implements View.OnClickListener {
 

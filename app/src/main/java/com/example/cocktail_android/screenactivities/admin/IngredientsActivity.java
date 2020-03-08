@@ -1,4 +1,4 @@
-package com.example.cocktail_android.screenactivities;
+package com.example.cocktail_android.screenactivities.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,9 +8,8 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 
 import com.example.cocktail_android.IngredientsItemAdapter;
-import com.example.cocktail_android.ManageItem;
-import com.example.cocktail_android.MangeItemAdapter;
 import com.example.cocktail_android.R;
+import com.example.cocktail_android.screenactivities.IngredientsItem;
 
 import java.util.ArrayList;
 
@@ -27,7 +26,7 @@ public class IngredientsActivity extends AppCompatActivity {
         else
             setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ingredients);
+        setContentView(R.layout.activity_admin_ingredients);
 
         ArrayList<IngredientsItem> exampleList = new ArrayList<>();
         for(int i =0; i<20; i++){

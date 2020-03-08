@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="?attr/backgroundcolor"
     android:orientation="vertical"
-    tools:context=".screenactivities.AdminPanelActivity">
+    tools:context=".screenactivities.admin.AdminPanelActivity">
 
 
     <LinearLayout

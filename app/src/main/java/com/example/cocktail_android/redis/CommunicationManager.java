@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.example.cocktail_android.redis.controllers.AdminAuthController;
+import com.example.cocktail_android.redis.controllers.CocktailController;
 import com.example.cocktail_android.screenactivities.NoConnectionActivity;
 
 import org.json.JSONException;
@@ -73,10 +74,30 @@ public class CommunicationManager {
             public void onMessage(String channel, String message) {
                 try {
                     JSONObject object = new JSONObject(message);
+                    System.out.println(object.toString());
 
-                    if(object.getJSONObject("to").getString("uuid") != null && object.getJSONObject("to").getString("uuid").equalsIgnoreCase(uuid.toString())) {
-                        if(object.getString("action").equalsIgnoreCase("admin_auth_response")) {
-                            AdminAuthController.response(context, object);
+                    if(object.getJSONObject("to").has("uuid")) {
+                        if(object.getJSONObject("to").getString("uuid").equalsIgnoreCase(uuid.toString()) || object.getJSONObject("to").getString("uuid").equalsIgnoreCase("broadcast")) {
+                            switch(object.getString("action")) {
+                                case "admin_auth_response":
+                                    AdminAuthController.response(context, object);
+                                    break;
+
+                                case "make_cocktail_confirmation":
+                                    CocktailController.makeCocktailConfirmation(context, object);
+                                    break;
+
+                                case "make_cocktail_finished":
+                                    CocktailController.makeCocktailFinished(context, object);
+                                    break;
+
+                                case "make_cocktail_canceled":
+                                    CocktailController.makeCocktailCancelled(context, object);
+                                    break;
+
+                                default:
+                                    break;
+                            }
                         }
                     }
                 } catch (JSONException ex) {

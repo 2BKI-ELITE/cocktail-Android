@@ -48,7 +48,8 @@
             android:text="Beschreibung"
             android:layout_marginTop="@dimen/_6sdp"
             android:textSize="@dimen/_19sdp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:gravity="center_horizontal" />
         <TextView
             android:id="@+id/cocktaildetails_tvDescription"
             android:layout_width="@dimen/_220sdp"
@@ -64,7 +65,8 @@
             android:text="Zutaten"
             android:layout_marginTop="@dimen/_12sdp"
             android:textSize="@dimen/_19sdp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:gravity="center_horizontal" />
 
         <TextView
             android:id="@+id/cocktaildetails_tvIngredients"
@@ -112,9 +114,6 @@
             android:background="@null"
             app:srcCompat="@drawable/cocktail_large_bt" />
     </LinearLayout>
-
-
-
 
 
 </LinearLayout>

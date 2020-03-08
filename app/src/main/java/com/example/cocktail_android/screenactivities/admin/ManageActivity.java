@@ -1,4 +1,4 @@
-package com.example.cocktail_android.screenactivities;
+package com.example.cocktail_android.screenactivities.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -30,7 +30,7 @@ public class ManageActivity extends AppCompatActivity {
 
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_managecocktails);
+        setContentView(R.layout.activity_admin_cocktails);
 
         ArrayList<ManageItem> exampleList = new ArrayList<>();
         exampleList.add(new ManageItem(R.drawable.test_cocktail_pic,"Ich", "servis"));

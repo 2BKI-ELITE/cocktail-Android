@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screenactivities.ManageActivity"
+    tools:context=".screenactivities.admin.ManageActivity"
     android:orientation="vertical"
     android:background="?attr/backgroundcolor">
 
@@ -14,10 +15,10 @@
         >
 
         <TextView
-            android:id="@+id/manageview_tvTitle"
+            android:id="@+id/ingredientsview_tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Benutzer hinzufügen"
+            android:text="Zutaten"
             android:textSize="@dimen/_20sdp"
             android:textColor="?attr/textcolorPrimary"
             android:layout_centerHorizontal="true"
@@ -29,7 +30,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/manageview_rv"
+        android:id="@+id/ingredientsview__rv"
         android:scrollbars="vertical"
         android:padding="4dp"
         android:background="@null">

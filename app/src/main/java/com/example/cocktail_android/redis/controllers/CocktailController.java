@@ -1,5 +1,7 @@
 package com.example.cocktail_android.redis.controllers;
 
+import android.app.ActivityManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -27,11 +29,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.UUID;
 
 public class CocktailController {
 
-    public static ArrayList<Cocktail> cocktails = new ArrayList<Cocktail>();
+    public static LinkedHashMap<UUID, Cocktail> cocktails = new LinkedHashMap<>();
+    public static boolean makingBlocked = false;
 
     public static ArrayList<CocktailItem> fillDummyCocktails(Context context) {
         ArrayList<CocktailItem> cocktails = new ArrayList<>();
@@ -69,7 +73,7 @@ public class CocktailController {
                     }
 
                     Cocktail cocktail = new Cocktail(context, UUID.fromString(resultSet.getString("cocktailId")), resultSet.getString("name"), resultSet.getString("description"), ingredientsList, enabled, resultSet.getDate("createdAt"));
-                    cocktails.add(cocktail);
+                    cocktails.put(cocktail.getCocktailId(), cocktail);
                 } catch (JSONException ignored) {}
             }
         } catch (SQLException e) {}
@@ -113,5 +117,35 @@ public class CocktailController {
         CommunicationManager.activeActions.remove("make_cocktail");
         CommunicationManager.activeActions.put("make_cocktail", actionId);
         CommunicationManager.publishMessage(message);
+    }
+
+    public static void makeCocktailConfirmation(Context context, JSONObject object) {
+        try {
+            makingBlocked = true;
+
+            if(CommunicationManager.activeActions.containsValue(UUID.fromString(object.getString("action_id")))) {
+                // Switch to progress activity
+            }
+        } catch (JSONException ignored) {}
+    }
+
+    public static void makeCocktailFinished(Context context, JSONObject object) {
+        try {
+            makingBlocked = false;
+
+            if(CommunicationManager.activeActions.containsValue(UUID.fromString(object.getString("action_id")))) {
+                // Switch to finish activity
+            }
+        } catch (JSONException ignored) {}
+    }
+
+    public static void makeCocktailCancelled(Context context, JSONObject object) {
+        try {
+            makingBlocked = false;
+
+            if(CommunicationManager.activeActions.containsValue(UUID.fromString(object.getString("action_id")))) {
+                // Switch to cancelled activity
+            }
+        } catch (JSONException ignored) {}
     }
 }

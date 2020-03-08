@@ -20,25 +20,25 @@
         <activity android:name=".screenactivities.ConfirmCocktail"></activity>
         <activity android:name=".screenactivities.ChooseSizeActvitity" />
         <activity
-            android:name=".screenactivities.IngredientsActivity"
+            android:name=".screenactivities.admin.IngredientsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".screenactivities.PieChartActitivty"
+            android:name=".screenactivities.admin.PieChartActitivty"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".screenactivities.UserActivity"
+            android:name=".screenactivities.admin.UserActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".screenactivities.CleanActivity"
+            android:name=".screenactivities.admin.CleanActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".screenactivities.AdminPanelActivity"
+            android:name=".screenactivities.admin.AdminPanelActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".screenactivities.ManageActivity"
+            android:name=".screenactivities.admin.ManageActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".screenactivities.InformationActivity"

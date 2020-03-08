@@ -2,7 +2,6 @@ package com.example.cocktail_android.screenactivities;
 
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.widget.ImageButton;
 
@@ -22,6 +21,7 @@ import com.example.cocktail_android.recycler.ItemDecoration;
 import com.example.cocktail_android.recycler.StickyRecyclerView;
 import com.example.cocktail_android.redis.controllers.CocktailController;
 import com.example.cocktail_android.redis.controllers.IngredientController;
+import com.example.cocktail_android.screenactivities.admin.AdminPanelActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,8 +58,9 @@ public class MainActivity extends AppCompatActivity {
             alcoholicCocktails = CocktailController.fillDummyCocktails(getApplicationContext());
             nonAlcoholicCocktails = CocktailController.fillDummyCocktails(getApplicationContext());
         } else {
+            ArrayList<Cocktail> cocktails = new ArrayList<Cocktail>(CocktailController.cocktails.values());
             for(int i = 0; i < CocktailController.cocktails.size(); i++) {
-                Cocktail cocktail = CocktailController.cocktails.get(i);
+                Cocktail cocktail = cocktails.get(i);;
 
                 if(cocktail.isEnabled()) {
                     boolean containsAlcohol = false;

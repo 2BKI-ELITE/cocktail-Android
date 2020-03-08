@@ -3,8 +3,7 @@ package com.example.cocktail_android.redis.controllers;
 import android.content.Context;
 import android.content.Intent;
 
-import com.example.cocktail_android.screenactivities.AdminPanelActivity;
-import com.example.cocktail_android.LoginActivity;
+import com.example.cocktail_android.screenactivities.admin.AdminPanelActivity;
 import com.example.cocktail_android.redis.CommunicationManager;
 
 import org.json.JSONException;
