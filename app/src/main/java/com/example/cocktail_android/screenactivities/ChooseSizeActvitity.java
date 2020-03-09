@@ -26,10 +26,6 @@ public class ChooseSizeActvitity extends AppCompatActivity implements View.OnCli
         cocktail = MainActivity.alcoholicCocktails.get(getIntent().getIntExtra("cocktailPosition", 0)).getCocktail();
         setContentView(R.layout.activity_cocktail_make_details);
 
-        // Listener for Shot size
-        final ImageButton mBtShotSize = findViewById(R.id.confirm_shotSize);
-        mBtShotSize.setOnClickListener(this);
-
         // Listener for Small size
         final ImageButton mBtSmallSize = findViewById(R.id.confirm_smallSize);
         mBtSmallSize.setOnClickListener(this);
@@ -67,13 +63,6 @@ public class ChooseSizeActvitity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.confirm_shotSize:
-                Intent intent = new Intent(ChooseSizeActvitity.this, ConfirmCocktail.class);
-                intent.putExtra("cocktailId", cocktail.getCocktailId().toString());
-                intent.putExtra("size", "shot");
-                startActivity(intent);
-                break;
-
             case R.id.confirm_smallSize:
                 Intent intent1 = new Intent(ChooseSizeActvitity.this, ConfirmCocktail.class);
                 intent1.putExtra("cocktailId", cocktail.getCocktailId().toString());
