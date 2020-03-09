@@ -87,7 +87,7 @@ public class CocktailController {
         Bitmap bitmap;
 
         try {
-            URL url = new URL("http://192.168.0.1/images/" + cocktailId.toString());
+            URL url = new URL("http://192.168.1.1/images/" + cocktailId.toString() + ".png");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoInput(true);
             connection.connect();
@@ -98,6 +98,7 @@ public class CocktailController {
                 bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.test_cocktail_pic);
             }
         } catch (IOException e) {
+            e.printStackTrace();
             bitmap = BitmapFactory.decodeResource(context.getResources(),R.drawable.test_cocktail_pic);
         }
 

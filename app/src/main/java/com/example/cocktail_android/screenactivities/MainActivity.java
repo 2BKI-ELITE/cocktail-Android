@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
 
         mRecyclerView = findViewById(R.id.main_rv_alcoholic);
         mRecyclerView.addItemDecoration(new ItemDecoration(mRecyclerView.getPaddingStart(), mRecyclerView.getPaddingEnd()));
-        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setHasFixedSize(false);
         mLayoutManager = new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false);
         mAdapter = new CocktailItemAdapter(alcoholicCocktails);
         mRecyclerView.setAdapter(mAdapter);
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
 
         mRecyclerView2 = findViewById(R.id.main_rv_non_alcoholic);
         mRecyclerView2.addItemDecoration(new ItemDecoration(mRecyclerView2.getPaddingStart(), mRecyclerView2.getPaddingEnd()));
-        mRecyclerView2.setHasFixedSize(true);
+        mRecyclerView2.setHasFixedSize(false);
         mLayoutManager2 = new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false);
         mAdapter2 = new CocktailItemAdapter(nonAlcoholicCocktails);
         mRecyclerView2.setAdapter(mAdapter2);

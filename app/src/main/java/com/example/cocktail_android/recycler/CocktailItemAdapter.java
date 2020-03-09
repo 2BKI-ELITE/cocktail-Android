@@ -34,7 +34,8 @@ public class CocktailItemAdapter extends RecyclerView.Adapter<CocktailItemAdapte
 
             itemView.setOnClickListener(v -> {
                 final Intent intent = new Intent(itemView.getContext(), ChooseSizeActvitity.class);
-                intent.putExtra("alcoholic", itemView.getId() == R.id.main_rv_alcoholic);
+
+                intent.putExtra("alcoholic", ((StickyRecyclerView) itemView.getParent()).getId() == R.id.main_rv_alcoholic);
 
                 intent.putExtra("cocktailPosition", this.getAdapterPosition());
                 itemView.getContext().startActivity(intent);
