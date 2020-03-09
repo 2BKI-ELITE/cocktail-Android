@@ -54,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
             CocktailController.getCocktails(getApplicationContext());
         }
 
+        alcoholicCocktails.clear();
+        nonAlcoholicCocktails.clear();
+
         if(DUMMY_MODE) {
             alcoholicCocktails = CocktailController.fillDummyCocktails(getApplicationContext());
             nonAlcoholicCocktails = CocktailController.fillDummyCocktails(getApplicationContext());

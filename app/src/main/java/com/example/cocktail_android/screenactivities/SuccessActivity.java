@@ -17,6 +17,13 @@ public class SuccessActivity extends AppCompatActivity {
 
         ((TextView) findViewById(R.id.successscreen_tvTitle)).setText(getIntent().getStringExtra("title"));
         ((TextView) findViewById(R.id.successscreen_tvDescription)).setText(getIntent().getStringExtra("description"));
+
+        findViewById(R.id.successscreen_btFinishmaking).setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        });
     }
 
     @Override
