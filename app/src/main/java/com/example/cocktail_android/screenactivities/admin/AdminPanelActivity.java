@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.cocktail_android.R;
+import com.example.cocktail_android.screenactivities.InProgressActivity;
 import com.example.cocktail_android.screenactivities.InformationActivity;
 
 public class AdminPanelActivity extends AppCompatActivity implements View.OnClickListener {
@@ -62,7 +63,7 @@ public class AdminPanelActivity extends AppCompatActivity implements View.OnClic
                 break;
 
             case R.id.adminpanel_btUser:
-                Intent intent4 = new Intent(AdminPanelActivity.this, UserActivity.class);
+                Intent intent4 = new Intent(AdminPanelActivity.this, InProgressActivity.class);
                 startActivity(intent4);
                 break;
 
