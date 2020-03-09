@@ -13,6 +13,8 @@ import java.util.UUID;
 
 public class ConfirmCocktail extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,5 +25,11 @@ public class ConfirmCocktail extends AppCompatActivity {
         mBtStart.setOnClickListener(v -> {
             CocktailController.makeCocktail(cocktail);
         });
+
+        CocktailController.activities.add(this);
+    }
+
+    public void greyoutButtons() {
+
     }
 }

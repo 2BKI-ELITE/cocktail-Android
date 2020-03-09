@@ -36,7 +36,6 @@ public class ChooseSizeActvitity extends AppCompatActivity implements View.OnCli
 
         // Listener for Large size
         final ImageButton mBtBigSize = findViewById(R.id.confirm_bigSize);
-        mBtBigSize.setVisibility(View.INVISIBLE);
         mBtBigSize.setOnClickListener(this);
 
 

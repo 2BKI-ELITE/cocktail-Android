@@ -86,16 +86,6 @@
         android:layout_gravity="bottom"
         android:layout_marginBottom="@dimen/_14sdp">
 
-
-        <ImageButton
-            android:id="@+id/confirm_shotSize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="bottom"
-            android:background="@null"
-            app:srcCompat="@drawable/cocktail_schnaps_bt" />
-
         <ImageButton
             android:id="@+id/confirm_smallSize"
             android:layout_width="wrap_content"

@@ -1,10 +1,15 @@
 package com.example.cocktail_android.redis.controllers;
 
+import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.Application;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.view.View;
+import android.widget.ImageButton;
 
 import com.example.cocktail_android.R;
 import com.example.cocktail_android.mysql.DatabaseManager;
@@ -13,7 +18,9 @@ import com.example.cocktail_android.objects.Ingredient;
 import com.example.cocktail_android.recycler.CocktailItem;
 import com.example.cocktail_android.redis.CommunicationManager;
 import com.example.cocktail_android.screenactivities.ChooseSizeActvitity;
+import com.example.cocktail_android.screenactivities.ConfirmCocktail;
 import com.example.cocktail_android.screenactivities.MainActivity;
+import com.example.cocktail_android.screenactivities.admin.AdminPanelActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,6 +30,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.sql.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,6 +44,7 @@ public class CocktailController {
 
     public static LinkedHashMap<UUID, Cocktail> cocktails = new LinkedHashMap<>();
     public static boolean makingBlocked = false;
+    public static Activity chooseActivity;
 
     public static ArrayList<CocktailItem> fillDummyCocktails(Context context) {
         ArrayList<CocktailItem> cocktails = new ArrayList<>();
@@ -124,7 +133,10 @@ public class CocktailController {
             makingBlocked = true;
 
             if(CommunicationManager.activeActions.containsValue(UUID.fromString(object.getString("action_id")))) {
-                // Switch to progress activity
+                context.startActivity(new Intent(context, AdminPanelActivity.class));
+            } else {
+                chooseActivity.findViewById(R.id.confirm_smallSize).setVisibility(View.INVISIBLE);
+                chooseActivity.findViewById(R.id.confirm_bigSize).setVisibility(View.INVISIBLE);
             }
         } catch (JSONException ignored) {}
     }
