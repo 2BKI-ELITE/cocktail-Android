@@ -25,11 +25,5 @@ public class ConfirmCocktail extends AppCompatActivity {
         mBtStart.setOnClickListener(v -> {
             CocktailController.makeCocktail(cocktail);
         });
-
-
-    }
-
-    public void greyoutButtons() {
-
     }
 }

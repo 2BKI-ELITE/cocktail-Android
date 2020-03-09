@@ -1,15 +1,10 @@
 package com.example.cocktail_android.redis.controllers;
 
 import android.app.Activity;
-import android.app.ActivityManager;
-import android.app.Application;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.view.View;
-import android.widget.ImageButton;
 
 import com.example.cocktail_android.R;
 import com.example.cocktail_android.mysql.DatabaseManager;
@@ -17,9 +12,6 @@ import com.example.cocktail_android.objects.Cocktail;
 import com.example.cocktail_android.objects.Ingredient;
 import com.example.cocktail_android.recycler.CocktailItem;
 import com.example.cocktail_android.redis.CommunicationManager;
-import com.example.cocktail_android.screenactivities.ChooseSizeActvitity;
-import com.example.cocktail_android.screenactivities.ConfirmCocktail;
-import com.example.cocktail_android.screenactivities.MainActivity;
 import com.example.cocktail_android.screenactivities.admin.AdminPanelActivity;
 
 import org.json.JSONArray;
@@ -30,7 +22,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.sql.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -137,8 +128,12 @@ public class CocktailController {
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             } else {
-                chooseActivity.findViewById(R.id.confirm_smallSize).setVisibility(View.INVISIBLE);
-                chooseActivity.findViewById(R.id.confirm_bigSize).setVisibility(View.INVISIBLE);
+                // TODO: 09.03.2020 check if choosecocktail screen is opened
+
+                chooseActivity.findViewById(R.id.confirm_smallSize).setAlpha(.5f);
+                chooseActivity.findViewById(R.id.confirm_bigSize).setAlpha(.5f);
+                chooseActivity.findViewById(R.id.confirm_smallSize).setClickable(false);
+                chooseActivity.findViewById(R.id.confirm_bigSize).setClickable(false);
             }
         } catch (JSONException ignored) {}
     }
@@ -148,7 +143,15 @@ public class CocktailController {
             makingBlocked = false;
 
             if(CommunicationManager.activeActions.containsValue(UUID.fromString(object.getString("action_id")))) {
+                CommunicationManager.activeActions.remove("make_cocktail");
                 // Switch to finish activity
+            } else {
+                // TODO: 09.03.2020 check if choosecocktail screen is opened
+
+                chooseActivity.findViewById(R.id.confirm_smallSize).setAlpha(1);
+                chooseActivity.findViewById(R.id.confirm_bigSize).setAlpha(1);
+                chooseActivity.findViewById(R.id.confirm_smallSize).setClickable(true);
+                chooseActivity.findViewById(R.id.confirm_bigSize).setClickable(true);
             }
         } catch (JSONException ignored) {}
     }
@@ -158,7 +161,14 @@ public class CocktailController {
             makingBlocked = false;
 
             if(CommunicationManager.activeActions.containsValue(UUID.fromString(object.getString("action_id")))) {
+                CommunicationManager.activeActions.remove("make_cocktail");
                 // Switch to cancelled activity
+            } else {
+                // TODO: 09.03.2020 check if choosecocktail screen is opened
+                chooseActivity.findViewById(R.id.confirm_smallSize).setAlpha(1);
+                chooseActivity.findViewById(R.id.confirm_bigSize).setAlpha(1);
+                chooseActivity.findViewById(R.id.confirm_smallSize).setClickable(true);
+                chooseActivity.findViewById(R.id.confirm_bigSize).setClickable(true);
             }
         } catch (JSONException ignored) {}
     }

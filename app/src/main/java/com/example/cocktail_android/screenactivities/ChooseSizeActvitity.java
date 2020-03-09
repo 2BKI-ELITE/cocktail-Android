@@ -20,6 +20,8 @@ import java.util.List;
 public class ChooseSizeActvitity extends AppCompatActivity implements View.OnClickListener {
 
     private Cocktail cocktail;
+    public ImageButton smallSizeButton;
+    public ImageButton bigSizeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,16 @@ public class ChooseSizeActvitity extends AppCompatActivity implements View.OnCli
         ((TextView) findViewById(R.id.cocktaildetails_tvTitle)).setText(cocktail.getName());
         ((TextView) findViewById(R.id.cocktaildetails_tvDescription)).setText(cocktail.getDescription());
         ((TextView) findViewById(R.id.cocktaildetails_tvIngredients)).setText(builder.toString());
+
+        smallSizeButton = findViewById(R.id.confirm_smallSize);
+        bigSizeButton = findViewById(R.id.confirm_bigSize);
+
+        if(CocktailController.makingBlocked) {
+            smallSizeButton.setAlpha(.5f);
+            smallSizeButton.setClickable(false);
+            bigSizeButton.setAlpha(.5f);
+            bigSizeButton.setClickable(false);
+        }
 
         CocktailController.chooseActivity = this;
     }
