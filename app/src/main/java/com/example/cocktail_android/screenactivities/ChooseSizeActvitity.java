@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.cocktail_android.R;
 import com.example.cocktail_android.objects.Cocktail;
 import com.example.cocktail_android.objects.Ingredient;
+import com.example.cocktail_android.redis.controllers.CocktailController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,8 +58,9 @@ public class ChooseSizeActvitity extends AppCompatActivity implements View.OnCli
         ((TextView) findViewById(R.id.cocktaildetails_tvTitle)).setText(cocktail.getName());
         ((TextView) findViewById(R.id.cocktaildetails_tvDescription)).setText(cocktail.getDescription());
         ((TextView) findViewById(R.id.cocktaildetails_tvIngredients)).setText(builder.toString());
-    }
 
+        CocktailController.chooseActivity = this;
+    }
 
     @Override
     public void onClick(View view) {

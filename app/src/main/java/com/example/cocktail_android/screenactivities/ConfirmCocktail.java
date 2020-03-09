@@ -26,7 +26,7 @@ public class ConfirmCocktail extends AppCompatActivity {
             CocktailController.makeCocktail(cocktail);
         });
 
-        CocktailController.chooseActivity = this;
+
     }
 
     public void greyoutButtons() {

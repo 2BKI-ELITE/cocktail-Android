@@ -133,7 +133,9 @@ public class CocktailController {
             makingBlocked = true;
 
             if(CommunicationManager.activeActions.containsValue(UUID.fromString(object.getString("action_id")))) {
-                context.startActivity(new Intent(context, AdminPanelActivity.class));
+                Intent intent = new Intent(context, AdminPanelActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
             } else {
                 chooseActivity.findViewById(R.id.confirm_smallSize).setVisibility(View.INVISIBLE);
                 chooseActivity.findViewById(R.id.confirm_bigSize).setVisibility(View.INVISIBLE);
