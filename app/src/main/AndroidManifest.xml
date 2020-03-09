@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".screenactivities.ConfirmCocktail"></activity>
+        <activity android:name=".screenactivities.InProgressActivity"></activity>
+        <activity android:name=".screenactivities.ConfirmCocktail" />
         <activity android:name=".screenactivities.ChooseSizeActvitity" />
         <activity
             android:name=".screenactivities.admin.IngredientsActivity"
@@ -45,12 +46,10 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".screenactivities.MainActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".screenactivities.NoConnectionActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".screenactivities.LoadingActivity"
             android:screenOrientation="portrait">

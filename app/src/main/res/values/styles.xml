@@ -15,6 +15,10 @@
         <item name="buttoncolor">#000000</item>
     </style>
 
+    <style name="AppTheme.WhiteAccent">
+        <item name="colorAccent">#000000</item> <!-- Whatever color you want-->
+    </style>
+
     <!-- DARK MODE -->
     <style name="darktheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowDisablePreview">true</item>
