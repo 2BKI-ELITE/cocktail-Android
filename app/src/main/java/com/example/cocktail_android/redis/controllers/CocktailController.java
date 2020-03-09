@@ -12,6 +12,10 @@ import com.example.cocktail_android.objects.Cocktail;
 import com.example.cocktail_android.objects.Ingredient;
 import com.example.cocktail_android.recycler.CocktailItem;
 import com.example.cocktail_android.redis.CommunicationManager;
+import com.example.cocktail_android.screenactivities.FailedActivity;
+import com.example.cocktail_android.screenactivities.InProgressActivity;
+import com.example.cocktail_android.screenactivities.MainActivity;
+import com.example.cocktail_android.screenactivities.SuccessActivity;
 import com.example.cocktail_android.screenactivities.admin.AdminPanelActivity;
 
 import org.json.JSONArray;
@@ -124,9 +128,17 @@ public class CocktailController {
             makingBlocked = true;
 
             if(CommunicationManager.activeActions.containsValue(UUID.fromString(object.getString("action_id")))) {
-                Intent intent = new Intent(context, AdminPanelActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                Intent intent = new Intent(context, InProgressActivity.class);
+
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+
+                intent.putExtra("title", "Zubereitung");
+                intent.putExtra("description", "Ihr Cocktail wird zubereitet");
+
                 context.startActivity(intent);
+                InProgressActivity.allowBack = false;
             } else {
                 // TODO: 09.03.2020 check if choosecocktail screen is opened
 
@@ -144,7 +156,19 @@ public class CocktailController {
 
             if(CommunicationManager.activeActions.containsValue(UUID.fromString(object.getString("action_id")))) {
                 CommunicationManager.activeActions.remove("make_cocktail");
-                // Switch to finish activity
+                InProgressActivity.allowBack = true;
+
+                Intent intent = new Intent(context, SuccessActivity.class);
+
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                intent.putExtra("title", "Zubereitung abgeschlossen");
+                intent.putExtra("description", "Bitte nehme dein Glas nun aus dem Gerät hinaus.");
+                intent.putExtra("buttonText", "Zubereitung beenden");
+                intent.putExtra("buttonLink", "main");
+
+                context.startActivity(intent);
             } else {
                 // TODO: 09.03.2020 check if choosecocktail screen is opened
 
@@ -162,7 +186,19 @@ public class CocktailController {
 
             if(CommunicationManager.activeActions.containsValue(UUID.fromString(object.getString("action_id")))) {
                 CommunicationManager.activeActions.remove("make_cocktail");
-                // Switch to cancelled activity
+                InProgressActivity.allowBack = true;
+
+                Intent intent = new Intent(context, FailedActivity.class);
+
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                intent.putExtra("title", "Zubereitung abgebrochen");
+                intent.putExtra("description", "Die Zubereitung wurde vorzeitig abgebrochen. Bitte nehme dein Glas nun aus dem Gerät hinaus.");
+                intent.putExtra("buttonText", "Zubereitung beenden");
+                intent.putExtra("buttonLink", "main");
+
+                context.startActivity(intent);
             } else {
                 // TODO: 09.03.2020 check if choosecocktail screen is opened
                 chooseActivity.findViewById(R.id.confirm_smallSize).setAlpha(1);

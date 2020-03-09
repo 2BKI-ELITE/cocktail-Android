@@ -26,7 +26,12 @@ public class ChooseSizeActvitity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        cocktail = MainActivity.alcoholicCocktails.get(getIntent().getIntExtra("cocktailPosition", 0)).getCocktail();
+
+        if(getIntent().getBooleanExtra("alcoholic", true))
+            cocktail = MainActivity.alcoholicCocktails.get(getIntent().getIntExtra("cocktailPosition", 0)).getCocktail();
+        else
+            cocktail = MainActivity.nonAlcoholicCocktails.get(getIntent().getIntExtra("cocktailPosition", 0)).getCocktail();
+
         setContentView(R.layout.activity_cocktail_make_details);
 
         // Listener for Small size

@@ -97,8 +97,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mRecyclerView = findViewById(R.id.main_rv_alcoholic);
-        mRecyclerView.setHasFixedSize(true);
         mRecyclerView.addItemDecoration(new ItemDecoration(mRecyclerView.getPaddingStart(), mRecyclerView.getPaddingEnd()));
+        mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false);
         mAdapter = new CocktailItemAdapter(alcoholicCocktails);
         mRecyclerView.setAdapter(mAdapter);

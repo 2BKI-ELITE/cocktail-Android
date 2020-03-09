@@ -6,10 +6,13 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.example.cocktail_android.R;
 
 public class InProgressActivity extends AppCompatActivity {
+
+    public static boolean allowBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +26,16 @@ public class InProgressActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cocktail_inprogress);
 
+        ((TextView) findViewById(R.id.inProgress_tvTitle)).setText(getIntent().getStringExtra("title"));
+        ((TextView) findViewById(R.id.inProgress_tvText1)).setText(getIntent().getStringExtra("description"));
 
         ProgressBar pgsBar = (ProgressBar)findViewById(R.id.inProgress_pBar);
         pgsBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(allowBack)
+            super.onBackPressed();
     }
 }
