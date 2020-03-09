@@ -1,58 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout3"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/backgroundcolor">
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/successscreen_tvTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_40sdp"
-        >
-
-        <TextView
-            android:id="@+id/successscreen_tvTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="_Error Title_"
-            android:textSize="@dimen/_20sdp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"/>
-
-
-    </RelativeLayout>
+        android:layout_marginTop="52dp"
+        android:layout_marginBottom="35dp"
+        android:text="_Error Title_"
+        android:textSize="@dimen/_20sdp"
+        app:layout_constraintBottom_toTopOf="@+id/successscreen_ivSuccess"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageView
         android:id="@+id/successscreen_ivSuccess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginBottom="46dp"
         android:scaleType="centerCrop"
         android:src="@drawable/cocktails_success_icon"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/_27sdp"/>
+        app:layout_constraintBottom_toTopOf="@+id/successscreen_tvDescription"
+        app:layout_constraintEnd_toEndOf="@+id/successscreen_tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/successscreen_tvTitle" />
 
 
     <TextView
         android:id="@+id/successscreen_tvDescription"
-        android:layout_width="@dimen/_220sdp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginLeft="62dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginRight="62dp"
+        android:layout_marginBottom="312dp"
         android:text="This is a placeholder success message you will have to replace with the correct message"
         android:textAlignment="center"
-        android:layout_marginTop="@dimen/_35sdp"/>
+        app:layout_constraintBottom_toTopOf="@+id/successscreen_btFinishmaking"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/successscreen_ivSuccess" />
 
     <ImageButton
         android:id="@+id/successscreen_btFinishmaking"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_241sdp"
+        android:layout_marginBottom="16dp"
         android:background="@null"
-        android:src="@drawable/cocktail_finishmaking_bt"/>
+        android:src="@drawable/cocktail_finishmaking_bt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/successscreen_tvDescription" />
 
 
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
