@@ -1,5 +1,11 @@
 package com.example.cocktail_android.objects;
 
+import android.provider.ContactsContract;
+
+import com.example.cocktail_android.mysql.DatabaseManager;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.UUID;
 
 public class Ingredient {
@@ -37,10 +43,24 @@ public class Ingredient {
     }
 
     public int getFillLevel() {
-        return fillLevel;
+        try {
+            ResultSet resultSet = DatabaseManager.getConnection().prepareStatement("SELECT * FROM `ingredients` WHERE `ingredientId`='" + ingredientId + "'").executeQuery();
+
+            while (resultSet.next())
+                return resultSet.getInt("fillLevel");
+        } catch (SQLException ignored) {}
+
+        return 0;
     }
 
     public int getFillCapacity() {
-        return fillCapacity;
+        try {
+            ResultSet resultSet = DatabaseManager.getConnection().prepareStatement("SELECT * FROM `ingredients` WHERE `ingredientId`='" + ingredientId + "'").executeQuery();
+
+            while (resultSet.next())
+                return resultSet.getInt("fillCapacity");
+        } catch (SQLException ignored) {}
+
+        return 0;
     }
 }

@@ -9,6 +9,8 @@ import java.util.UUID;
 
 public class MachineController {
 
+    public static String currentActivity;
+
     public static void startCleaning() {
         JSONObject message = new JSONObject();
         UUID actionId = UUID.randomUUID();

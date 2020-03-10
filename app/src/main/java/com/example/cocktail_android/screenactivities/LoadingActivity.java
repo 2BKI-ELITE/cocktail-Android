@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.cocktail_android.R;
 import com.example.cocktail_android.mysql.DatabaseManager;
 import com.example.cocktail_android.redis.CommunicationManager;
+import com.example.cocktail_android.redis.controllers.MachineController;
 
 public class LoadingActivity extends AppCompatActivity {
 
@@ -32,6 +33,8 @@ public class LoadingActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
+
+        MachineController.currentActivity = "loading";
 
         boolean databaseConnected = DatabaseManager.connect();
 

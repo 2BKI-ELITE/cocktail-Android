@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cocktail_android.R;
+import com.example.cocktail_android.redis.controllers.MachineController;
 
 public class NoConnectionActivity extends AppCompatActivity {
 
@@ -25,6 +26,8 @@ public class NoConnectionActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_error_noconnection);
+
+        MachineController.currentActivity = "noconnection";
 
         final ImageButton refreshBt = findViewById(R.id.noconnection_refreshBt);
         refreshBt.setOnClickListener(view -> triggerRebirth(getApplicationContext()));

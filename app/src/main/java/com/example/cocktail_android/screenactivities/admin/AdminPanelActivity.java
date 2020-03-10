@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.cocktail_android.R;
+import com.example.cocktail_android.redis.controllers.MachineController;
 import com.example.cocktail_android.screenactivities.InProgressActivity;
 import com.example.cocktail_android.screenactivities.InformationActivity;
 
@@ -25,6 +26,8 @@ public class AdminPanelActivity extends AppCompatActivity implements View.OnClic
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adminpanel);
+
+        MachineController.currentActivity = "admin_panel";
 
         // Listener for Manage Button
         final ImageButton mManageBt = findViewById(R.id.adminpanel_btManage);
@@ -63,7 +66,7 @@ public class AdminPanelActivity extends AppCompatActivity implements View.OnClic
                 break;
 
             case R.id.adminpanel_btUser:
-                Intent intent4 = new Intent(AdminPanelActivity.this, InProgressActivity.class);
+                Intent intent4 = new Intent(AdminPanelActivity.this, UserActivity.class);
                 startActivity(intent4);
                 break;
 
@@ -73,7 +76,7 @@ public class AdminPanelActivity extends AppCompatActivity implements View.OnClic
                 break;
 
             case R.id.adminpanel_btSettings:
-                Intent intente4 = new Intent(AdminPanelActivity.this, InformationActivity.class);
+                Intent intente4 = new Intent(AdminPanelActivity.this, SettingsActivity.class);
                 startActivity(intente4);
             default:
                 break;

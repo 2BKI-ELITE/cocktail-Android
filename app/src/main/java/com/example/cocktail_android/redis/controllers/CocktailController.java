@@ -12,11 +12,10 @@ import com.example.cocktail_android.objects.Cocktail;
 import com.example.cocktail_android.objects.Ingredient;
 import com.example.cocktail_android.recycler.CocktailItem;
 import com.example.cocktail_android.redis.CommunicationManager;
+import com.example.cocktail_android.screenactivities.ChooseSizeActvitity;
 import com.example.cocktail_android.screenactivities.FailedActivity;
 import com.example.cocktail_android.screenactivities.InProgressActivity;
-import com.example.cocktail_android.screenactivities.MainActivity;
 import com.example.cocktail_android.screenactivities.SuccessActivity;
-import com.example.cocktail_android.screenactivities.admin.AdminPanelActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -109,6 +108,20 @@ public class CocktailController {
         return new CocktailItem(cocktail.getImage(), cocktail.getName(), cocktail);
     }
 
+    public static boolean checkAvailability(Cocktail cocktail) {
+        boolean available = true;
+
+        for(int i = 0; i < cocktail.getIngredients().size(); i++) {
+            Ingredient ingredient = (Ingredient) cocktail.getIngredients().keySet().toArray()[i];
+            int amount = (int) cocktail.getIngredients().values().toArray()[i];
+
+            if(ingredient.getFillLevel() < amount)
+                available = false;
+        }
+
+        return available;
+    }
+
     public static void makeCocktail(Cocktail cocktail) {
         JSONObject message = new JSONObject();
         UUID actionId = UUID.randomUUID();
@@ -141,12 +154,19 @@ public class CocktailController {
                 context.startActivity(intent);
                 InProgressActivity.allowBack = false;
             } else {
-                // TODO: 09.03.2020 check if choosecocktail screen is opened
+                if(MachineController.currentActivity == "cocktail_choosesize") {
+                    chooseActivity.findViewById(R.id.confirm_smallSize).setAlpha(.5f);
+                    chooseActivity.findViewById(R.id.confirm_bigSize).setAlpha(.5f);
+                    chooseActivity.findViewById(R.id.confirm_smallSize).setClickable(false);
+                    chooseActivity.findViewById(R.id.confirm_bigSize).setClickable(false);
+                } else if(MachineController.currentActivity == "cocktail_confirm") {
+                    Intent intent = new Intent(context, ChooseSizeActvitity.class);
 
-                chooseActivity.findViewById(R.id.confirm_smallSize).setAlpha(.5f);
-                chooseActivity.findViewById(R.id.confirm_bigSize).setAlpha(.5f);
-                chooseActivity.findViewById(R.id.confirm_smallSize).setClickable(false);
-                chooseActivity.findViewById(R.id.confirm_bigSize).setClickable(false);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                    context.startActivity(intent);
+                }
             }
         } catch (JSONException ignored) {}
     }
@@ -171,12 +191,12 @@ public class CocktailController {
 
                 context.startActivity(intent);
             } else {
-                // TODO: 09.03.2020 check if choosecocktail screen is opened
-
-                chooseActivity.findViewById(R.id.confirm_smallSize).setAlpha(1);
-                chooseActivity.findViewById(R.id.confirm_bigSize).setAlpha(1);
-                chooseActivity.findViewById(R.id.confirm_smallSize).setClickable(true);
-                chooseActivity.findViewById(R.id.confirm_bigSize).setClickable(true);
+                if(MachineController.currentActivity == "cocktail_choosesize") {
+                    chooseActivity.findViewById(R.id.confirm_smallSize).setAlpha(1);
+                    chooseActivity.findViewById(R.id.confirm_bigSize).setAlpha(1);
+                    chooseActivity.findViewById(R.id.confirm_smallSize).setClickable(true);
+                    chooseActivity.findViewById(R.id.confirm_bigSize).setClickable(true);
+                }
             }
         } catch (JSONException ignored) {}
     }
@@ -201,12 +221,75 @@ public class CocktailController {
 
                 context.startActivity(intent);
             } else {
-                // TODO: 09.03.2020 check if choosecocktail screen is opened
-                chooseActivity.findViewById(R.id.confirm_smallSize).setAlpha(1);
-                chooseActivity.findViewById(R.id.confirm_bigSize).setAlpha(1);
-                chooseActivity.findViewById(R.id.confirm_smallSize).setClickable(true);
-                chooseActivity.findViewById(R.id.confirm_bigSize).setClickable(true);
+                if(MachineController.currentActivity == "cocktail_choosesize") {
+                    chooseActivity.findViewById(R.id.confirm_smallSize).setAlpha(1);
+                    chooseActivity.findViewById(R.id.confirm_bigSize).setAlpha(1);
+                    chooseActivity.findViewById(R.id.confirm_smallSize).setClickable(true);
+                    chooseActivity.findViewById(R.id.confirm_bigSize).setClickable(true);
+                }
             }
         } catch (JSONException ignored) {}
+    }
+
+    public static void createCocktail(Context context, Cocktail cocktail) {
+        if(!cocktails.containsKey(cocktail.getCocktailId())) {
+            JSONArray ingredients = new JSONArray();
+
+            for(int i = 0; i < cocktail.getIngredients().size(); i++) {
+                try {
+                    Ingredient ingredient = (Ingredient) cocktail.getIngredients().keySet().toArray()[i];
+                    int amount = (int) cocktail.getIngredients().values().toArray()[i];
+
+                    JSONObject object = new JSONObject();
+
+                    object.put("ingredientId", ingredient.getIngredientId().toString());
+                    object.put("amount", amount);
+
+                    ingredients.put(object);
+                } catch (JSONException ignored) {}
+            }
+
+            try {
+                DatabaseManager.getConnection().prepareStatement("INSERT INTO `cocktails` (`cocktailId`, `name`, `description`, `ingredients`, `enabled`) VALUES ('" + cocktail.getCocktailId() + "', '" + cocktail.getName() + "', '" + cocktail.getDescription() + "', '" + ingredients.toString() + "', '" + cocktail.isEnabled() + "')").execute();
+            } catch (SQLException ignored) {}
+
+            getCocktails(context);
+        }
+    }
+
+    public static void updateCocktail(Context context, Cocktail cocktail) {
+        if(cocktails.containsKey(cocktail.getCocktailId())) {
+            JSONArray ingredients = new JSONArray();
+
+            for(int i = 0; i < cocktail.getIngredients().size(); i++) {
+                try {
+                    Ingredient ingredient = (Ingredient) cocktail.getIngredients().keySet().toArray()[i];
+                    int amount = (int) cocktail.getIngredients().values().toArray()[i];
+
+                    JSONObject object = new JSONObject();
+
+                    object.put("ingredientId", ingredient.getIngredientId().toString());
+                    object.put("amount", amount);
+
+                    ingredients.put(object);
+                } catch (JSONException ignored) {}
+            }
+
+            try {
+                DatabaseManager.getConnection().prepareStatement("UPDATE `cocktails` SET `name`='" + cocktail.getName() + "', `description`='" + cocktail.getDescription() + "', `ingredients`='" + ingredients.toString() + "', `enabled`='" + cocktail.isEnabled() + "' WHERE `cocktailId`='" + cocktail.getCocktailId() + "'").execute();
+            } catch (SQLException ignored) {}
+
+            getCocktails(context);
+        }
+    }
+
+    public static void deleteCocktail(Context context, Cocktail cocktail) {
+        if(cocktails.containsKey(cocktail.getCocktailId())) {
+            try {
+                DatabaseManager.getConnection().prepareStatement("DELETE FROM `cocktails` WHERE `cocktailId`='" + cocktail.getCocktailId() + "'").execute();
+            } catch (SQLException ignored) {}
+
+            getCocktails(context);
+        }
     }
 }

@@ -9,6 +9,7 @@ import android.os.Bundle;
 
 import com.example.cocktail_android.IngredientsItemAdapter;
 import com.example.cocktail_android.R;
+import com.example.cocktail_android.redis.controllers.MachineController;
 import com.example.cocktail_android.screenactivities.IngredientsItem;
 
 import java.util.ArrayList;
@@ -25,8 +26,11 @@ public class IngredientsActivity extends AppCompatActivity {
             setTheme(R.style.darktheme);
         else
             setTheme(R.style.AppTheme);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_ingredients);
+
+        MachineController.currentActivity = "admin_ingredients";
 
         ArrayList<IngredientsItem> exampleList = new ArrayList<>();
         for(int i =0; i<20; i++){

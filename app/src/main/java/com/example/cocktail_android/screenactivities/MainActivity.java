@@ -21,6 +21,7 @@ import com.example.cocktail_android.recycler.ItemDecoration;
 import com.example.cocktail_android.recycler.StickyRecyclerView;
 import com.example.cocktail_android.redis.controllers.CocktailController;
 import com.example.cocktail_android.redis.controllers.IngredientController;
+import com.example.cocktail_android.redis.controllers.MachineController;
 import com.example.cocktail_android.screenactivities.admin.AdminPanelActivity;
 
 import java.util.ArrayList;
@@ -86,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MachineController.currentActivity = "main";
 
         final ImageButton adminPanelBt = findViewById(R.id.main_btAdminPanel);
         adminPanelBt.setOnClickListener(view -> {

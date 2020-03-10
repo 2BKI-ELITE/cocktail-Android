@@ -9,6 +9,24 @@
     android:orientation="vertical"
     tools:context=".screenactivities.admin.AdminPanelActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/settingsscreen_clTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40sdp">
+
+        <TextView
+            android:id="@+id/settings_tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adminbereich"
+            android:textSize="@dimen/_20sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -75,8 +93,8 @@
                 android:id="@+id/adminpanel_btUser"
                 android:layout_width="@dimen/_130sdp"
                 android:layout_height="@dimen/_130sdp"
-                android:layout_below="@id/adminpanel_btStatistics"
-                android:layout_alignLeft="@id/adminpanel_btManage"
+                android:layout_below="@id/adminpanel_btClean"
+                android:layout_alignLeft="@id/adminpanel_btClean"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:background="@null"
                 android:scaleType="centerInside"
@@ -86,7 +104,7 @@
                 android:id="@+id/adminpanel_btSettings"
                 android:layout_width="@dimen/_130sdp"
                 android:layout_height="@dimen/_130sdp"
-                android:layout_alignLeft="@id/adminpanel_btIngredients"
+                android:layout_alignLeft="@id/adminpanel_btStatistics"
                 android:layout_alignTop="@id/adminpanel_btUser"
                 android:background="@null"
                 android:scaleType="centerInside"

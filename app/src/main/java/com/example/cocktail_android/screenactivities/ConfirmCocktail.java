@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 import com.example.cocktail_android.R;
 import com.example.cocktail_android.objects.Cocktail;
 import com.example.cocktail_android.redis.controllers.CocktailController;
+import com.example.cocktail_android.redis.controllers.MachineController;
 
 import java.util.UUID;
 
@@ -20,6 +21,8 @@ public class ConfirmCocktail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Cocktail cocktail = CocktailController.cocktails.get(UUID.fromString(getIntent().getStringExtra("cocktailId")));
         setContentView(R.layout.activity_cocktail_make_confirm);
+
+        MachineController.currentActivity = "cocktail_confirm";
 
         final ImageButton mBtStart = findViewById(R.id.confirm_btStartMixing);
         mBtStart.setOnClickListener(v -> {

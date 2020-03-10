@@ -6,6 +6,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cocktail_android.redis.controllers.AdminAuthController;
+import com.example.cocktail_android.redis.controllers.MachineController;
 import com.example.cocktail_android.screenactivities.MainActivity;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
@@ -17,6 +18,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_login);
+
+        MachineController.currentActivity = "admin_login";
     }
 
 

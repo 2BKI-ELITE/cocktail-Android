@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.cocktail_android.R;
+import com.example.cocktail_android.redis.controllers.MachineController;
 
 public class FailedActivity extends AppCompatActivity {
 
@@ -14,6 +15,8 @@ public class FailedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_failedscreen);
+
+        MachineController.currentActivity = "failed";
 
         ((TextView) findViewById(R.id.successscreen_tvTitle)).setText(getIntent().getStringExtra("title"));
         ((TextView) findViewById(R.id.successscreen_tvDescription)).setText(getIntent().getStringExtra("description"));

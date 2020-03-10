@@ -10,6 +10,7 @@ import android.os.Bundle;
 import com.example.cocktail_android.ManageItem;
 import com.example.cocktail_android.MangeItemAdapter;
 import com.example.cocktail_android.R;
+import com.example.cocktail_android.redis.controllers.MachineController;
 
 import java.util.ArrayList;
 
@@ -27,10 +28,10 @@ public class ManageActivity extends AppCompatActivity {
         else
             setTheme(R.style.AppTheme);
 
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_cocktails);
+
+        MachineController.currentActivity = "admin_cocktails";
 
         ArrayList<ManageItem> exampleList = new ArrayList<>();
         exampleList.add(new ManageItem(R.drawable.test_cocktail_pic,"Ich", "servis"));

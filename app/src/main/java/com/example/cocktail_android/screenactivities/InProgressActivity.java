@@ -9,6 +9,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.cocktail_android.R;
+import com.example.cocktail_android.redis.controllers.MachineController;
 
 public class InProgressActivity extends AppCompatActivity {
 
@@ -25,6 +26,8 @@ public class InProgressActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cocktail_inprogress);
+
+        MachineController.currentActivity = "cocktail_inprogress";
 
         ((TextView) findViewById(R.id.inProgress_tvTitle)).setText(getIntent().getStringExtra("title"));
         ((TextView) findViewById(R.id.inProgress_tvText1)).setText(getIntent().getStringExtra("description"));
