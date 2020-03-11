@@ -39,6 +39,7 @@ public class CocktailController {
     public static LinkedHashMap<UUID, Cocktail> cocktails = new LinkedHashMap<>();
     public static boolean makingBlocked = false;
     public static Activity chooseActivity;
+    public static UUID chooseCocktail;
 
     public static ArrayList<CocktailItem> fillDummyCocktails(Context context) {
         ArrayList<CocktailItem> cocktails = new ArrayList<>();
@@ -155,10 +156,7 @@ public class CocktailController {
                 InProgressActivity.allowBack = false;
             } else {
                 if(MachineController.currentActivity == "cocktail_choosesize") {
-                    chooseActivity.findViewById(R.id.confirm_smallSize).setAlpha(.5f);
-                    chooseActivity.findViewById(R.id.confirm_bigSize).setAlpha(.5f);
-                    chooseActivity.findViewById(R.id.confirm_smallSize).setClickable(false);
-                    chooseActivity.findViewById(R.id.confirm_bigSize).setClickable(false);
+                    blurButtons();
                 } else if(MachineController.currentActivity == "cocktail_confirm") {
                     Intent intent = new Intent(context, ChooseSizeActvitity.class);
 
@@ -192,10 +190,12 @@ public class CocktailController {
                 context.startActivity(intent);
             } else {
                 if(MachineController.currentActivity == "cocktail_choosesize") {
-                    chooseActivity.findViewById(R.id.confirm_smallSize).setAlpha(1);
-                    chooseActivity.findViewById(R.id.confirm_bigSize).setAlpha(1);
-                    chooseActivity.findViewById(R.id.confirm_smallSize).setClickable(true);
-                    chooseActivity.findViewById(R.id.confirm_bigSize).setClickable(true);
+                    Cocktail cocktail = cocktails.get(chooseCocktail);
+
+                    if(checkAvailability(cocktail))
+                        unblurButtons();
+                    else
+                        blurButtons();
                 }
             }
         } catch (JSONException ignored) {}
@@ -222,10 +222,12 @@ public class CocktailController {
                 context.startActivity(intent);
             } else {
                 if(MachineController.currentActivity == "cocktail_choosesize") {
-                    chooseActivity.findViewById(R.id.confirm_smallSize).setAlpha(1);
-                    chooseActivity.findViewById(R.id.confirm_bigSize).setAlpha(1);
-                    chooseActivity.findViewById(R.id.confirm_smallSize).setClickable(true);
-                    chooseActivity.findViewById(R.id.confirm_bigSize).setClickable(true);
+                    Cocktail cocktail = cocktails.get(chooseCocktail);
+
+                    if(checkAvailability(cocktail))
+                        unblurButtons();
+                    else
+                        blurButtons();
                 }
             }
         } catch (JSONException ignored) {}
@@ -291,5 +293,19 @@ public class CocktailController {
 
             getCocktails(context);
         }
+    }
+
+    public static void blurButtons() {
+        chooseActivity.findViewById(R.id.confirm_smallSize).setAlpha(.5f);
+        chooseActivity.findViewById(R.id.confirm_bigSize).setAlpha(.5f);
+        chooseActivity.findViewById(R.id.confirm_smallSize).setClickable(false);
+        chooseActivity.findViewById(R.id.confirm_bigSize).setClickable(false);
+    }
+
+    public static void unblurButtons() {
+        chooseActivity.findViewById(R.id.confirm_smallSize).setAlpha(1);
+        chooseActivity.findViewById(R.id.confirm_bigSize).setAlpha(1);
+        chooseActivity.findViewById(R.id.confirm_smallSize).setClickable(true);
+        chooseActivity.findViewById(R.id.confirm_bigSize).setClickable(true);
     }
 }

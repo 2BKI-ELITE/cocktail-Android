@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import com.example.cocktail_android.redis.controllers.AdminAuthController;
 import com.example.cocktail_android.redis.controllers.CocktailController;
+import com.example.cocktail_android.redis.controllers.PingController;
 import com.example.cocktail_android.screenactivities.NoConnectionActivity;
 
 import org.json.JSONException;
@@ -58,6 +59,24 @@ public class CommunicationManager {
         jedisPub.publish("general", object.toString());
     }
 
+    public static void publishBroadcastMessage(JSONObject object) {
+        JSONObject sender = new JSONObject();
+        JSONObject to = new JSONObject();
+
+        try {
+            sender.put("uuid", uuid.toString());
+            sender.put("type", "app_android");
+
+            to.put("uuid", "broadcast");
+            to.put("type", "all");
+
+            object.put("sender", sender);
+            object.put("to", to);
+        } catch (JSONException ignored) {}
+
+        jedisPub.publish("general", object.toString());
+    }
+
     public static void setupSubscriber(Context context) {
         Thread.UncaughtExceptionHandler h = new Thread.UncaughtExceptionHandler() {
             public void uncaughtException(Thread th, Throwable ex) {
@@ -79,6 +98,9 @@ public class CommunicationManager {
                     if(object.getJSONObject("to").has("uuid")) {
                         if(object.getJSONObject("to").getString("uuid").equalsIgnoreCase(uuid.toString()) || object.getJSONObject("to").getString("uuid").equalsIgnoreCase("broadcast")) {
                             switch(object.getString("action")) {
+                                case "ping":
+                                    PingController.pong(context, object);
+
                                 case "admin_auth_response":
                                     AdminAuthController.response(context, object);
                                     break;

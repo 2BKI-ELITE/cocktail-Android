@@ -15,6 +15,7 @@ import com.example.cocktail_android.objects.Ingredient;
 import com.example.cocktail_android.redis.controllers.CocktailController;
 import com.example.cocktail_android.redis.controllers.MachineController;
 
+import java.text.CollationKey;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +37,9 @@ public class ChooseSizeActvitity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_cocktail_make_details);
 
         MachineController.currentActivity = "cocktail_choosesize";
+
+        CocktailController.chooseActivity = this;
+        CocktailController.chooseCocktail = cocktail.getCocktailId();
 
         // Listener for Small size
         final ImageButton mBtSmallSize = findViewById(R.id.confirm_smallSize);
@@ -71,13 +75,8 @@ public class ChooseSizeActvitity extends AppCompatActivity implements View.OnCli
         bigSizeButton = findViewById(R.id.confirm_bigSize);
 
         if(CocktailController.makingBlocked || !CocktailController.checkAvailability(cocktail)) {
-            smallSizeButton.setAlpha(.5f);
-            smallSizeButton.setClickable(false);
-            bigSizeButton.setAlpha(.5f);
-            bigSizeButton.setClickable(false);
+            CocktailController.blurButtons();
         }
-
-        CocktailController.chooseActivity = this;
     }
 
     @Override
