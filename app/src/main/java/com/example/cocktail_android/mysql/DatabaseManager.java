@@ -31,7 +31,7 @@ public class DatabaseManager {
         try {
             connection.prepareStatement("CREATE TABLE IF NOT EXISTS `cocktails` (`cocktailId` VARCHAR(36) PRIMARY KEY, `name` VARCHAR(50) NOT NULL, `description` TEXT, `ingredients` TEXT, `enabled` BOOLEAN DEFAULT true, `createdAt` TIMESTAMP NOT NULL DEFAULT NOW());").execute();
             connection.prepareStatement("CREATE TABLE IF NOT EXISTS `ingredients` (`ingredientId` VARCHAR(36) PRIMARY KEY, `name` VARCHAR(50) NOT NULL, `containsAlcohol` BOOLEAN DEFAULT false, `pump` INT NOT NULL, `fillLevel` INT UNSIGNED NOT NULL, `fillCapacity` INT UNSIGNED NOT NULL);").execute();
-            connection.prepareStatement("CREATE TABLE IF NOT EXISTS `users` (`userId` VARCHAR(45) PRIMARY KEY, `isAdult` BOOLEAN DEFAULT false);").execute();
+            connection.prepareStatement("CREATE TABLE IF NOT EXISTS `users` (`userId` VARCHAR(45) PRIMARY KEY, `isAdult` BOOLEAN DEFAULT false, `isAdmin` BOOLEAN DEFAULT false);").execute();
         } catch (SQLException ignored) {}
     }
 }

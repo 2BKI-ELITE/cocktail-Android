@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
+import com.example.cocktail_android.LoginActivity;
 import com.example.cocktail_android.R;
 import com.example.cocktail_android.objects.Cocktail;
 import com.example.cocktail_android.objects.Ingredient;
@@ -92,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
         final ImageButton adminPanelBt = findViewById(R.id.main_btAdminPanel);
         adminPanelBt.setOnClickListener(view -> {
-            Intent intent1 = new Intent(MainActivity.this, AdminPanelActivity.class);
+            Intent intent1 = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent1);
         });
 
