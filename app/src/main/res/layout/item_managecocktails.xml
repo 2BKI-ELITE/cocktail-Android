@@ -53,7 +53,7 @@
             android:text="Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet "
             android:layout_alignLeft="@id/manageitem_tvTitle"
             android:textSize="@dimen/_11sdp"
-            android:textColor="?attr/textcolorPrimary"
+            android:textColor="?attr/textcolorSecondary"
             android:layout_below="@id/manageitem_tvTitle"
             android:layout_marginTop="@dimen/_3sdp"
             android:layout_toRightOf="@id/manageitem_ivCocktail"

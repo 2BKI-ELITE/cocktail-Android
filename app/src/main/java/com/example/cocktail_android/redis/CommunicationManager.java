@@ -3,10 +3,14 @@ package com.example.cocktail_android.redis;
 import android.content.Context;
 import android.content.Intent;
 
-import com.example.cocktail_android.redis.controllers.AdminAuthController;
+import com.example.cocktail_android.redis.controllers.auth.AdminAuthController;
 import com.example.cocktail_android.redis.controllers.CocktailController;
+import com.example.cocktail_android.redis.controllers.auth.ConfirmAgeController;
+import com.example.cocktail_android.redis.controllers.auth.MaintenanceAuthController;
 import com.example.cocktail_android.redis.controllers.PingController;
-import com.example.cocktail_android.screenactivities.NoConnectionActivity;
+import com.example.cocktail_android.redis.controllers.auth.UserAddAuthController;
+import com.example.cocktail_android.redis.controllers.auth.UserEditAuthController;
+import com.example.cocktail_android.screenactivities.error.NoConnectionActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -103,6 +107,22 @@ public class CommunicationManager {
 
                                 case "admin_auth_response":
                                     AdminAuthController.response(context, object);
+                                    break;
+
+                                case "maintenance_auth_response":
+                                    MaintenanceAuthController.response(context, object);
+                                    break;
+
+                                case "confirm_age_response":
+                                    ConfirmAgeController.response(context, object);
+                                    break;
+
+                                case "user_add_auth_response":
+                                    UserAddAuthController.response(context, object);
+                                    break;
+
+                                case "user_edit_auth_response":
+                                    UserEditAuthController.response(context, object);
                                     break;
 
                                 case "make_cocktail_confirmation":

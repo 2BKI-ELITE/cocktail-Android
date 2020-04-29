@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="?attr/backgroundcolor"
     android:id="@+id/noconnection_mainlayout"
-    tools:context=".screenactivities.NoConnectionActivity">
+    tools:context=".screenactivities.error.NoConnectionActivity">
 
     <TextView
         android:id="@+id/noconnection_tvTitle"
@@ -36,7 +36,7 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:textSize="@dimen/_19sdp"
         android:textColor="?attr/textcolorPrimary"
-        android:textAlignment="center"/>
+        android:gravity="center_horizontal"/>
 
     <TextView
         android:id="@+id/noconnection_tvText1"
@@ -55,7 +55,7 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:textSize="@dimen/_19sdp"
         android:textColor="?attr/textcolorPrimary"
-        android:textAlignment="center"/>
+        android:gravity="center_horizontal"/>
 
     <TextView
         android:id="@+id/noconnection_tvText2"

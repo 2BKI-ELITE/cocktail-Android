@@ -10,8 +10,9 @@ import android.widget.ImageButton;
 
 import com.example.cocktail_android.R;
 import com.example.cocktail_android.redis.controllers.MachineController;
-import com.example.cocktail_android.screenactivities.InProgressActivity;
-import com.example.cocktail_android.screenactivities.InformationActivity;
+import com.example.cocktail_android.screenactivities.MainActivity;
+import com.example.cocktail_android.screenactivities.admin.cocktails.ManageActivity;
+import com.example.cocktail_android.screenactivities.admin.users.UserActivity;
 
 public class AdminPanelActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -48,6 +49,10 @@ public class AdminPanelActivity extends AppCompatActivity implements View.OnClic
         // Listener for Ingredients Button
         final ImageButton mIngredientsBt = findViewById(R.id.adminpanel_btIngredients);
         mIngredientsBt.setOnClickListener(this);
+
+        // Listener for Back Button
+        final ImageButton mBackBt = findViewById(R.id.adminpanel_btBack);
+        mBackBt.setOnClickListener(this);
       }
 
     @Override
@@ -76,10 +81,24 @@ public class AdminPanelActivity extends AppCompatActivity implements View.OnClic
                 break;
 
             case R.id.adminpanel_btSettings:
-                Intent intente4 = new Intent(AdminPanelActivity.this, SettingsActivity.class);
-                startActivity(intente4);
+                Intent intent5 = new Intent(AdminPanelActivity.this, SettingsActivity.class);
+                startActivity(intent5);
+                break;
+
+            case R.id.adminpanel_btBack:
+                onBackPressed();
+                break;
+
             default:
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }

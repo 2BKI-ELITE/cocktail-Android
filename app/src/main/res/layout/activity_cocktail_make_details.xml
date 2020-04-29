@@ -26,6 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="_Cocktailname_"
+                android:textColor="?attr/textcolorPrimary"
                 android:textSize="@dimen/_20sdp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"/>
@@ -46,6 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Beschreibung"
+            android:textColor="?attr/textcolorSecondary"
             android:layout_marginTop="@dimen/_6sdp"
             android:textSize="@dimen/_19sdp"
             android:textAlignment="center"
@@ -57,12 +59,14 @@
             android:layout_gravity="center_horizontal"
             android:maxHeight="@dimen/_100sdp"
             android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor"
+            android:textColor="?attr/textcolorSecondary"
             android:textAlignment="center"/>
         <TextView
             android:id="@+id/tvIngredientsTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Zutaten"
+            android:textColor="?attr/textcolorSecondary"
             android:layout_marginTop="@dimen/_12sdp"
             android:textSize="@dimen/_19sdp"
             android:textAlignment="center"
@@ -74,6 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text= "Wodka, Orangensaft"
+            android:textColor="?attr/textcolorSecondary"
             android:textAlignment="center"/>
 
 
@@ -93,7 +98,7 @@
             android:layout_weight="1"
             android:layout_gravity="bottom"
             android:background="@null"
-            app:srcCompat="@drawable/cocktail_small_bt" />
+            app:srcCompat="@drawable/cocktail_half_bt"/>
 
         <ImageButton
             android:id="@+id/confirm_bigSize"
@@ -102,7 +107,7 @@
             android:layout_weight="1"
             android:layout_gravity="bottom"
             android:background="@null"
-            app:srcCompat="@drawable/cocktail_large_bt" />
+            app:srcCompat="@drawable/cocktail_normal_bt" />
     </LinearLayout>
 
 

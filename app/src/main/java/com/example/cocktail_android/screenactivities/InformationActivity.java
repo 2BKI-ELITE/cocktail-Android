@@ -2,6 +2,7 @@ package com.example.cocktail_android.screenactivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
@@ -24,5 +25,15 @@ public class InformationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_information);
 
         MachineController.currentActivity = "information";
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MainActivity.class);
+
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        startActivity(intent);
     }
 }

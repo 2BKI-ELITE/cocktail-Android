@@ -6,16 +6,18 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import com.example.cocktail_android.recycler.manage.ManageItem;
 import com.example.cocktail_android.R;
+import com.example.cocktail_android.enums.CocktailSize;
 import com.example.cocktail_android.mysql.DatabaseManager;
 import com.example.cocktail_android.objects.Cocktail;
 import com.example.cocktail_android.objects.Ingredient;
-import com.example.cocktail_android.recycler.CocktailItem;
+import com.example.cocktail_android.recycler.main.CocktailItem;
 import com.example.cocktail_android.redis.CommunicationManager;
 import com.example.cocktail_android.screenactivities.ChooseSizeActvitity;
-import com.example.cocktail_android.screenactivities.FailedActivity;
-import com.example.cocktail_android.screenactivities.InProgressActivity;
-import com.example.cocktail_android.screenactivities.SuccessActivity;
+import com.example.cocktail_android.screenactivities.error.FailedActivity;
+import com.example.cocktail_android.screenactivities.CocktailInProgressActivity;
+import com.example.cocktail_android.screenactivities.success.SuccessActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -78,9 +80,13 @@ public class CocktailController {
 
                     Cocktail cocktail = new Cocktail(context, UUID.fromString(resultSet.getString("cocktailId")), resultSet.getString("name"), resultSet.getString("description"), ingredientsList, enabled, resultSet.getDate("createdAt"));
                     cocktails.put(cocktail.getCocktailId(), cocktail);
-                } catch (JSONException ignored) {}
+                } catch (JSONException ex) {
+                    ex.printStackTrace();
+                }
             }
-        } catch (SQLException e) {}
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public static Bitmap getBitmapFromURL(Context context, UUID cocktailId) {
@@ -97,8 +103,8 @@ public class CocktailController {
             } else {
                 bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.test_cocktail_pic);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
             bitmap = BitmapFactory.decodeResource(context.getResources(),R.drawable.test_cocktail_pic);
         }
 
@@ -107,6 +113,10 @@ public class CocktailController {
 
     public static CocktailItem convertToCocktailItem(Cocktail cocktail) {
         return new CocktailItem(cocktail.getImage(), cocktail.getName(), cocktail);
+    }
+
+    public static ManageItem convertToManageItem(Cocktail cocktail) {
+        return new ManageItem(cocktail.getImage(), cocktail.getName(), cocktail.getDescription(), cocktail);
     }
 
     public static boolean checkAvailability(Cocktail cocktail) {
@@ -123,7 +133,7 @@ public class CocktailController {
         return available;
     }
 
-    public static void makeCocktail(Cocktail cocktail) {
+    public static void makeCocktail(Cocktail cocktail, CocktailSize size) {
         JSONObject message = new JSONObject();
         UUID actionId = UUID.randomUUID();
 
@@ -131,7 +141,10 @@ public class CocktailController {
             message.put("action", "make_cocktail_start");
             message.put("action_id", actionId);
             message.put("cocktail_id", cocktail.getCocktailId());
-        } catch(JSONException ignored) {}
+            message.put("cocktail_size", size.toString());
+        } catch (JSONException ex) {
+            ex.printStackTrace();
+        }
 
         CommunicationManager.activeActions.remove("make_cocktail");
         CommunicationManager.activeActions.put("make_cocktail", actionId);
@@ -143,7 +156,7 @@ public class CocktailController {
             makingBlocked = true;
 
             if(CommunicationManager.activeActions.containsValue(UUID.fromString(object.getString("action_id")))) {
-                Intent intent = new Intent(context, InProgressActivity.class);
+                Intent intent = new Intent(context, CocktailInProgressActivity.class);
 
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -153,7 +166,7 @@ public class CocktailController {
                 intent.putExtra("description", "Ihr Cocktail wird zubereitet");
 
                 context.startActivity(intent);
-                InProgressActivity.allowBack = false;
+                CocktailInProgressActivity.allowBack = false;
             } else {
                 if(MachineController.currentActivity == "cocktail_choosesize") {
                     blurButtons();
@@ -166,7 +179,9 @@ public class CocktailController {
                     context.startActivity(intent);
                 }
             }
-        } catch (JSONException ignored) {}
+        } catch (JSONException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public static void makeCocktailFinished(Context context, JSONObject object) {
@@ -175,7 +190,7 @@ public class CocktailController {
 
             if(CommunicationManager.activeActions.containsValue(UUID.fromString(object.getString("action_id")))) {
                 CommunicationManager.activeActions.remove("make_cocktail");
-                InProgressActivity.allowBack = true;
+                CocktailInProgressActivity.allowBack = true;
 
                 Intent intent = new Intent(context, SuccessActivity.class);
 
@@ -198,7 +213,9 @@ public class CocktailController {
                         blurButtons();
                 }
             }
-        } catch (JSONException ignored) {}
+        } catch (JSONException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public static void makeCocktailCancelled(Context context, JSONObject object) {
@@ -207,7 +224,7 @@ public class CocktailController {
 
             if(CommunicationManager.activeActions.containsValue(UUID.fromString(object.getString("action_id")))) {
                 CommunicationManager.activeActions.remove("make_cocktail");
-                InProgressActivity.allowBack = true;
+                CocktailInProgressActivity.allowBack = true;
 
                 Intent intent = new Intent(context, FailedActivity.class);
 
@@ -230,7 +247,9 @@ public class CocktailController {
                         blurButtons();
                 }
             }
-        } catch (JSONException ignored) {}
+        } catch (JSONException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public static void createCocktail(Context context, Cocktail cocktail) {
@@ -248,12 +267,22 @@ public class CocktailController {
                     object.put("amount", amount);
 
                     ingredients.put(object);
-                } catch (JSONException ignored) {}
+                } catch (JSONException ex) {
+                    ex.printStackTrace();
+                }
             }
 
             try {
-                DatabaseManager.getConnection().prepareStatement("INSERT INTO `cocktails` (`cocktailId`, `name`, `description`, `ingredients`, `enabled`) VALUES ('" + cocktail.getCocktailId() + "', '" + cocktail.getName() + "', '" + cocktail.getDescription() + "', '" + ingredients.toString() + "', '" + cocktail.isEnabled() + "')").execute();
-            } catch (SQLException ignored) {}
+                final PreparedStatement statement = DatabaseManager.getConnection().prepareStatement("INSERT INTO cocktails (cocktailId, name, description, ingredients, enabled) VALUES (?, ?, ?, ?, ?)");
+                statement.setString(1, cocktail.getCocktailId().toString());
+                statement.setString(2, cocktail.getName());
+                statement.setString(3, cocktail.getDescription());
+                statement.setString(4, ingredients.toString());
+                statement.setBoolean(5, cocktail.isEnabled());
+                statement.execute();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
 
             getCocktails(context);
         }
@@ -274,12 +303,22 @@ public class CocktailController {
                     object.put("amount", amount);
 
                     ingredients.put(object);
-                } catch (JSONException ignored) {}
+                } catch (JSONException ex) {
+                    ex.printStackTrace();
+                }
             }
 
             try {
-                DatabaseManager.getConnection().prepareStatement("UPDATE `cocktails` SET `name`='" + cocktail.getName() + "', `description`='" + cocktail.getDescription() + "', `ingredients`='" + ingredients.toString() + "', `enabled`='" + cocktail.isEnabled() + "' WHERE `cocktailId`='" + cocktail.getCocktailId() + "'").execute();
-            } catch (SQLException ignored) {}
+                final PreparedStatement statement = DatabaseManager.getConnection().prepareStatement("UPDATE cocktails SET name = ?, description = ?, ingredients = ?, enabled = ? WHERE cocktailId = ?");
+                statement.setString(1, cocktail.getName());
+                statement.setString(2, cocktail.getDescription());
+                statement.setString(3, ingredients.toString());
+                statement.setBoolean(4, cocktail.isEnabled());
+                statement.setString(5, cocktail.getCocktailId().toString());
+                statement.execute();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
 
             getCocktails(context);
         }
@@ -288,8 +327,12 @@ public class CocktailController {
     public static void deleteCocktail(Context context, Cocktail cocktail) {
         if(cocktails.containsKey(cocktail.getCocktailId())) {
             try {
-                DatabaseManager.getConnection().prepareStatement("DELETE FROM `cocktails` WHERE `cocktailId`='" + cocktail.getCocktailId() + "'").execute();
-            } catch (SQLException ignored) {}
+                final PreparedStatement statement = DatabaseManager.getConnection().prepareStatement("DELETE FROM cocktails WHERE cocktailId = ?");
+                statement.setString(1, cocktail.getCocktailId().toString());
+                statement.execute();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
 
             getCocktails(context);
         }

@@ -41,5 +41,5 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.3.0'
     implementation 'net.java.dev.jna:jna:4.4.0@aar'
-
+    implementation group: 'com.github.skydoves', name: 'colorpickerview', version: '2.1.6'
 }

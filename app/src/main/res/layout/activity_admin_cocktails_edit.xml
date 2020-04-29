@@ -13,10 +13,11 @@
         >
 
         <TextView
-            android:id="@+id/successscreen_tvTitle"
+            android:id="@+id/editcocktail_tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="_Cocktail Title Title_"
+            android:textColor="?attr/textcolorPrimary"
             android:textSize="@dimen/_20sdp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"/>
@@ -32,6 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Name"
+        android:textColor="?attr/textcolorSecondary"
         android:layout_marginTop="@dimen/_18sdp"
         android:layout_marginLeft="@dimen/_24sdp"/>
     <LinearLayout
@@ -55,6 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Beschreibung"
+        android:textColor="?attr/textcolorSecondary"
         android:layout_marginTop="@dimen/_18sdp"
         android:layout_marginLeft="@dimen/_24sdp"/>
     <LinearLayout
@@ -78,6 +81,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Vorschaubild"
+        android:textColor="?attr/textcolorSecondary"
         android:layout_marginTop="@dimen/_24sdp"
         android:layout_marginLeft="@dimen/_24sdp"/>
     <RelativeLayout

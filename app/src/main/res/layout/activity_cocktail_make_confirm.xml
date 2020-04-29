@@ -18,6 +18,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Zubereitung"
+                android:textColor="?attr/textcolorPrimary"
                 android:textSize="@dimen/_20sdp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"/>
@@ -40,15 +41,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hinweis"
+            android:textColor="?attr/textcolorSecondary"
             android:layout_marginTop="@dimen/_65sdp"
             android:textSize="@dimen/_19sdp"
-            android:textAlignment="center" />
+            android:gravity="center_horizontal" />
         <TextView
             android:id="@+id/confirm_tvDescription"
             android:layout_width="@dimen/_220sdp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Bevor die Zubereitung gestartet werden kann muss zunächst ein Glas in das Gerät gestellt werden. Sollte das Glas während der Zubereitung vorzeitig entfernt werden, so wird der Zubereitungsprozess unterbrochen. Bitte betätige den Button erst, wenn ein Glas im Gerät platziert wurde."
+            android:textColor="?attr/textcolorSecondary"
             android:textAlignment="center"/>
 
         <ImageButton

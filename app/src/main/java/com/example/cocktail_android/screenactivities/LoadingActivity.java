@@ -1,14 +1,9 @@
 package com.example.cocktail_android.screenactivities;
 
-import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +11,8 @@ import com.example.cocktail_android.R;
 import com.example.cocktail_android.mysql.DatabaseManager;
 import com.example.cocktail_android.redis.CommunicationManager;
 import com.example.cocktail_android.redis.controllers.MachineController;
+import com.example.cocktail_android.redis.controllers.SettingsController;
+import com.example.cocktail_android.screenactivities.error.NoConnectionActivity;
 
 public class LoadingActivity extends AppCompatActivity {
 
@@ -42,7 +39,11 @@ public class LoadingActivity extends AppCompatActivity {
             if(CommunicationManager.establishConnection()) {
                 CommunicationManager.setupSubscriber(getApplicationContext());
 
-                openMainActivity();
+                if(SettingsController.isMaintenance()) {
+                    openLoginActivity();
+                } else {
+                    openMainActivity();
+                }
             } else {
                 openErrorActivity();
             }
@@ -91,5 +92,11 @@ public class LoadingActivity extends AppCompatActivity {
             }
         };
         welcomeThread.start();
+    }
+
+    private void openLoginActivity() {
+        Intent intent = new Intent(LoadingActivity.this, MaintenanceLoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

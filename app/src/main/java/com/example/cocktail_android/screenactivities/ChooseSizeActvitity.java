@@ -3,6 +3,7 @@ package com.example.cocktail_android.screenactivities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -10,12 +11,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.cocktail_android.R;
+import com.example.cocktail_android.enums.CocktailSize;
 import com.example.cocktail_android.objects.Cocktail;
 import com.example.cocktail_android.objects.Ingredient;
 import com.example.cocktail_android.redis.controllers.CocktailController;
 import com.example.cocktail_android.redis.controllers.MachineController;
+import com.example.cocktail_android.redis.controllers.SettingsController;
+import com.example.cocktail_android.screenactivities.admin.cocktails.ManageActivity;
 
-import java.text.CollationKey;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +30,13 @@ public class ChooseSizeActvitity extends AppCompatActivity implements View.OnCli
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+
+        if (currentNightMode == Configuration.UI_MODE_NIGHT_YES)
+            setTheme(R.style.darktheme);
+        else
+            setTheme(R.style.AppTheme);
+
         super.onCreate(savedInstanceState);
 
         if(getIntent().getBooleanExtra("alcoholic", true))
@@ -83,21 +93,51 @@ public class ChooseSizeActvitity extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.confirm_smallSize:
-                Intent intent1 = new Intent(ChooseSizeActvitity.this, ConfirmCocktail.class);
+                Intent intent1;
+
+                if(SettingsController.alcoholAgeCheck()) {
+                    if(getIntent().getBooleanExtra("alcoholic", true))
+                        intent1 = new Intent(this, ConfirmAgeActivity.class);
+                    else
+                        intent1 = new Intent(this, ConfirmCocktailActivity.class);
+                } else {
+                    intent1 = new Intent(this, ConfirmCocktailActivity.class);
+                }
+
                 intent1.putExtra("cocktailId", cocktail.getCocktailId().toString());
-                intent1.putExtra("size", "small");
+                intent1.putExtra("size", CocktailSize.HALF.toString());
                 startActivity(intent1);
                 break;
 
             case R.id.confirm_bigSize:
-                Intent intent2 = new Intent(ChooseSizeActvitity.this, ConfirmCocktail.class);
+                Intent intent2;
+
+                if(SettingsController.alcoholAgeCheck()) {
+                    if(getIntent().getBooleanExtra("alcoholic", true))
+                        intent2 = new Intent(this, ConfirmAgeActivity.class);
+                    else
+                        intent2 = new Intent(this, ConfirmCocktailActivity.class);
+                } else {
+                    intent2 = new Intent(this, ConfirmCocktailActivity.class);
+                }
+
                 intent2.putExtra("cocktailId", cocktail.getCocktailId().toString());
-                intent2.putExtra("size", "big");
+                intent2.putExtra("size", CocktailSize.NORMAL.toString());
                 startActivity(intent2);
                 break;
 
             default:
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MainActivity.class);
+
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        startActivity(intent);
     }
 }

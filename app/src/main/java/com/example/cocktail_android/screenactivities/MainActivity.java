@@ -12,17 +12,17 @@ import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
+import com.example.cocktail_android.screenactivities.admin.LoginActivity;
 import com.example.cocktail_android.R;
 import com.example.cocktail_android.objects.Cocktail;
 import com.example.cocktail_android.objects.Ingredient;
-import com.example.cocktail_android.recycler.CocktailItem;
-import com.example.cocktail_android.recycler.CocktailItemAdapter;
-import com.example.cocktail_android.recycler.ItemDecoration;
-import com.example.cocktail_android.recycler.StickyRecyclerView;
+import com.example.cocktail_android.recycler.main.CocktailItem;
+import com.example.cocktail_android.recycler.main.CocktailItemAdapter;
+import com.example.cocktail_android.recycler.main.ItemDecoration;
+import com.example.cocktail_android.recycler.main.StickyRecyclerView;
 import com.example.cocktail_android.redis.controllers.CocktailController;
 import com.example.cocktail_android.redis.controllers.IngredientController;
 import com.example.cocktail_android.redis.controllers.MachineController;
-import com.example.cocktail_android.screenactivities.admin.AdminPanelActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
         final ImageButton adminPanelBt = findViewById(R.id.main_btAdminPanel);
         adminPanelBt.setOnClickListener(view -> {
-            Intent intent1 = new Intent(MainActivity.this, AdminPanelActivity.class);
+            Intent intent1 = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent1);
         });
 

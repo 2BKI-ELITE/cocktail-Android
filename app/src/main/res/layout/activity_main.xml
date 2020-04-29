@@ -61,7 +61,7 @@
         <View
             android:layout_width="@dimen/_104sdp"
             android:id="@+id/main_lineview"
-            android:background="@android:color/darker_gray"
+            android:background="?attr/textcolorSecondary"
             android:layout_height="2dp"
             app:layout_constraintBottom_toTopOf="@id/main_rv_non_alcoholic"
             app:layout_constraintLeft_toLeftOf="parent">
@@ -70,7 +70,7 @@
 
         <View
             android:layout_width="@dimen/_104sdp"
-            android:background="@android:color/darker_gray"
+            android:background="?attr/textcolorSecondary"
             android:layout_height="2dp"
             app:layout_constraintBottom_toTopOf="@id/main_rv_non_alcoholic"
             app:layout_constraintRight_toRightOf="parent">
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:text="Alkoholfrei"
             android:textSize="@dimen/_15sdp"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="?attr/textcolorSecondary"
             app:layout_constraintBottom_toBottomOf="@id/main_lineview"
             app:layout_constraintTop_toTopOf="@id/main_lineview"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -94,7 +94,7 @@
         <View
             android:layout_width="@dimen/_104sdp"
             android:id="@+id/main_lineview2"
-            android:background="@android:color/darker_gray"
+            android:background="?attr/textcolorSecondary"
             android:layout_height="2dp"
             app:layout_constraintBottom_toTopOf="@id/main_rv_alcoholic"
             app:layout_constraintLeft_toLeftOf="parent">
@@ -103,7 +103,7 @@
 
         <View
             android:layout_width="@dimen/_104sdp"
-            android:background="@android:color/darker_gray"
+            android:background="?attr/textcolorSecondary"
             android:layout_height="2dp"
             app:layout_constraintBottom_toTopOf="@id/main_rv_alcoholic"
             app:layout_constraintRight_toRightOf="parent">
@@ -115,7 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Alkoholhaltig"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="?attr/textcolorSecondary"
             android:textSize="@dimen/_15sdp"
             app:layout_constraintBottom_toBottomOf="@id/main_lineview2"
             app:layout_constraintTop_toTopOf="@id/main_lineview2"
@@ -123,7 +123,7 @@
             app:layout_constraintRight_toRightOf="parent"
             />
 
-        <com.example.cocktail_android.recycler.StickyRecyclerView
+        <com.example.cocktail_android.recycler.main.StickyRecyclerView
             android:id="@+id/main_rv_alcoholic"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_160sdp"
@@ -131,7 +131,7 @@
             app:layout_constraintBottom_toTopOf="@id/main_rv_non_alcoholic"
             />
 
-        <com.example.cocktail_android.recycler.StickyRecyclerView
+        <com.example.cocktail_android.recycler.main.StickyRecyclerView
             android:id="@+id/main_rv_non_alcoholic"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_160sdp"

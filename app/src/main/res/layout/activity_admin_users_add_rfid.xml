@@ -17,6 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Benutzer hinzufügen"
+            android:textColor="?attr/textcolorPrimary"
             android:textSize="@dimen/_20sdp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"/>
@@ -32,9 +33,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Bitte halte den RFID-Chip, der \nhinzugefügt werden soll \nan das Lesegerät"
+        android:textColor="?attr/textcolorSecondary"
         android:layout_marginTop="@dimen/_94sdp"
         android:textSize="@dimen/_16sdp"
-        android:textAlignment="center" />
+        android:gravity="center_horizontal" />
     <ImageView
         android:id="@+id/adduserrfid_ivCocktail"
         android:layout_width="wrap_content"

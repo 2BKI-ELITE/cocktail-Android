@@ -6,17 +6,14 @@
 
         <item name="colorPrimary">#ECF0F1</item>
         <item name="colorPrimaryDark">#000000</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">#000000</item>
         <item name="backgroundcolor">#ecf0f1</item>
         <item name="cardbackground">#ecf0f1</item>
         <item name="textcolorPrimary">#2c3e50</item>
         <item name="textcolorSecondary">#707070</item>
         <item name="tintcolor">#ffffff</item>
         <item name="buttoncolor">#000000</item>
-    </style>
-
-    <style name="AppTheme.WhiteAccent">
-        <item name="colorAccent">#000000</item> <!-- Whatever color you want-->
+        <item name="formColor">#ffffff</item>
     </style>
 
     <!-- DARK MODE -->
@@ -25,12 +22,13 @@
 
         <item name="colorPrimary">#000000</item>
         <item name="colorPrimaryDark">#000000</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">#ffffff</item>
         <item name="backgroundcolor">#2c3e50</item>
         <item name="cardbackground">#2c3e50</item>
-        <item name="textcolorPrimary">#ecf0f1</item>
-        <item name="textcolorSecondary">#95a5a6</item>
+        <item name="textcolorPrimary">#ffffff</item>
+        <item name="textcolorSecondary">#ECF0F1</item>
         <item name="tintcolor">#ffffff</item>
         <item name="buttoncolor">#000000</item>
+        <item name="formColor">#1e2b38</item>
     </style>
 </resources>

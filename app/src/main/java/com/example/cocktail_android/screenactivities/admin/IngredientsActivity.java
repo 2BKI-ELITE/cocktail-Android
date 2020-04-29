@@ -7,10 +7,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
-import com.example.cocktail_android.IngredientsItemAdapter;
+import com.example.cocktail_android.objects.Cocktail;
+import com.example.cocktail_android.objects.Ingredient;
+import com.example.cocktail_android.recycler.ingredients.IngredientsItemAdapter;
 import com.example.cocktail_android.R;
+import com.example.cocktail_android.redis.controllers.CocktailController;
+import com.example.cocktail_android.redis.controllers.IngredientController;
 import com.example.cocktail_android.redis.controllers.MachineController;
-import com.example.cocktail_android.screenactivities.IngredientsItem;
+import com.example.cocktail_android.recycler.ingredients.IngredientsItem;
 
 import java.util.ArrayList;
 
@@ -18,6 +22,7 @@ public class IngredientsActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
@@ -33,9 +38,10 @@ public class IngredientsActivity extends AppCompatActivity {
         MachineController.currentActivity = "admin_ingredients";
 
         ArrayList<IngredientsItem> exampleList = new ArrayList<>();
-        for(int i =0; i<20; i++){
-            exampleList.add(new IngredientsItem(20,20,"1","pump 2"));
+        ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>(IngredientController.ingredients.values());
 
+        for(int i = 0; i < ingredients.size(); i++) {
+            exampleList.add(IngredientController.convertToIngredientItem(ingredients.get(i)));
         }
 
         mRecyclerView = findViewById(R.id.ingredientsview__rv);

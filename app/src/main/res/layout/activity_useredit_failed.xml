@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screenactivities.error.UserEditAuthFailedActivity"
+    android:background="?attr/backgroundcolor">
+
+
+    <TextView
+        android:id="@+id/usereditfailedscreen_tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:layout_marginBottom="35dp"
+        android:text="Ungültiger RFID-Chip"
+        android:textColor="?attr/textcolorPrimary"
+        android:textSize="@dimen/_20sdp"
+        app:layout_constraintBottom_toTopOf="@+id/usereditfailedscreen_ivFailed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/usereditfailedscreen_ivFailed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginBottom="46dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/cocktails_failed_icon"
+        app:layout_constraintBottom_toTopOf="@+id/usereditfailedscreen_tvDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usereditfailedscreen_tvTitle" />
+
+
+    <TextView
+        android:id="@+id/usereditfailedscreen_tvDescription"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginLeft="62dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginRight="62dp"
+        android:layout_marginBottom="312dp"
+        android:text="Der verwendete RFID-Chip ist nicht im System hinterlegt!"
+        android:gravity="center_horizontal"
+        android:textColor="?attr/textcolorSecondary"
+        app:layout_constraintBottom_toTopOf="@+id/usereditfailedscreen_btBackToMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usereditfailedscreen_ivFailed" />
+
+    <ImageButton
+        android:id="@+id/usereditfailedscreen_btBackToMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@null"
+        android:src="@drawable/cocktail_errorback_bt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usereditfailedscreen_tvDescription" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
