@@ -5,6 +5,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.StrictMode;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cocktail_android.R;
@@ -50,7 +51,6 @@ public class LoadingActivity extends AppCompatActivity {
         } else {
             openErrorActivity();
         }
-
     }
 
     private void openErrorActivity() {

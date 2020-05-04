@@ -9,18 +9,18 @@ import java.sql.SQLException;
 public class SettingsController {
 
     public static boolean isMaintenance() {
-        try {
-            ResultSet result = DatabaseManager.getConnection().prepareStatement("SELECT * FROM settings WHERE `key` = 'maintenance'").executeQuery();
+    try {
+        ResultSet result = DatabaseManager.getConnection().prepareStatement("SELECT * FROM settings WHERE `key` = 'maintenance'").executeQuery();
 
-            if(result.next())
-                return result.getBoolean("value");
-            else
-                return false;
-        } catch (SQLException e) {
-            e.printStackTrace();
+        if(result.next())
+            return result.getBoolean("value");
+        else
             return false;
-        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return false;
     }
+}
 
     public static void setMaintenance(boolean maintenance) {
         try {

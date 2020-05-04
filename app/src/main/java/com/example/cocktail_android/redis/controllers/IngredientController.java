@@ -10,17 +10,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.UUID;
 
 public class IngredientController {
 
-    public static HashMap<UUID, Ingredient> ingredients = new HashMap<>();
+    public static TreeMap<UUID, Ingredient> ingredients = new TreeMap<>();
 
     public static void getIngredients() {
         ingredients.clear();
 
         try {
-            final PreparedStatement statement = DatabaseManager.getConnection().prepareStatement("SELECT * FROM ingredients");
+            final PreparedStatement statement = DatabaseManager.getConnection().prepareStatement("SELECT * FROM ingredients ORDER BY pump+0");
             final ResultSet resultSet = statement.executeQuery();
 
             while(resultSet.next()) {
