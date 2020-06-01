@@ -33,5 +33,199 @@
         android:layout_marginTop="@dimen/_40sdp"
         app:srcCompat="@drawable/cocktails_success_icon" />
 
+    <TextView
+        android:id="@+id/cleaningfinishedscreen_tvTitle2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vorgehen"
+        android:textColor="?attr/textcolorSecondary"
+        android:textSize="@dimen/_19sdp"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"/>
+
+    <TextView
+        android:id="@+id/cleaningfinishedscreen_tvDescription1"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Bitte schließe nun alle Zutaten wieder an die richtigen Pumpen an. Zur sicherheit werden dir die Zutaten mit den zugehörigen Pumpen unten angezeigt."
+        android:textColor="?attr/textcolorPrimary"
+        android:textSize="@dimen/_11sdp"/>
+
+    <TextView
+        android:id="@+id/cleaningfinishedscreen_tvTitle3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Zuordnung der Zutaten"
+        android:textColor="?attr/textcolorSecondary"
+        android:textSize="@dimen/_19sdp"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"/>
+
+    <LinearLayout
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_weight="1"
+            android:text="Pumpe 1"
+            android:textColor="?attr/textcolorPrimary"
+            android:textSize="@dimen/_11sdp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_weight="1"
+            android:text="%ingredientPump1%"
+            android:textColor="?attr/textcolorPrimary"
+            android:textSize="@dimen/_11sdp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_weight="1"
+            android:text="Pumpe 2"
+            android:textColor="?attr/textcolorPrimary"
+            android:textSize="@dimen/_11sdp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_weight="1"
+            android:text="%ingredientPump2%"
+            android:textColor="?attr/textcolorPrimary"
+            android:textSize="@dimen/_11sdp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_weight="1"
+            android:text="Pumpe 3"
+            android:textColor="?attr/textcolorPrimary"
+            android:textSize="@dimen/_11sdp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_weight="1"
+            android:text="%ingredientPump3%"
+            android:textColor="?attr/textcolorPrimary"
+            android:textSize="@dimen/_11sdp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_weight="1"
+            android:text="Pumpe 4"
+            android:textColor="?attr/textcolorPrimary"
+            android:textSize="@dimen/_11sdp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_weight="1"
+            android:text="%ingredientPump4%"
+            android:textColor="?attr/textcolorPrimary"
+            android:textSize="@dimen/_11sdp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_weight="1"
+            android:text="Pumpe 5"
+            android:textColor="?attr/textcolorPrimary"
+            android:textSize="@dimen/_11sdp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_weight="1"
+            android:text="%ingredientPump5%"
+            android:textColor="?attr/textcolorPrimary"
+            android:textSize="@dimen/_11sdp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_weight="1"
+            android:text="Pumpe 6"
+            android:textColor="?attr/textcolorPrimary"
+            android:textSize="@dimen/_11sdp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_weight="1"
+            android:text="%ingredientPump6%"
+            android:textColor="?attr/textcolorPrimary"
+            android:textSize="@dimen/_11sdp" />
+    </LinearLayout>
+
+
+    <ImageButton
+        android:id="@+id/cleaningfinishedscreen_btFinish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/cocktails_finishcleaning_bt"
+        android:background="@null"
+        android:layout_marginTop="@dimen/_40sdp"/>
 
 </LinearLayout>

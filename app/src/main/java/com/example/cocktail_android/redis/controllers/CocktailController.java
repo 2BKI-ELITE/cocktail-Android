@@ -41,8 +41,15 @@ public class CocktailController {
     public static LinkedHashMap<UUID, Cocktail> cocktails = new LinkedHashMap<>();
     public static boolean makingBlocked = false;
     public static Activity chooseActivity;
+    public static Activity cleanActivity;
     public static UUID chooseCocktail;
+    private static Cocktail cocktail;
 
+    /**
+     * Creates some dummy cocktails for test purposes.
+     * @param context Application context needed to create cocktails.
+     * @return ArrayList<CocktailItem> with the created dummy cocktails.
+     */
     public static ArrayList<CocktailItem> fillDummyCocktails(Context context) {
         ArrayList<CocktailItem> cocktails = new ArrayList<>();
 
@@ -54,6 +61,11 @@ public class CocktailController {
         return cocktails;
     }
 
+    /**
+     * Loads cocktails from database.
+     * @param context Application context needed to create retrieved cocktails.
+     * @return Nothing.
+     */
     public static void getCocktails(Context context) {
         cocktails.clear();
 
@@ -89,6 +101,12 @@ public class CocktailController {
         }
     }
 
+    /**
+     * Creates bitmap image from URL stored in database.
+     * @param context Application context needed to create bitmap.
+     * @param cocktailId ID of cocktail
+     * @return Bitmap This is the bitmap image created.
+     */
     public static Bitmap getBitmapFromURL(Context context, UUID cocktailId) {
         Bitmap bitmap;
 
@@ -111,14 +129,29 @@ public class CocktailController {
         return bitmap;
     }
 
+    /**
+     * Converts a cocktail into a recycler-friendly object.
+     * @param cocktail Cocktail which should be converted.
+     * @return CocktailItem This is a for recycler readable object.
+     */
     public static CocktailItem convertToCocktailItem(Cocktail cocktail) {
         return new CocktailItem(cocktail.getImage(), cocktail.getName(), cocktail);
     }
 
+    /**
+     * Converts a cocktail into a management recycler-friendly object.
+     * @param cocktail Cocktail which should be converted.
+     * @return ManageItem This is a for management recycler readable object.
+     */
     public static ManageItem convertToManageItem(Cocktail cocktail) {
         return new ManageItem(cocktail.getImage(), cocktail.getName(), cocktail.getDescription(), cocktail);
     }
 
+    /**
+     * Checks if there are enough resources to make a specified cocktail.
+     * @param cocktail Cocktail to be checked.
+     * @return boolean Returns true if cocktail can be made.
+     */
     public static boolean checkAvailability(Cocktail cocktail) {
         boolean available = true;
 
@@ -133,6 +166,12 @@ public class CocktailController {
         return available;
     }
 
+    /**
+     * Initiates cocktail making process.
+     * @param cocktail Cocktail to be made.
+     * @param size Size of the choosen glass.
+     * @return Nothing.
+     */
     public static void makeCocktail(Cocktail cocktail, CocktailSize size) {
         JSONObject message = new JSONObject();
         UUID actionId = UUID.randomUUID();
@@ -151,6 +190,12 @@ public class CocktailController {
         CommunicationManager.publishMessage(message);
     }
 
+    /**
+     * Incoming message which confirms that the cocktail is getting made.
+     * @param context Application context needed for intents.
+     * @param object Content of response.
+     * @return Nothing.
+     */
     public static void makeCocktailConfirmation(Context context, JSONObject object) {
         try {
             makingBlocked = true;
@@ -168,22 +213,19 @@ public class CocktailController {
                 context.startActivity(intent);
                 CocktailInProgressActivity.allowBack = false;
             } else {
-                if(MachineController.currentActivity == "cocktail_choosesize") {
-                    blurButtons();
-                } else if(MachineController.currentActivity == "cocktail_confirm") {
-                    Intent intent = new Intent(context, ChooseSizeActvitity.class);
-
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-                    context.startActivity(intent);
-                }
+                setButtonBlur(context);
             }
         } catch (JSONException ex) {
             ex.printStackTrace();
         }
     }
 
+    /**
+     * Incoming message which tells the app that the cocktail was made successfully.
+     * @param context Application context needed for intents.
+     * @param object Content of response.
+     * @return Nothing.
+     */
     public static void makeCocktailFinished(Context context, JSONObject object) {
         try {
             makingBlocked = false;
@@ -205,12 +247,8 @@ public class CocktailController {
                 context.startActivity(intent);
             } else {
                 if(MachineController.currentActivity == "cocktail_choosesize") {
-                    Cocktail cocktail = cocktails.get(chooseCocktail);
-
-                    if(checkAvailability(cocktail))
-                        unblurButtons();
-                    else
-                        blurButtons();
+                    cocktail = cocktails.get(chooseCocktail);
+                    setButtonBlur(context);
                 }
             }
         } catch (JSONException ex) {
@@ -218,6 +256,12 @@ public class CocktailController {
         }
     }
 
+    /**
+     * Incoming message which tells the app that the cocktail making was cancelled.
+     * @param context Application context needed for intents.
+     * @param object Content of response.
+     * @return Nothing.
+     */
     public static void makeCocktailCancelled(Context context, JSONObject object) {
         try {
             makingBlocked = false;
@@ -239,12 +283,8 @@ public class CocktailController {
                 context.startActivity(intent);
             } else {
                 if(MachineController.currentActivity == "cocktail_choosesize") {
-                    Cocktail cocktail = cocktails.get(chooseCocktail);
-
-                    if(checkAvailability(cocktail))
-                        unblurButtons();
-                    else
-                        blurButtons();
+                    cocktail = cocktails.get(chooseCocktail);
+                    setButtonBlur(context);
                 }
             }
         } catch (JSONException ex) {
@@ -252,6 +292,12 @@ public class CocktailController {
         }
     }
 
+    /**
+     * Creates a new cocktail and stores it in the database.
+     * @param context Application context needed to update cocktail list.
+     * @param cocktail Cocktail object to be created.
+     * @return Nothing.
+     */
     public static void createCocktail(Context context, Cocktail cocktail) {
         if(!cocktails.containsKey(cocktail.getCocktailId())) {
             JSONArray ingredients = new JSONArray();
@@ -288,6 +334,12 @@ public class CocktailController {
         }
     }
 
+    /**
+     * Updates a specified cocktail.
+     * @param context Application context needed to update cocktail list.
+     * @param cocktail Cocktail object to be updated.
+     * @return Nothing.
+     */
     public static void updateCocktail(Context context, Cocktail cocktail) {
         if(cocktails.containsKey(cocktail.getCocktailId())) {
             JSONArray ingredients = new JSONArray();
@@ -324,6 +376,12 @@ public class CocktailController {
         }
     }
 
+    /**
+     * Deletes a specified cocktail.
+     * @param context Application context needed to update cocktail list.
+     * @param cocktail Cocktail object to be deleted.
+     * @return Nothing.
+     */
     public static void deleteCocktail(Context context, Cocktail cocktail) {
         if(cocktails.containsKey(cocktail.getCocktailId())) {
             try {
@@ -338,17 +396,74 @@ public class CocktailController {
         }
     }
 
-    public static void blurButtons() {
+    /**
+     * Checks if any action is in process and blurs buttons.
+     * @param context Application context needed for intents.
+     * @return Nothing.
+     */
+    public static void setButtonBlur(Context context) {
+        if(CommunicationManager.activeActions.containsKey("make_cocktail") || CommunicationManager.activeActions.containsKey("machine_clean")) {
+            if(MachineController.currentActivity == "cocktail_choosesize") {
+                blurCocktailButtons();
+            } else if(MachineController.currentActivity == "cocktail_confirm") {
+                Intent intent = new Intent(context, ChooseSizeActvitity.class);
+
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                context.startActivity(intent);
+            } else if(MachineController.currentActivity == "admin_clean") {
+                blurCleaningButton();
+            }
+        } else {
+            if(MachineController.currentActivity == "cocktail_choosesize") {
+                if(checkAvailability(cocktail))
+                    unblurCocktailButtons();
+                else
+                    blurCocktailButtons();
+            } else if(MachineController.currentActivity == "admin_clean") {
+                unblurCleaningButton();
+            }
+        }
+    }
+
+    /**
+     * Blurs cocktail start buttons.
+     * @return Nothing.
+     */
+    public static void blurCocktailButtons() {
         chooseActivity.findViewById(R.id.confirm_smallSize).setAlpha(.5f);
         chooseActivity.findViewById(R.id.confirm_bigSize).setAlpha(.5f);
         chooseActivity.findViewById(R.id.confirm_smallSize).setClickable(false);
         chooseActivity.findViewById(R.id.confirm_bigSize).setClickable(false);
     }
 
-    public static void unblurButtons() {
+    /**
+     * Unblurs cocktail start buttons.
+     * @return Nothing.
+     */
+    public static void unblurCocktailButtons() {
         chooseActivity.findViewById(R.id.confirm_smallSize).setAlpha(1);
         chooseActivity.findViewById(R.id.confirm_bigSize).setAlpha(1);
         chooseActivity.findViewById(R.id.confirm_smallSize).setClickable(true);
         chooseActivity.findViewById(R.id.confirm_bigSize).setClickable(true);
+    }
+
+    /**
+     * Blurs cleaning start buttons.
+     * @return Nothing.
+     */
+    public static void blurCleaningButton() {
+        cleanActivity.findViewById(R.id.cleanscreen_btStart).setAlpha(.5f);
+        cleanActivity.findViewById(R.id.cleanscreen_btStart).setClickable(false);
+    }
+
+    /**
+     * Unblurs cleaning start buttons.
+     * @return Nothing.
+     */
+    public static void unblurCleaningButton() {
+        cleanActivity.findViewById(R.id.cleanscreen_btStart).setAlpha(1);
+        cleanActivity.findViewById(R.id.cleanscreen_btStart).setClickable(true);
     }
 }

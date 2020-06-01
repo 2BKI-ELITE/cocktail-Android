@@ -17,6 +17,10 @@ import java.util.UUID;
 
 public class UserAddAuthController {
 
+    /**
+     * Starts scanning for RFID-Tag to add.
+     * @return Nothing.
+     */
     public static void start() {
         JSONObject message = new JSONObject();
         UUID actionId = UUID.randomUUID();
@@ -38,6 +42,10 @@ public class UserAddAuthController {
         CommunicationManager.publishMessage(message);
     }
 
+    /**
+     * Cancels scanning for RFID-Tag.
+     * @return Nothing.
+     */
     public static void cancel() {
         if(CommunicationManager.activeActions.containsKey("user_add_auth")) {
             UUID actionId = CommunicationManager.activeActions.get("user_add_auth");
@@ -55,6 +63,12 @@ public class UserAddAuthController {
         }
     }
 
+    /**
+     * Handles response on RFID-Tag scanning.
+     * @param context Needs Context to create intents.
+     * @param object Content of response.
+     * @return Nothing.
+     */
     public static void response(Context context, JSONObject object) {
         try {
             if(CommunicationManager.activeActions.containsValue(UUID.fromString(object.getString("action_id")))) {

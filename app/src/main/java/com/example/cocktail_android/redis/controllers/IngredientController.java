@@ -17,6 +17,10 @@ public class IngredientController {
 
     public static TreeMap<UUID, Ingredient> ingredients = new TreeMap<>();
 
+    /**
+     * Loads ingredients from database.
+     * @return Nothing.
+     */
     public static void getIngredients() {
         ingredients.clear();
 
@@ -32,10 +36,21 @@ public class IngredientController {
         }
     }
 
+    /**
+     * Converts a ingredient into a recycler-friendly object.
+     * @param ingredient Ingredient to be converted.
+     * @return IngredientsItem This is a recycler-readable object.
+     */
     public static IngredientsItem convertToIngredientItem(Ingredient ingredient) {
         return new IngredientsItem(ingredient.getFillLevel(), ingredient.getFillCapacity(), ingredient.getName(), ingredient.getPump());
     }
 
+    /**
+     * Creates a new ingredient and stores it in the database
+     * @param context Application context needed to update cocktail list.
+     * @param ingredient Ingredient object to be created.
+     * @return Nothing.
+     */
     public static void createIngredient(Context context, Ingredient ingredient) {
         if(!ingredients.containsKey(ingredient.getIngredientId())) {
             try {
@@ -61,6 +76,12 @@ public class IngredientController {
         }
     }
 
+    /**
+     * Updates a specified ingredient.
+     * @param context Application context needed to update cocktail list.
+     * @param ingredient Ingredient object to be updated.
+     * @return Nothing.
+     */
     public static void updateIngredient(Context context, Ingredient ingredient) {
         if(ingredients.containsKey(ingredient.getIngredientId())) {
             try {
@@ -85,6 +106,12 @@ public class IngredientController {
         }
     }
 
+    /**
+     * Deletes a specified ingredient.
+     * @param context Application context needed to update cocktail list.
+     * @param ingredient Ingredient object to be deleted.
+     * @return Nothing.
+     */
     public static void deleteIngredient(Context context, Ingredient ingredient) {
         if(ingredients.containsKey(ingredient.getIngredientId())) {
             try {

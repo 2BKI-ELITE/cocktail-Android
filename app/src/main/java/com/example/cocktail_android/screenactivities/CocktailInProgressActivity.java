@@ -29,10 +29,10 @@ public class CocktailInProgressActivity extends AppCompatActivity {
 
         MachineController.currentActivity = "cocktail_inprogress";
 
-        ((TextView) findViewById(R.id.inProgress_tvTitle)).setText(getIntent().getStringExtra("title"));
-        ((TextView) findViewById(R.id.inProgress_tvText1)).setText(getIntent().getStringExtra("description"));
+        ((TextView) findViewById(R.id.cocktailInProgress_tvTitle)).setText(getIntent().getStringExtra("title"));
+        ((TextView) findViewById(R.id.cocktailInProgress_tvText1)).setText(getIntent().getStringExtra("description"));
 
-        ProgressBar pgsBar = findViewById(R.id.inProgress_pBar);
+        ProgressBar pgsBar = findViewById(R.id.cocktailInProgress_pBar);
         pgsBar.setVisibility(View.VISIBLE);
     }
 

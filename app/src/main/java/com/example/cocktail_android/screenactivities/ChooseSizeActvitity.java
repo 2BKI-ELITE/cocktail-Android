@@ -84,9 +84,7 @@ public class ChooseSizeActvitity extends AppCompatActivity implements View.OnCli
         smallSizeButton = findViewById(R.id.confirm_smallSize);
         bigSizeButton = findViewById(R.id.confirm_bigSize);
 
-        if(CocktailController.makingBlocked || !CocktailController.checkAvailability(cocktail)) {
-            CocktailController.blurButtons();
-        }
+        CocktailController.setButtonBlur(getApplicationContext());
     }
 
     @Override

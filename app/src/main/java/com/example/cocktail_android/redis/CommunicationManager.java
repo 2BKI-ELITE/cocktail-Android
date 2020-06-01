@@ -3,6 +3,7 @@ package com.example.cocktail_android.redis;
 import android.content.Context;
 import android.content.Intent;
 
+import com.example.cocktail_android.redis.controllers.MachineController;
 import com.example.cocktail_android.redis.controllers.auth.AdminAuthController;
 import com.example.cocktail_android.redis.controllers.CocktailController;
 import com.example.cocktail_android.redis.controllers.auth.ConfirmAgeController;
@@ -82,14 +83,12 @@ public class CommunicationManager {
     }
 
     public static void setupSubscriber(Context context) {
-        Thread.UncaughtExceptionHandler h = new Thread.UncaughtExceptionHandler() {
-            public void uncaughtException(Thread th, Throwable ex) {
-                Intent intent = new Intent(context, NoConnectionActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                context.startActivity(intent);
-            }
+        Thread.UncaughtExceptionHandler h = (th, ex) -> {
+            Intent intent = new Intent(context, NoConnectionActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            context.startActivity(intent);
         };
 
         Thread t = new Thread(() -> jedisSub.subscribe(new JedisPubSub() {
@@ -104,6 +103,7 @@ public class CommunicationManager {
                             switch(object.getString("action")) {
                                 case "ping":
                                     PingController.pong(context, object);
+                                    break;
 
                                 case "admin_auth_response":
                                     AdminAuthController.response(context, object);
@@ -133,8 +133,20 @@ public class CommunicationManager {
                                     CocktailController.makeCocktailFinished(context, object);
                                     break;
 
-                                case "make_cocktail_canceled":
+                                case "make_cocktail_cancelled":
                                     CocktailController.makeCocktailCancelled(context, object);
+                                    break;
+
+                                case "machine_clean_confirmation":
+                                    MachineController.cleanMachineConfirmation(context, object);
+                                    break;
+
+                                case "machine_clean_finished":
+                                    MachineController.cleanMachineFinished(context, object);
+                                    break;
+
+                                case "machine_clean_cancelled":
+                                    MachineController.cleanMachineCancelled(context, object);
                                     break;
 
                                 default:

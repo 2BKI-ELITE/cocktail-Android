@@ -9,8 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_40sdp"
-        >
+        android:layout_marginTop="@dimen/_40sdp">
 
         <TextView
             android:id="@+id/cleanscreen_tvTitle"
@@ -20,11 +19,7 @@
             android:textColor="?attr/textcolorPrimary"
             android:textSize="@dimen/_20sdp"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"/>
-
-
-
-
+            android:layout_centerVertical="true" />
     </RelativeLayout>
 
     <TextView
@@ -35,24 +30,24 @@
         android:text="Bevor die Reinigung gestartet werden kann, müssen einige Dinge beachtet werden, um die Reinigung ordnungsgemäß durchführen zu können. Folge deshalb bitte der untenstehenden Anleitung und betätige den Button, sobald alle Kriterien erfüllt wurden."
         android:textColor="?attr/textcolorSecondary"
         android:textAlignment="center"
-        android:layout_marginTop="@dimen/_44sdp"/>
+        android:layout_marginTop="@dimen/_44sdp" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/cocktails_cleaning_icon"
-        android:layout_marginTop="@dimen/_20sdp"/>
+        android:layout_marginTop="@dimen/_20sdp" />
 
     <TextView
-        android:id="@+id/noconnection_tvSubtitle1"
+        android:id="@+id/cleanscreen_tvSubtitle1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Vorgehen"
         android:textColor="?attr/textcolorSecondary"
         android:layout_marginTop="@dimen/_55sdp"
         android:textSize="@dimen/_19sdp"
-        android:gravity="center_horizontal"/>
+        android:gravity="center_horizontal" />
 
     <TextView
         android:id="@+id/textView"
@@ -62,15 +57,13 @@
         android:text= "- Alle Schläuche der Pumpen in ein Gefäß mit mindestens 600ml Wasser Stecken\n-Ein Gefäß in das Gerät stellen..."
         android:textColor="?attr/textcolorSecondary"
         android:textAlignment="center"
-        android:layout_marginTop="@dimen/_7sdp"/>
+        android:layout_marginTop="@dimen/_7sdp" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/cleanscreen_btStart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/cocktails_startcleaning_bt"
         android:background="@null"
-        android:layout_marginTop="@dimen/_40sdp"/>
-
-
+        android:layout_marginTop="@dimen/_40sdp" />
 </LinearLayout>

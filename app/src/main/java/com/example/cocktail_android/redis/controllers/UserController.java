@@ -1,7 +1,5 @@
 package com.example.cocktail_android.redis.controllers;
 
-import android.provider.ContactsContract;
-
 import com.example.cocktail_android.mysql.DatabaseManager;
 import com.example.cocktail_android.objects.User;
 

@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/inProgress_tvTitle"
+            android:id="@+id/cocktailInProgress_tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="inProgressTitlePlaceholder"
@@ -34,7 +34,7 @@
 
 
     <TextView
-        android:id="@+id/inProgress_tvText1"
+        android:id="@+id/cocktailInProgress_tvText1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
@@ -42,29 +42,29 @@
         android:textColor="?attr/textcolorSecondary"
         android:gravity="center_horizontal"
         android:textSize="@dimen/_16sdp"
-        app:layout_constraintBottom_toTopOf="@+id/inProgress_pBar"
+        app:layout_constraintBottom_toTopOf="@+id/cocktailInProgress_pBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ProgressBar
-        android:id="@+id/inProgress_pBar"
+        android:id="@+id/cocktailInProgress_pBar"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="23dp"
         android:theme="?attr/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/inProgress_tvText2"
+        app:layout_constraintBottom_toTopOf="@+id/cocktailInProgress_tvText2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"></ProgressBar>
 
     <TextView
-        android:id="@+id/inProgress_tvText2"
+        android:id="@+id/cocktailInProgress_tvText2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="300dp"
         android:text="Bitte warten..."
         android:textColor="?attr/textcolorSecondary"
-        android:textAlignment="center"
+        android:gravity="center"
         android:textSize="@dimen/_16sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

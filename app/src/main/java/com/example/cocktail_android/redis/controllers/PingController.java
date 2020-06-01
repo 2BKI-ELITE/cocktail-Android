@@ -9,6 +9,12 @@ import org.json.JSONObject;
 
 public class PingController {
 
+    /**
+     * Incoming message which tells the app that the ping was successful.
+     * @param context Application context, not used in this case.
+     * @param object Content of message.
+     * @return Nothing.
+     */
     public static void pong(Context context, JSONObject object) {
         try {
             JSONObject message = new JSONObject();
@@ -19,6 +25,11 @@ public class PingController {
         } catch (JSONException ignored) {}
     }
 
+    /**
+     * Pings raspberry to check connection.
+     * @param context Application context, not used in this case.
+     * @return Nothing.
+     */
     public static void ping(Context context) {
         try {
             JSONObject message = new JSONObject();

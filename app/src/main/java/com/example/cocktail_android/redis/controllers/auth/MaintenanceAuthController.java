@@ -17,6 +17,10 @@ import java.util.UUID;
 
 public class MaintenanceAuthController {
 
+    /**
+     * Starts authentication process for maintenance entry.
+     * @return Nothing.
+     */
     public static void start() {
         JSONObject message = new JSONObject();
         UUID actionId = UUID.randomUUID();
@@ -38,6 +42,10 @@ public class MaintenanceAuthController {
         CommunicationManager.publishMessage(message);
     }
 
+    /**
+     * Cancels maintenance entry authentication.
+     * @return Nothing.
+     */
     public static void cancel() {
         if(CommunicationManager.activeActions.containsKey("maintenance_auth")) {
             UUID actionId = CommunicationManager.activeActions.get("maintenance_auth");
@@ -55,6 +63,12 @@ public class MaintenanceAuthController {
         }
     }
 
+    /**
+     * Handles response on maintenance entry authentication.
+     * @param context Needs Context to create intents.
+     * @param object Content of response.
+     * @return Nothing.
+     */
     public static void response(Context context, JSONObject object) {
         try {
             if(CommunicationManager.activeActions.containsValue(UUID.fromString(object.getString("action_id")))) {

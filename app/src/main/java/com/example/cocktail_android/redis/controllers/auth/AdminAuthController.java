@@ -18,6 +18,10 @@ import java.util.UUID;
 
 public class AdminAuthController {
 
+    /**
+     * Starts authentication process for admin panel.
+     * @return Nothing.
+     */
     public static void start() {
         JSONObject message = new JSONObject();
         UUID actionId = UUID.randomUUID();
@@ -39,6 +43,10 @@ public class AdminAuthController {
         CommunicationManager.publishMessage(message);
     }
 
+    /**
+     * Cancels admin panel authentication.
+     * @return Nothing.
+     */
     public static void cancel() {
         if(CommunicationManager.activeActions.containsKey("admin_auth")) {
             UUID actionId = CommunicationManager.activeActions.get("admin_auth");
@@ -56,6 +64,12 @@ public class AdminAuthController {
         }
     }
 
+    /**
+     * Handles response on admin panel authentication.
+     * @param context Needs Context to create intents.
+     * @param object Content of response.
+     * @return Nothing.
+     */
     public static void response(Context context, JSONObject object) {
         try {
             if(CommunicationManager.activeActions.containsValue(UUID.fromString(object.getString("action_id")))) {

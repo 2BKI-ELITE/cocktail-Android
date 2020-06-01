@@ -1,16 +1,17 @@
 package com.example.cocktail_android.screenactivities.admin;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.cocktail_android.R;
 import com.example.cocktail_android.redis.controllers.MachineController;
 import com.example.cocktail_android.screenactivities.MainActivity;
+import com.example.cocktail_android.screenactivities.admin.cleaning.CleaningActivity;
 import com.example.cocktail_android.screenactivities.admin.cocktails.ManageActivity;
 import com.example.cocktail_android.screenactivities.admin.users.UserActivity;
 
@@ -61,7 +62,7 @@ public class AdminPanelActivity extends AppCompatActivity implements View.OnClic
         switch (view.getId()) {
 
             case R.id.adminpanel_btClean:
-                Intent intent1 = new Intent(AdminPanelActivity.this, CleanActivity.class);
+                Intent intent1 = new Intent(AdminPanelActivity.this, CleaningActivity.class);
                 startActivity(intent1);
                 break;
 

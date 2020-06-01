@@ -34,7 +34,16 @@
             android:name=".screenactivities.admin.users.UserActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".screenactivities.admin.CleanActivity"
+            android:name=".screenactivities.admin.cleaning.CleaningActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".screenactivities.admin.cleaning.CleaningCancelledActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".screenactivities.admin.cleaning.CleaningFinishedActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".screenactivities.admin.cleaning.CleaningInProgressActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".screenactivities.admin.LoginActivity"
