@@ -31,6 +31,10 @@ public class CommunicationManager {
     private static Jedis jedisPub;
     private static Jedis jedisSub;
 
+    /**
+     * Establishes connection to redis server.
+     * @return boolean Returns true if connection was successful.
+     */
     public static boolean establishConnection() {
         jedisPub = new Jedis("192.168.1.1");
         jedisSub = new Jedis("192.168.1.1");
@@ -46,6 +50,11 @@ public class CommunicationManager {
         }
     }
 
+    /**
+     * Publishes message to a specified redis client.
+     * @param object Message to publish.
+     * @return Nothing.
+     */
     public static void publishMessage(JSONObject object) {
         JSONObject sender = new JSONObject();
         JSONObject to = new JSONObject();
@@ -64,6 +73,11 @@ public class CommunicationManager {
         jedisPub.publish("general", object.toString());
     }
 
+    /**
+     * Publishes message to all redis clients.
+     * @param object Message to publish.
+     * @return Nothing.
+     */
     public static void publishBroadcastMessage(JSONObject object) {
         JSONObject sender = new JSONObject();
         JSONObject to = new JSONObject();
@@ -82,6 +96,11 @@ public class CommunicationManager {
         jedisPub.publish("general", object.toString());
     }
 
+    /**
+     * Sets up subscriber for redis messages.
+     * @param context Application context needed for intents.
+     * @return Nothing.
+     */
     public static void setupSubscriber(Context context) {
         Thread.UncaughtExceptionHandler h = (th, ex) -> {
             Intent intent = new Intent(context, NoConnectionActivity.class);

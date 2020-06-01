@@ -51,6 +51,11 @@ public class StickyRecyclerView extends RecyclerView {
         }
     }
 
+    /**
+     * Returns percentage away from center.
+     * @param child
+     * @return float
+     */
     private float getPercentageFromCenter(View child) {
         float centerX = (getMeasuredWidth() / 2);
         float childCenterX = child.getX() + (child.getWidth() / 2);
@@ -59,6 +64,10 @@ public class StickyRecyclerView extends RecyclerView {
         return (offSet / maxOffset);
     }
 
+    /**
+     * Returns center of recycler.
+     * @return int
+     */
     private int findCenterViewIndex() {
         int count = getChildCount();
         int index = -1;
@@ -82,14 +91,28 @@ public class StickyRecyclerView extends RecyclerView {
         }
     }
 
+    /**
+     * Returns scroll direction.
+     * @return int
+     */
     public int getScrollDirection() {
         return mScrollDirection;
     }
 
+    /**
+     * Sets scroll direction.
+     * @param dx direction
+     * @return Nothing.
+     */
     private void setScrollDirection(int dx) {
         mScrollDirection = dx >= 0 ? SCROLL_DIRECTION_LEFT : SCROLL_DIRECTION_RIGHT;
     }
 
+    /**
+     * Sets center listener.
+     * @param listener
+     * @return Nothing.
+     */
     public void setOnCenterItemChangedListener(StickyRecyclerView.OnCenterItemChangedListener listener) {
         mCenterItemChangedListener = listener;
     }

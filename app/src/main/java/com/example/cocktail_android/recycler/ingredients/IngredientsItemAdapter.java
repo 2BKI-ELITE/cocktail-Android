@@ -15,9 +15,11 @@ import java.util.ArrayList;
 
 public class IngredientsItemAdapter extends RecyclerView.Adapter<IngredientsItemAdapter.IngredientsItemViewHolder> {
     private ArrayList<IngredientsItem> mExampleList;
-    public static class IngredientsItemViewHolder extends RecyclerView.ViewHolder{
+
+    public static class IngredientsItemViewHolder extends RecyclerView.ViewHolder {
         public TextView mIngredientName, mPump, mAmount;
         public ProgressBar mProgress;
+
         public IngredientsItemViewHolder(@NonNull View itemView) {
             super(itemView);
             mIngredientName = itemView.findViewById(R.id.ingredientsItem_tvTitle);
@@ -55,6 +57,12 @@ public class IngredientsItemAdapter extends RecyclerView.Adapter<IngredientsItem
         return mExampleList.size();
     }
 
+    /**
+     * Returns percentage of fill level to fill capacity.
+     * @param current Fill level.
+     * @param capacity Fill capacity.
+     * @return int Returns percentage.
+     */
     private int getPercentage(int current, int capacity) {
         float percentage = ((float) current / (float) capacity) * (float) 100;
         return Math.round(percentage);

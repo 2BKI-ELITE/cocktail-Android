@@ -64,6 +64,5 @@ public class CocktailItemAdapter extends RecyclerView.Adapter<CocktailItemAdapte
         CocktailItem currentItem = cocktails.get(position);
         holder.mImageView.setImageBitmap(currentItem.getImage());
         holder.mTextView1.setText(currentItem.getmText1());
-
     }
 }

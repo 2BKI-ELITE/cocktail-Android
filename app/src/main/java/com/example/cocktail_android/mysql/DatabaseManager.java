@@ -11,6 +11,10 @@ public class DatabaseManager {
 
     private static Connection connection;
 
+    /**
+     * Establishes connection to MySQL server.
+     * @return boolean Returns true if connection was successful.
+     */
     public static boolean connect() {
         try {
             Class.forName("org.mariadb.jdbc.Driver");
@@ -25,10 +29,18 @@ public class DatabaseManager {
         }
     }
 
+    /**
+     * Returns connection to database.
+     * @return Connection
+     */
     public static Connection getConnection() {
         return connection;
     }
 
+    /**
+     * Creates needed tables for application.
+     * @return Nothing.
+     */
     public static void createTables() {
         try {
             connection.prepareStatement("CREATE TABLE IF NOT EXISTS `cocktails` (`cocktailId` VARCHAR(36) PRIMARY KEY, `name` VARCHAR(50) NOT NULL, `description` TEXT, `ingredients` TEXT, `enabled` BOOLEAN DEFAULT true, `createdAt` TIMESTAMP NOT NULL DEFAULT NOW());").execute();

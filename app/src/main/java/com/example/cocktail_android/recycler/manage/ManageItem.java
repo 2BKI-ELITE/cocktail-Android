@@ -18,16 +18,32 @@ public class ManageItem {
         this.cocktail = cocktail;
     }
 
+    /**
+     * Returns cocktail image.
+     * @return Bitmap
+     */
     public Bitmap getImage() {
         return image;
     }
 
+    /**
+     * Returns cocktail name.
+     * @return String
+     */
     public String getmText1() {
         return mText1;
     }
 
+    /**
+     * Returns cocktail description.
+     * @return String
+     */
     public String getmText2() { return mText2; }
 
+    /**
+     * Returns cocktail object.
+     * @return Cocktail
+     */
     public Cocktail getCocktail() {
         return cocktail;
     }

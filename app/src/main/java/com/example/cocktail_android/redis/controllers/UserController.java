@@ -9,6 +9,11 @@ import java.sql.SQLException;
 
 public class UserController {
 
+    /**
+     * Checks if given user exists.
+     * @param userId ID of user to be checked.
+     * @return boolean Returns true if user exists.
+     */
     public static boolean userExists(String userId) {
         try {
             final PreparedStatement statement = DatabaseManager.getConnection().prepareStatement("SELECT * FROM users WHERE userId = ?");
@@ -24,6 +29,11 @@ public class UserController {
         return false;
     }
 
+    /**
+     * Load user information from database.
+     * @param userId ID of user to be loaded.
+     * @return User Returns null when user couldn't be found.
+     */
     public static User getUser(String userId) {
         try {
             final PreparedStatement statement = DatabaseManager.getConnection().prepareStatement("SELECT * FROM users WHERE userId = ?");
@@ -41,6 +51,11 @@ public class UserController {
         return null;
     }
 
+    /**
+     * Creates a new user.
+     * @param user User to be created.
+     * @return Nothing.
+     */
     public static void createUser(User user) {
         try {
             final PreparedStatement statement = DatabaseManager.getConnection().prepareStatement("INSERT INTO users (userId, isAdult, isAdmin) VALUES (?, ?, ?)");
@@ -53,6 +68,11 @@ public class UserController {
         }
     }
 
+    /**
+     * Updates a existing user.
+     * @param user User to be updated.
+     * @return Nothing.
+     */
     public static void updateUser(User user) {
         try {
             final PreparedStatement statement = DatabaseManager.getConnection().prepareStatement("UPDATE users SET isAdult = ?, isAdmin = ? WHERE userId = ?");
@@ -65,6 +85,11 @@ public class UserController {
         }
     }
 
+    /**
+     * Deletes a existing user.
+     * @param user User to be deleted.
+     * @return Nothing.
+     */
     public static void deleteUser(User user) {
         try {
             final PreparedStatement statement = DatabaseManager.getConnection().prepareStatement("DELETE * FROM users WHERE userId = ?");

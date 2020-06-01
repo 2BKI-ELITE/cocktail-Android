@@ -15,15 +15,26 @@ public class CocktailItem {
         this.cocktail = cocktail;
     }
 
+    /**
+     * Returns cocktail image.
+     * @return Bitmap
+     */
     public Bitmap getImage() {
         return image;
     }
 
-
+    /**
+     * Returns cocktail name.
+     * @return String
+     */
     public String getmText1() {
         return mText1;
     }
 
+    /**
+     * Returns cocktail object.
+     * @return Cocktail
+     */
     public Cocktail getCocktail() {
         return cocktail;
     }
