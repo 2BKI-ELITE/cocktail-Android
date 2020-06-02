@@ -9,15 +9,25 @@
     android:background="?attr/backgroundcolor">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/relativeLayout2"
+        android:id="@+id/cleaningfinishedscreen_clTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
-        android:layout_marginBottom="52dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/cleaningfinishedscreen_btBack"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:paddingLeft="@dimen/_20sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/cocktail_back_bt" />
 
         <TextView
             android:id="@+id/cleaningfinishedscreen_tvTitle"
@@ -40,7 +50,7 @@
         app:layout_constraintBottom_toTopOf="@+id/cleaningfinishedscreen_tvTitle2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/cleaningfinishedscreen_clTitle"
         app:srcCompat="@drawable/cocktails_success_icon" />
 
     <TextView

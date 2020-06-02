@@ -9,15 +9,25 @@
     android:background="?attr/backgroundcolor">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/relativeLayout2"
+        android:id="@+id/cleaningfailedscreen_clTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
-        android:layout_marginBottom="52dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/cleaningfailedscreen_btBack"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:paddingLeft="@dimen/_20sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/cocktail_back_bt" />
 
         <TextView
             android:id="@+id/cleaningfailedscreen_tvTitle"
@@ -32,16 +42,7 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="26dp"
-        app:layout_constraintBottom_toTopOf="@+id/cleaningfailedscreen_tvTitle2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
-        app:srcCompat="@drawable/cocktails_failed_icon" />
+
 
     <TextView
         android:id="@+id/cleaningfailedscreen_tvTitle2"
@@ -55,6 +56,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp"
+        app:layout_constraintBottom_toTopOf="@+id/cleaningfailedscreen_tvTitle2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cleaningfailedscreen_clTitle"
+        app:srcCompat="@drawable/cocktails_failed_icon" />
 
     <TextView
         android:id="@+id/cleaningfailedscreen_tvDescription1"

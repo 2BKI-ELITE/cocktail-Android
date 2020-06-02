@@ -9,18 +9,39 @@
     tools:context=".screenactivities.admin.cocktails.ManageActivity">
 
 
-    <TextView
-        android:id="@+id/ingredientsview_tvTitle"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ingredientsview_clTitle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
-        android:text="Zutaten"
-        android:textColor="?attr/textcolorPrimary"
-        android:textSize="@dimen/_20sdp"
-        app:layout_constraintBottom_toTopOf="@+id/ingredientsview__rv"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/ingredientsview_btBack"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:paddingLeft="@dimen/_20sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/cocktail_back_bt" />
+
+        <TextView
+            android:id="@+id/ingredientsview_tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zutaten"
+            android:textColor="?attr/textcolorPrimary"
+            android:textSize="@dimen/_20sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -33,5 +54,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ingredientsview_tvTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/ingredientsview_clTitle" />
 </androidx.constraintlayout.widget.ConstraintLayout>
