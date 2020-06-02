@@ -1,77 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:id="@+id/noconnection_mainlayout"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/backgroundcolor"
-    android:id="@+id/noconnection_mainlayout"
     tools:context=".screenactivities.error.NoConnectionActivity">
 
     <TextView
         android:id="@+id/noconnection_tvTitle"
-        android:layout_width="@dimen/_220sdp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/_120sdp"
+        android:layout_marginStart="62dp"
+        android:layout_marginLeft="62dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginRight="62dp"
+        android:layout_marginBottom="29dp"
         android:text="Es konnte keine Verbindung zum System aufgebaut werden"
-        android:textSize="@dimen/_15sdp"
+        android:textAlignment="center"
         android:textColor="?attr/textcolorPrimary"
-        android:textAlignment="center"/>
+        android:textSize="@dimen/_15sdp"
+        app:layout_constraintBottom_toTopOf="@+id/noconnection_imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/noconnection_imageView"
         android:layout_width="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/_22sdp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="13dp"
+        app:layout_constraintBottom_toTopOf="@+id/noconnection_tvSubtitle1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/cocktail_error_icon" />
 
     <TextView
         android:id="@+id/noconnection_tvSubtitle1"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="332dp"
+        android:gravity="center_horizontal"
         android:text="Ursachen:"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:textSize="@dimen/_19sdp"
         android:textColor="?attr/textcolorPrimary"
-        android:gravity="center_horizontal"/>
+        android:textSize="@dimen/_19sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/noconnection_tvText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="34dp"
+        android:layout_marginRight="34dp"
         android:text="- Du bist mit dem falschen WLAN-Netzwerk verbunden\n- Die Cocktail-Maschine ist nicht hochgefahren"
+        android:textAlignment="center"
         android:textColor="?attr/textcolorSecondary"
-        android:textAlignment="center"/>
+        app:layout_constraintEnd_toEndOf="@+id/noconnection_tvSubtitle1"
+        app:layout_constraintTop_toBottomOf="@+id/noconnection_tvSubtitle1" />
 
     <TextView
         android:id="@+id/noconnection_tvSubtitle2"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:gravity="center_horizontal"
         android:text="Lösung:"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:textSize="@dimen/_19sdp"
         android:textColor="?attr/textcolorPrimary"
-        android:gravity="center_horizontal"/>
+        android:textSize="@dimen/_19sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noconnection_tvText1" />
 
     <TextView
         android:id="@+id/noconnection_tvText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
         android:text="- Verbinde dich mit dem WLAN-Netzwerk\n 'Cocktailmaschine'\n- Überprüfe, ob die Cocktail-Maschine mit Strom\nversorgt wird"
+        android:textAlignment="center"
         android:textColor="?attr/textcolorSecondary"
-        android:textAlignment="center"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noconnection_tvSubtitle2" />
 
     <ImageButton
         android:id="@+id/noconnection_refreshBt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
         android:background="@null"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/_55sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/cocktail_refresh_icon" />
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

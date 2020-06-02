@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cocktail_android.R;
-import com.example.cocktail_android.screenactivities.ChooseSizeActvitity;
+import com.example.cocktail_android.screenactivities.cocktail.ChooseSizeActvitity;
 
 import java.util.ArrayList;
 

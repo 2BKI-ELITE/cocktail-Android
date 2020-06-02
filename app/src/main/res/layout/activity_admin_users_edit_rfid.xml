@@ -1,50 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout14"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/backgroundcolor">
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/adduserrfid_tvTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_40sdp"
-        >
-
-        <TextView
-            android:id="@+id/adduserrfid_tvTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="Benutzer bearbeiten"
-            android:textColor="?attr/textcolorPrimary"
-            android:textSize="@dimen/_20sdp" />
-
-
-    </RelativeLayout>
+        android:layout_marginTop="52dp"
+        android:text="Benutzer bearbeiten"
+        android:textColor="?attr/textcolorPrimary"
+        android:textSize="@dimen/_20sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
         android:id="@+id/adduserrfid_tvText1"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_94sdp"
+        android:layout_marginTop="209dp"
+        android:gravity="center_horizontal"
         android:text="Bitte halte den RFID-Chip, der \nbearbeitet werden soll \nan das Lesegerät"
         android:textColor="?attr/textcolorSecondary"
-        android:gravity="center_horizontal"
-        android:textSize="@dimen/_16sdp" />
+        android:textSize="@dimen/_16sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/adduserrfid_ivCocktail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
         android:scaleType="centerCrop"
         android:src="@drawable/cocktails_rfid_icon"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/_10sdp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adduserrfid_tvText1" />
 
 
-
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

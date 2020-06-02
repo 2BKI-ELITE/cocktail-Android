@@ -2,45 +2,45 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout2"
+    android:id="@+id/linearLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screenactivities.error.FailedActivity"
+    tools:context=".screenactivities.success.SuccessActivity"
     android:background="?attr/backgroundcolor">
 
 
     <TextView
-        android:id="@+id/failedscreen_tvTitle"
+        android:id="@+id/cocktail_finishedscreen_tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:layout_marginBottom="35dp"
-        android:text="_Error Title_"
+        android:text="Zubereitung abgeschlossen"
         android:textColor="?attr/textcolorPrimary"
         android:textSize="@dimen/_20sdp"
-        app:layout_constraintBottom_toTopOf="@+id/failedscreen_ivFailed"
+        app:layout_constraintBottom_toTopOf="@+id/cocktail_finishedscreen_ivSuccess"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageView
-        android:id="@+id/failedscreen_ivFailed"
+        android:id="@+id/cocktail_finishedscreen_ivSuccess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="9dp"
         android:layout_marginRight="9dp"
         android:layout_marginBottom="46dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/cocktails_failed_icon"
-        app:layout_constraintBottom_toTopOf="@+id/failedscreen_tvDescription"
+        android:src="@drawable/cocktails_success_icon"
+        app:layout_constraintBottom_toTopOf="@+id/cocktail_finishedscreen_tvDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/failedscreen_tvTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/cocktail_finishedscreen_tvTitle" />
 
 
     <TextView
-        android:id="@+id/failedscreen_tvDescription"
+        android:id="@+id/cocktail_finishedscreen_tvDescription"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="62dp"
@@ -48,16 +48,17 @@
         android:layout_marginEnd="62dp"
         android:layout_marginRight="62dp"
         android:layout_marginBottom="312dp"
-        android:text="This is a placeholder success message you will have to replace with the correct message"
+        android:text="Bitte nehme dein Glas nun aus dem Gerät hinaus."
         android:textColor="?attr/textcolorSecondary"
+        android:textSize="@dimen/_11sdp"
         android:gravity="center_horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/failedscreen_btFinishmaking"
+        app:layout_constraintBottom_toTopOf="@+id/cocktail_finishedscreen_btFinishmaking"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/failedscreen_ivFailed" />
+        app:layout_constraintTop_toBottomOf="@+id/cocktail_finishedscreen_ivSuccess" />
 
     <ImageButton
-        android:id="@+id/failedscreen_btFinishmaking"
+        android:id="@+id/cocktail_finishedscreen_btFinishmaking"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -66,7 +67,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/failedscreen_tvDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/cocktail_finishedscreen_tvDescription" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout6"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/backgroundcolor">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/relativeLayout2"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_40sdp">
+        android:layout_marginTop="52dp"
+        android:layout_marginBottom="52dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/cleaningfinishedscreen_tvTitle"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:text="Reinigung abgeschlossen"
             android:textColor="?attr/textcolorPrimary"
             android:textSize="@dimen/_20sdp"
@@ -22,210 +30,252 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-        />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_110sdp"
-        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginBottom="26dp"
+        app:layout_constraintBottom_toTopOf="@+id/cleaningfinishedscreen_tvTitle2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
         app:srcCompat="@drawable/cocktails_success_icon" />
 
     <TextView
         android:id="@+id/cleaningfinishedscreen_tvTitle2"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="Vorgehen"
         android:textColor="?attr/textcolorSecondary"
         android:textSize="@dimen/_19sdp"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/_20sdp"/>
+        app:layout_constraintBottom_toTopOf="@+id/cleaningfinishedscreen_tvDescription1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
         android:id="@+id/cleaningfinishedscreen_tvDescription1"
-        android:layout_width="@dimen/_250sdp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:layout_marginBottom="26dp"
         android:gravity="center"
-        android:text="Bitte schließe nun alle Zutaten wieder an die richtigen Pumpen an. Zur sicherheit werden dir die Zutaten mit den zugehörigen Pumpen unten angezeigt."
+        android:text="Bitte schließe nun alle Zutaten wieder an die richtigen Pumpen an. Zur Sicherheit werden dir die Zutaten mit den zugehörigen Pumpen unten angezeigt."
         android:textColor="?attr/textcolorPrimary"
-        android:textSize="@dimen/_11sdp"/>
+        android:textSize="@dimen/_11sdp"
+        app:layout_constraintBottom_toTopOf="@+id/cleaningfinishedscreen_tvTitle3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cleaningfinishedscreen_tvTitle2" />
 
     <TextView
         android:id="@+id/cleaningfinishedscreen_tvTitle3"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="Zuordnung der Zutaten"
         android:textColor="?attr/textcolorSecondary"
         android:textSize="@dimen/_19sdp"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/_20sdp"/>
+        app:layout_constraintBottom_toTopOf="@+id/textView11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cleaningfinishedscreen_tvDescription1" />
 
-    <LinearLayout
-        android:layout_width="@dimen/_250sdp"
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
+        android:layout_marginStart="43dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="left"
+        android:text="Pumpe 1"
+        android:textColor="?attr/textcolorPrimary"
+        android:textSize="@dimen/_11sdp"
+        app:layout_constraintBottom_toTopOf="@+id/textView12"
+        app:layout_constraintEnd_toStartOf="@+id/cleaningfinishedscreen_pump1Text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cleaningfinishedscreen_tvTitle3" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:layout_weight="1"
-            android:text="Pumpe 1"
-            android:textColor="?attr/textcolorPrimary"
-            android:textSize="@dimen/_11sdp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:layout_weight="1"
-            android:text="%ingredientPump1%"
-            android:textColor="?attr/textcolorPrimary"
-            android:textSize="@dimen/_11sdp" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="@dimen/_250sdp"
+    <TextView
+        android:id="@+id/cleaningfinishedscreen_pump1Text"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_4sdp"
-        android:orientation="horizontal">
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:gravity="right"
+        android:text="%ingredientPump1%"
+        android:textColor="?attr/textcolorPrimary"
+        android:textSize="@dimen/_11sdp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView11" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:layout_weight="1"
-            android:text="Pumpe 2"
-            android:textColor="?attr/textcolorPrimary"
-            android:textSize="@dimen/_11sdp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:layout_weight="1"
-            android:text="%ingredientPump2%"
-            android:textColor="?attr/textcolorPrimary"
-            android:textSize="@dimen/_11sdp" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="@dimen/_250sdp"
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_4sdp"
-        android:orientation="horizontal">
+        android:layout_marginStart="43dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginBottom="6dp"
+        android:gravity="left"
+        android:text="Pumpe 2"
+        android:textColor="?attr/textcolorPrimary"
+        android:textSize="@dimen/_11sdp"
+        app:layout_constraintBottom_toTopOf="@+id/textView13"
+        app:layout_constraintEnd_toStartOf="@+id/cleaningfinishedscreen_pump2Text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:layout_weight="1"
-            android:text="Pumpe 3"
-            android:textColor="?attr/textcolorPrimary"
-            android:textSize="@dimen/_11sdp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:layout_weight="1"
-            android:text="%ingredientPump3%"
-            android:textColor="?attr/textcolorPrimary"
-            android:textSize="@dimen/_11sdp" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="@dimen/_250sdp"
+    <TextView
+        android:id="@+id/cleaningfinishedscreen_pump2Text"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_4sdp"
-        android:orientation="horizontal">
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:gravity="right"
+        android:text="%ingredientPump2%"
+        android:textColor="?attr/textcolorPrimary"
+        android:textSize="@dimen/_11sdp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView12" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:layout_weight="1"
-            android:text="Pumpe 4"
-            android:textColor="?attr/textcolorPrimary"
-            android:textSize="@dimen/_11sdp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:layout_weight="1"
-            android:text="%ingredientPump4%"
-            android:textColor="?attr/textcolorPrimary"
-            android:textSize="@dimen/_11sdp" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="@dimen/_250sdp"
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_4sdp"
-        android:orientation="horizontal">
+        android:layout_marginStart="43dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="left"
+        android:text="Pumpe 3"
+        android:textColor="?attr/textcolorPrimary"
+        android:textSize="@dimen/_11sdp"
+        app:layout_constraintBottom_toTopOf="@+id/textView14"
+        app:layout_constraintEnd_toStartOf="@+id/cleaningfinishedscreen_pump3Text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:layout_weight="1"
-            android:text="Pumpe 5"
-            android:textColor="?attr/textcolorPrimary"
-            android:textSize="@dimen/_11sdp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:layout_weight="1"
-            android:text="%ingredientPump5%"
-            android:textColor="?attr/textcolorPrimary"
-            android:textSize="@dimen/_11sdp" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="@dimen/_250sdp"
+    <TextView
+        android:id="@+id/cleaningfinishedscreen_pump3Text"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_4sdp"
-        android:orientation="horizontal">
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:gravity="right"
+        android:text="%ingredientPump3%"
+        android:textColor="?attr/textcolorPrimary"
+        android:textSize="@dimen/_11sdp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView13"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView13" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:layout_weight="1"
-            android:text="Pumpe 6"
-            android:textColor="?attr/textcolorPrimary"
-            android:textSize="@dimen/_11sdp" />
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="left"
+        android:text="Pumpe 4"
+        android:textColor="?attr/textcolorPrimary"
+        android:textSize="@dimen/_11sdp"
+        app:layout_constraintBottom_toTopOf="@+id/textView15"
+        app:layout_constraintEnd_toStartOf="@+id/cleaningfinishedscreen_pump4Text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:layout_weight="1"
-            android:text="%ingredientPump6%"
-            android:textColor="?attr/textcolorPrimary"
-            android:textSize="@dimen/_11sdp" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/cleaningfinishedscreen_pump4Text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:gravity="right"
+        android:text="%ingredientPump4%"
+        android:textColor="?attr/textcolorPrimary"
+        android:textSize="@dimen/_11sdp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView14" />
 
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="left"
+        android:text="Pumpe 5"
+        android:textColor="?attr/textcolorPrimary"
+        android:textSize="@dimen/_11sdp"
+        app:layout_constraintBottom_toTopOf="@+id/textView16"
+        app:layout_constraintEnd_toStartOf="@+id/cleaningfinishedscreen_pump5Text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
+    <TextView
+        android:id="@+id/cleaningfinishedscreen_pump5Text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:gravity="right"
+        android:text="%ingredientPump5%"
+        android:textColor="?attr/textcolorPrimary"
+        android:textSize="@dimen/_11sdp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginBottom="52dp"
+        android:gravity="left"
+        android:text="Pumpe 6"
+        android:textColor="?attr/textcolorPrimary"
+        android:textSize="@dimen/_11sdp"
+        app:layout_constraintBottom_toTopOf="@+id/cleaningfinishedscreen_btFinish"
+        app:layout_constraintEnd_toStartOf="@+id/cleaningfinishedscreen_pump6Text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/cleaningfinishedscreen_pump6Text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:gravity="right"
+        android:text="%ingredientPump6%"
+        android:textColor="?attr/textcolorPrimary"
+        android:textSize="@dimen/_11sdp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView16" />
+    
     <ImageButton
         android:id="@+id/cleaningfinishedscreen_btFinish"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/cocktails_finishcleaning_bt"
+        android:layout_marginBottom="24dp"
         android:background="@null"
-        android:layout_marginTop="@dimen/_40sdp"/>
-
-</LinearLayout>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        app:srcCompat="@drawable/cocktails_finishcleaning_bt" />
+</androidx.constraintlayout.widget.ConstraintLayout>

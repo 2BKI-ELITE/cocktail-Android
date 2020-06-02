@@ -1,4 +1,4 @@
-package com.example.cocktail_android.screenactivities;
+package com.example.cocktail_android.screenactivities.cocktail;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,9 +28,6 @@ public class CocktailInProgressActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cocktail_inprogress);
 
         MachineController.currentActivity = "cocktail_inprogress";
-
-        ((TextView) findViewById(R.id.cocktailInProgress_tvTitle)).setText(getIntent().getStringExtra("title"));
-        ((TextView) findViewById(R.id.cocktailInProgress_tvText1)).setText(getIntent().getStringExtra("description"));
 
         ProgressBar pgsBar = findViewById(R.id.cocktailInProgress_pBar);
         pgsBar.setVisibility(View.VISIBLE);

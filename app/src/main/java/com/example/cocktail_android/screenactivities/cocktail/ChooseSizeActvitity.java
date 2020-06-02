@@ -1,4 +1,4 @@
-package com.example.cocktail_android.screenactivities;
+package com.example.cocktail_android.screenactivities.cocktail;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,7 +17,8 @@ import com.example.cocktail_android.objects.Ingredient;
 import com.example.cocktail_android.redis.controllers.CocktailController;
 import com.example.cocktail_android.redis.controllers.MachineController;
 import com.example.cocktail_android.redis.controllers.SettingsController;
-import com.example.cocktail_android.screenactivities.admin.cocktails.ManageActivity;
+import com.example.cocktail_android.screenactivities.ConfirmAgeActivity;
+import com.example.cocktail_android.screenactivities.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,6 +85,7 @@ public class ChooseSizeActvitity extends AppCompatActivity implements View.OnCli
         smallSizeButton = findViewById(R.id.confirm_smallSize);
         bigSizeButton = findViewById(R.id.confirm_bigSize);
 
+        CocktailController.cocktail = cocktail;
         CocktailController.setButtonBlur(getApplicationContext());
     }
 

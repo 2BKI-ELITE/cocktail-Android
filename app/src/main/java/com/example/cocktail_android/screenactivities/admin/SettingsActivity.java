@@ -1,20 +1,17 @@
 package com.example.cocktail_android.screenactivities.admin;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Switch;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.cocktail_android.R;
 import com.example.cocktail_android.redis.controllers.SettingsController;
-import com.skydoves.colorpickerview.ColorEnvelope;
 import com.skydoves.colorpickerview.ColorPickerDialog;
 import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener;
 
@@ -33,9 +30,11 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     int[] successColor;
     int[] errorColor;
 
+    int currentNightMode;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
 
         if (currentNightMode == Configuration.UI_MODE_NIGHT_YES)
             setTheme(R.style.darktheme);
@@ -87,7 +86,9 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.settings_vColorIdle:
-                new ColorPickerDialog.Builder(this).setTitle("Idle Farbe auswählen").attachAlphaSlideBar(false)
+                new ColorPickerDialog.Builder(this, R.style.Theme_AppCompat_DayNight_Dialog_Alert)
+                        .setTitle("Idle - Farbe auswählen")
+                        .attachAlphaSlideBar(false)
                         .setPositiveButton("Bestätigen", (ColorEnvelopeListener) (envelope, fromUser) -> {
                             findViewById(R.id.settings_vColorIdle).setBackgroundColor(envelope.getColor());
                             idleColor = envelope.getArgb();
@@ -95,7 +96,9 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                 break;
 
             case R.id.settings_vColorInProgress:
-                new ColorPickerDialog.Builder(this).setTitle("Bearbeitung Farbe auswählen").attachAlphaSlideBar(false)
+                new ColorPickerDialog.Builder(this, R.style.Theme_AppCompat_DayNight_Dialog_Alert)
+                        .setTitle("In Bearbeitung - Farbe auswählen")
+                        .attachAlphaSlideBar(false)
                         .setPositiveButton("Bestätigen", (ColorEnvelopeListener) (envelope, fromUser) -> {
                             findViewById(R.id.settings_vColorInProgress).setBackgroundColor(envelope.getColor());
                             inProgressColor = envelope.getArgb();
@@ -103,7 +106,9 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                 break;
 
             case R.id.settings_vColorSuccess:
-                new ColorPickerDialog.Builder(this).setTitle("Erfolg Farbe auswählen").attachAlphaSlideBar(false)
+                new ColorPickerDialog.Builder(this, R.style.Theme_AppCompat_DayNight_Dialog_Alert)
+                        .setTitle("Erfolg - Farbe auswählen")
+                        .attachAlphaSlideBar(false)
                         .setPositiveButton("Bestätigen", (ColorEnvelopeListener) (envelope, fromUser) -> {
                             findViewById(R.id.settings_vColorSuccess).setBackgroundColor(envelope.getColor());
                             successColor = envelope.getArgb();
@@ -111,7 +116,9 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                 break;
 
             case R.id.settings_vColorError:
-                new ColorPickerDialog.Builder(this).setTitle("Fehler Farbe auswählen").attachAlphaSlideBar(false)
+                new ColorPickerDialog.Builder(this, R.style.Theme_AppCompat_DayNight_Dialog_Alert)
+                        .setTitle("Fehler - Farbe auswählen")
+                        .attachAlphaSlideBar(false)
                         .setPositiveButton("Bestätigen", (ColorEnvelopeListener) (envelope, fromUser) -> {
                             findViewById(R.id.settings_vColorError).setBackgroundColor(envelope.getColor());
                             errorColor = envelope.getArgb();

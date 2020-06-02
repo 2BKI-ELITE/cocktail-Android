@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cocktail_android">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,18 +13,24 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/cocktails_cocktail_icon"
+        android:label="CocktailMachine"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".screenactivities.admin.SettingsActivity"></activity>
-        <activity android:name=".screenactivities.error.FailedActivity" />
-        <activity android:name=".screenactivities.success.SuccessActivity" />
-        <activity android:name=".screenactivities.CocktailInProgressActivity" />
-        <activity android:name=".screenactivities.ConfirmCocktailActivity" />
-        <activity android:name=".screenactivities.ChooseSizeActvitity" />
+
+        <activity
+            android:name=".screenactivities.admin.SettingsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".screenactivities.cocktail.CocktailInProgressActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".screenactivities.cocktail.ConfirmCocktailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".screenactivities.cocktail.ChooseSizeActvitity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".screenactivities.admin.IngredientsActivity"
             android:screenOrientation="portrait" />
@@ -100,6 +107,12 @@
             android:name=".screenactivities.error.UserEditAuthFailedActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".screenactivities.error.CocktailCancelledActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".screenactivities.success.CocktailFinishedActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".screenactivities.LoadingActivity"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -109,5 +122,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

@@ -51,6 +51,7 @@
         android:text="Der verwendete RFID-Chip ist bereits im System hinterlegt!"
         android:gravity="center_horizontal"
         android:textColor="?attr/textcolorSecondary"
+        android:textSize="@dimen/_11sdp"
         app:layout_constraintBottom_toTopOf="@+id/useraddfailedscreen_btBackToMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

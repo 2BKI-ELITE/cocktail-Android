@@ -1,114 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    android:id="@+id/cocktaildetails_mainlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/backgroundcolor"
-    android:id="@+id/cocktaildetails_mainlayout">
+    android:background="?attr/backgroundcolor">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/cocktaildetails_tvTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_1sdp"
-        android:layout_marginRight="@dimen/_1sdp"
-        android:orientation="vertical">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_40sdp">
-
-            <TextView
-                android:id="@+id/cocktaildetails_tvTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="_Cocktailname_"
-                android:textColor="?attr/textcolorPrimary"
-                android:textSize="@dimen/_20sdp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"/>
-        </RelativeLayout>
+        android:layout_marginTop="52dp"
+        android:layout_marginBottom="27dp"
+        android:text="_Cocktailname_"
+        android:textColor="?attr/textcolorPrimary"
+        android:textSize="@dimen/_20sdp"
+        app:layout_constraintBottom_toTopOf="@+id/cocktaildetails_ivImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-        <ImageView
-            android:id="@+id/cocktaildetails_ivImage"
-            android:layout_width="@dimen/_90sdp"
-            android:layout_height="@dimen/_150sdp"
-            android:scaleType="centerCrop"
-            tools:srcCompat="@tools:sample/avatars"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/_21sdp"/>
+    <ImageView
+        android:id="@+id/cocktaildetails_ivImage"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/tvDescriptionTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cocktaildetails_tvTitle"
+        tools:srcCompat="@tools:sample/avatars" />
 
-        <TextView
-            android:id="@+id/tvDescriptionTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Beschreibung"
-            android:textColor="?attr/textcolorSecondary"
-            android:layout_marginTop="@dimen/_6sdp"
-            android:textSize="@dimen/_19sdp"
-            android:textAlignment="center"
-            android:gravity="center_horizontal" />
-        <TextView
-            android:id="@+id/cocktaildetails_tvDescription"
-            android:layout_width="@dimen/_220sdp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:maxHeight="@dimen/_100sdp"
-            android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor"
-            android:textColor="?attr/textcolorSecondary"
-            android:textAlignment="center"/>
-        <TextView
-            android:id="@+id/tvIngredientsTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Zutaten"
-            android:textColor="?attr/textcolorSecondary"
-            android:layout_marginTop="@dimen/_12sdp"
-            android:textSize="@dimen/_19sdp"
-            android:textAlignment="center"
-            android:gravity="center_horizontal" />
+    <TextView
+        android:id="@+id/tvDescriptionTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:gravity="center_horizontal"
+        android:text="Beschreibung"
+        android:textAlignment="center"
+        android:textColor="?attr/textcolorSecondary"
+        android:textSize="@dimen/_19sdp"
+        app:layout_constraintBottom_toTopOf="@+id/cocktaildetails_tvDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cocktaildetails_ivImage" />
 
-        <TextView
-            android:id="@+id/cocktaildetails_tvIngredients"
-            android:layout_width="@dimen/_220sdp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text= "Wodka, Orangensaft"
-            android:textColor="?attr/textcolorSecondary"
-            android:textAlignment="center"/>
+    <TextView
+        android:id="@+id/cocktaildetails_tvDescription"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginLeft="62dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginRight="62dp"
+        android:layout_marginBottom="15dp"
+        android:maxHeight="@dimen/_100sdp"
+        android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor"
+        android:textAlignment="center"
+        android:textColor="?attr/textcolorSecondary"
+        app:layout_constraintBottom_toTopOf="@+id/tvIngredientsTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescriptionTitle" />
+
+    <TextView
+        android:id="@+id/tvIngredientsTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:gravity="center_horizontal"
+        android:text="Zutaten"
+        android:textAlignment="center"
+        android:textColor="?attr/textcolorSecondary"
+        android:textSize="@dimen/_19sdp"
+        app:layout_constraintBottom_toTopOf="@+id/cocktaildetails_tvIngredients"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cocktaildetails_tvDescription" />
+
+    <TextView
+        android:id="@+id/cocktaildetails_tvIngredients"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginLeft="62dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginRight="62dp"
+        android:layout_marginBottom="54dp"
+        android:text="Wodka, Orangensaft"
+        android:textAlignment="center"
+        android:textColor="?attr/textcolorSecondary"
+        app:layout_constraintBottom_toTopOf="@+id/confirm_smallSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvIngredientsTitle" />
 
 
-    </LinearLayout>
+    <ImageButton
+        android:id="@+id/confirm_smallSize"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/confirm_bigSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cocktaildetails_tvIngredients"
+        app:srcCompat="@drawable/cocktail_half_bt" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="@dimen/_14sdp">
-
-        <ImageButton
-            android:id="@+id/confirm_smallSize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="bottom"
-            android:background="@null"
-            app:srcCompat="@drawable/cocktail_half_bt"/>
-
-        <ImageButton
-            android:id="@+id/confirm_bigSize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="bottom"
-            android:background="@null"
-            app:srcCompat="@drawable/cocktail_normal_bt" />
-    </LinearLayout>
+    <ImageButton
+        android:id="@+id/confirm_bigSize"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/confirm_smallSize"
+        app:layout_constraintTop_toTopOf="@+id/confirm_smallSize"
+        app:srcCompat="@drawable/cocktail_normal_bt" />
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

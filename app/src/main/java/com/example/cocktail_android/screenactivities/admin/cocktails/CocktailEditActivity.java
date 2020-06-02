@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.cocktail_android.R;
 import com.example.cocktail_android.objects.Cocktail;
 import com.example.cocktail_android.redis.controllers.CocktailController;
-import com.example.cocktail_android.screenactivities.ChooseSizeActvitity;
 
 import java.util.ArrayList;
 

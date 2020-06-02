@@ -6,7 +6,6 @@ import android.content.Intent;
 import com.example.cocktail_android.objects.User;
 import com.example.cocktail_android.redis.controllers.UserController;
 import com.example.cocktail_android.screenactivities.error.AdminAuthFailedActivity;
-import com.example.cocktail_android.screenactivities.error.FailedActivity;
 import com.example.cocktail_android.screenactivities.MainActivity;
 import com.example.cocktail_android.screenactivities.admin.AdminPanelActivity;
 import com.example.cocktail_android.redis.CommunicationManager;

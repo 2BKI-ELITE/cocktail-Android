@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout15"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/backgroundcolor"
-    android:orientation="vertical"
     tools:context=".screenactivities.admin.AdminPanelActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/settingsscreen_clTitle"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_40sdp">
+        android:layout_marginTop="52dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
             android:id="@+id/adminpanel_btBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:layout_marginLeft="@dimen/_2sdp"
             app:layout_constraintEnd_toStartOf="@+id/adminpanel_tvTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -43,11 +45,16 @@
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:id="@+id/linearLayout16"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?attr/backgroundcolor"
         android:gravity="bottom"
-        android:background="?attr/backgroundcolor">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settingsscreen_clTitle">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -125,4 +132,4 @@
                 app:srcCompat="@drawable/cocktail_settings_bt" />
         </RelativeLayout>
     </LinearLayout>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

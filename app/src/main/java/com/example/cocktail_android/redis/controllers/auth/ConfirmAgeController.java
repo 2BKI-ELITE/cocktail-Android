@@ -8,9 +8,8 @@ import com.example.cocktail_android.objects.Cocktail;
 import com.example.cocktail_android.objects.User;
 import com.example.cocktail_android.redis.CommunicationManager;
 import com.example.cocktail_android.redis.controllers.UserController;
-import com.example.cocktail_android.screenactivities.ConfirmCocktailActivity;
+import com.example.cocktail_android.screenactivities.cocktail.ConfirmCocktailActivity;
 import com.example.cocktail_android.screenactivities.error.ConfirmAgeFailedActivity;
-import com.example.cocktail_android.screenactivities.error.FailedActivity;
 import com.example.cocktail_android.screenactivities.MainActivity;
 
 import org.json.JSONException;

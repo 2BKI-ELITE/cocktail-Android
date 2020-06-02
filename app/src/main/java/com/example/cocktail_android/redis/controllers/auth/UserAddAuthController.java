@@ -6,9 +6,9 @@ import android.content.Intent;
 import com.example.cocktail_android.objects.User;
 import com.example.cocktail_android.redis.CommunicationManager;
 import com.example.cocktail_android.redis.controllers.UserController;
-import com.example.cocktail_android.screenactivities.error.FailedActivity;
 import com.example.cocktail_android.screenactivities.admin.users.UserActivity;
 import com.example.cocktail_android.screenactivities.admin.users.UserAddActivity;
+import com.example.cocktail_android.screenactivities.error.UserAddAuthFailedActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -118,15 +118,10 @@ public class UserAddAuthController {
                         CommunicationManager.activeActions.remove("user_add_auth");
                         CommunicationManager.publishMessage(message);
 
-                        Intent intent = new Intent(context, FailedActivity.class);
+                        Intent intent = new Intent(context, UserAddAuthFailedActivity.class);
 
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-                        intent.putExtra("title", "Benutzer hinzufügen");
-                        intent.putExtra("description", "Der verwendete RFID-Chip ist bereits im System hinterlegt!");
-                        intent.putExtra("buttonText", "Abbrechen");
-                        intent.putExtra("buttonLink", "user");
 
                         context.startActivity(intent);
                     }

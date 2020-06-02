@@ -1,50 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:id="@+id/linearLayout12"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/backgroundcolor"
     tools:context=".screenactivities.admin.users.UserActivity">
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/removeuser_tvTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_30sdp"
-        >
+        android:layout_marginBottom="27dp"
+        android:text="Benutzer"
+        android:textColor="?attr/textcolorPrimary"
+        android:textSize="@dimen/_20sdp"
+        app:layout_constraintBottom_toTopOf="@+id/user_btAddUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-        <TextView
-            android:id="@+id/removeuser_tvTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Benutzer"
-            android:textColor="?attr/textcolorPrimary"
-            android:textSize="@dimen/_20sdp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"/>
-
-
-    </RelativeLayout>
 
     <ImageButton
         android:id="@+id/user_btAddUser"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
         android:background="@null"
-        app:srcCompat="@drawable/cocktails_user_add_bt"
-        android:layout_marginTop="@dimen/_21sdp"/>
+        app:layout_constraintBottom_toTopOf="@+id/user_btEditUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/removeuser_tvTitle"
+        app:srcCompat="@drawable/cocktails_user_add_bt" />
 
     <ImageButton
         android:id="@+id/user_btEditUser"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
         android:background="@null"
-        android:layout_marginTop="@dimen/_11sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_btAddUser"
         app:srcCompat="@drawable/cocktails_user_edit_bt" />
 
 
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

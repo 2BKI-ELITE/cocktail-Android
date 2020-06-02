@@ -124,4 +124,20 @@ public class IngredientController {
             }
         }
     }
+
+    public static Ingredient getIngredientByPump(int pump) {
+        Ingredient ingredient = null;
+        try {
+            final PreparedStatement statement = DatabaseManager.getConnection().prepareStatement("SELECT * FROM ingredients WHERE `pump` = ?");
+            statement.setInt(1, pump);
+            final ResultSet resultSet = statement.executeQuery();
+
+            while(resultSet.next())
+                ingredient = new Ingredient(UUID.fromString(resultSet.getString("ingredientId")), resultSet.getString("name"), resultSet.getBoolean("containsAlcohol"), resultSet.getInt("pump"), resultSet.getInt("fillLevel"), resultSet.getInt("fillCapacity"));
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return ingredient;
+    }
 }

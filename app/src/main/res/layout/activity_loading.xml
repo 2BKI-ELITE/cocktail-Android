@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    android:id="@+id/loading_mainlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/backgroundcolor"
-    android:id="@+id/loading_mainlayout"
+    android:orientation="vertical"
     tools:context=".screenactivities.LoadingActivity">
 
     <ImageView
         android:id="@+id/loading_ivCocktail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:src="@drawable/cocktails_cocktail_icon"/>
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/cocktails_cocktail_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
+        android:id="@+id/textView17"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom|center"
         android:paddingBottom="@dimen/_4sdp"
+        android:text="Projektarbeit des 2BKI2 2020\nMaximilian König, Maurice Klusch, Ron Brütsch, Julius Radke"
         android:textColor="?attr/textcolorPrimary"
-        android:text="Projektarbeit des 2BKI2 2020\nMaximilian König, Maurice Klusch, Ron Brütsch, Julius Radke"/>
-</RelativeLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

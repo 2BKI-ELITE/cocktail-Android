@@ -1,8 +1,12 @@
 package com.example.cocktail_android.redis.controllers;
 
 import android.content.Context;
+import android.content.Intent;
 
 import com.example.cocktail_android.redis.CommunicationManager;
+import com.example.cocktail_android.screenactivities.admin.cleaning.CleaningCancelledActivity;
+import com.example.cocktail_android.screenactivities.admin.cleaning.CleaningFinishedActivity;
+import com.example.cocktail_android.screenactivities.admin.cleaning.CleaningInProgressActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,7 +42,24 @@ public class MachineController {
      * @return Nothing.
      */
     public static void cleanMachineConfirmation(Context context, JSONObject object) {
+        try {
+            CocktailController.makingBlocked = true;
 
+            if(CommunicationManager.activeActions.containsValue(UUID.fromString(object.getString("action_id")))) {
+                Intent intent = new Intent(context, CleaningInProgressActivity.class);
+
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+
+                context.startActivity(intent);
+                CleaningInProgressActivity.allowBack = false;
+            } else {
+                CocktailController.setButtonBlur(context);
+            }
+        } catch (JSONException ex) {
+            ex.printStackTrace();
+        }
     }
 
     /**
@@ -48,7 +69,25 @@ public class MachineController {
      * @return Nothing.
      */
     public static void cleanMachineFinished(Context context, JSONObject object) {
+        try {
+            CocktailController.makingBlocked = false;
 
+            if(CommunicationManager.activeActions.containsValue(UUID.fromString(object.getString("action_id")))) {
+                CommunicationManager.activeActions.remove("machine_clean");
+                CleaningInProgressActivity.allowBack = true;
+
+                Intent intent = new Intent(context, CleaningFinishedActivity.class);
+
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                context.startActivity(intent);
+            } else {
+                CocktailController.setButtonBlur(context);
+            }
+        } catch (JSONException ex) {
+            ex.printStackTrace();
+        }
     }
 
     /**
@@ -58,6 +97,24 @@ public class MachineController {
      * @return Nothing.
      */
     public static void cleanMachineCancelled(Context context, JSONObject object) {
+        try {
+            CocktailController.makingBlocked = false;
 
+            if(CommunicationManager.activeActions.containsValue(UUID.fromString(object.getString("action_id")))) {
+                CommunicationManager.activeActions.remove("machine_clean");
+                CleaningInProgressActivity.allowBack = true;
+
+                Intent intent = new Intent(context, CleaningCancelledActivity.class);
+
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                context.startActivity(intent);
+            } else {
+                CocktailController.setButtonBlur(context);
+            }
+        } catch (JSONException ex) {
+            ex.printStackTrace();
+        }
     }
 }

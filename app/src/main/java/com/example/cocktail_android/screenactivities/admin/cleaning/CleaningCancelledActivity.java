@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cocktail_android.R;
+import com.example.cocktail_android.objects.Ingredient;
+import com.example.cocktail_android.redis.controllers.IngredientController;
 import com.example.cocktail_android.redis.controllers.MachineController;
 import com.example.cocktail_android.screenactivities.admin.AdminPanelActivity;
 
@@ -28,6 +31,42 @@ public class CleaningCancelledActivity extends AppCompatActivity implements View
         MachineController.currentActivity = "admin_clean_cancelled";
 
         findViewById(R.id.cleaningfailedscreen_btFinish).setOnClickListener(this);
+
+        Ingredient ingredient1 = IngredientController.getIngredientByPump(1);
+        if(ingredient1 != null)
+            ((TextView) findViewById(R.id.cleaningfailedscreen_pump1Text)).setText(ingredient1.getName());
+        else
+            ((TextView) findViewById(R.id.cleaningfailedscreen_pump1Text)).setText("- nicht belegt -");
+
+        Ingredient ingredient2 = IngredientController.getIngredientByPump(2);
+        if(ingredient2 != null)
+            ((TextView) findViewById(R.id.cleaningfailedscreen_pump2Text)).setText(ingredient2.getName());
+        else
+            ((TextView) findViewById(R.id.cleaningfailedscreen_pump2Text)).setText("- nicht belegt -");
+
+        Ingredient ingredient3 = IngredientController.getIngredientByPump(3);
+        if(ingredient3 != null)
+            ((TextView) findViewById(R.id.cleaningfailedscreen_pump3Text)).setText(ingredient3.getName());
+        else
+            ((TextView) findViewById(R.id.cleaningfailedscreen_pump3Text)).setText("- nicht belegt -");
+
+        Ingredient ingredient4 = IngredientController.getIngredientByPump(4);
+        if(ingredient4 != null)
+            ((TextView) findViewById(R.id.cleaningfailedscreen_pump4Text)).setText(ingredient4.getName());
+        else
+            ((TextView) findViewById(R.id.cleaningfailedscreen_pump4Text)).setText("- nicht belegt -");
+
+        Ingredient ingredient5 = IngredientController.getIngredientByPump(5);
+        if(ingredient5 != null)
+            ((TextView) findViewById(R.id.cleaningfailedscreen_pump5Text)).setText(ingredient5.getName());
+        else
+            ((TextView) findViewById(R.id.cleaningfailedscreen_pump5Text)).setText("- nicht belegt -");
+
+        Ingredient ingredient6 = IngredientController.getIngredientByPump(6);
+        if(ingredient6 != null)
+            ((TextView) findViewById(R.id.cleaningfailedscreen_pump6Text)).setText(ingredient6.getName());
+        else
+            ((TextView) findViewById(R.id.cleaningfailedscreen_pump6Text)).setText("- nicht belegt -");
     }
 
     @Override

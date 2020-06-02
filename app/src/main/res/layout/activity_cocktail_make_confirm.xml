@@ -1,66 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout17"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/backgroundcolor">
 
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/confirm_tvTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_40sdp"
-            >
-
-            <TextView
-                android:id="@+id/confirm_tvTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Zubereitung"
-                android:textColor="?attr/textcolorPrimary"
-                android:textSize="@dimen/_20sdp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"/>
-
-
-        </RelativeLayout>
+            android:layout_marginTop="52dp"
+            android:layout_marginBottom="53dp"
+            android:text="Zubereitung"
+            android:textColor="?attr/textcolorPrimary"
+            android:textSize="@dimen/_20sdp"
+            app:layout_constraintBottom_toTopOf="@+id/confirm_ivCocktail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <ImageView
             android:id="@+id/confirm_ivCocktail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginBottom="85dp"
             android:scaleType="centerCrop"
             android:src="@drawable/cocktails_cocktail_icon"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/_41sdp"/>
+            app:layout_constraintBottom_toTopOf="@+id/confirm_tvDescriptionTitle"
+            app:layout_constraintStart_toStartOf="@+id/confirm_tvTitle"
+            app:layout_constraintTop_toBottomOf="@+id/confirm_tvTitle" />
 
         <TextView
             android:id="@+id/confirm_tvDescriptionTitle"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:text="Hinweis"
             android:textColor="?attr/textcolorSecondary"
-            android:layout_marginTop="@dimen/_65sdp"
             android:textSize="@dimen/_19sdp"
-            android:gravity="center_horizontal" />
+            app:layout_constraintBottom_toTopOf="@+id/confirm_tvDescription"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/confirm_ivCocktail" />
+
         <TextView
             android:id="@+id/confirm_tvDescription"
-            android:layout_width="@dimen/_220sdp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="62dp"
+            android:layout_marginLeft="62dp"
+            android:layout_marginEnd="62dp"
+            android:layout_marginRight="62dp"
+            android:layout_marginBottom="130dp"
             android:text="Bevor die Zubereitung gestartet werden kann muss zunächst ein Glas in das Gerät gestellt werden. Sollte das Glas während der Zubereitung vorzeitig entfernt werden, so wird der Zubereitungsprozess unterbrochen. Bitte betätige den Button erst, wenn ein Glas im Gerät platziert wurde."
+            android:textAlignment="center"
             android:textColor="?attr/textcolorSecondary"
-            android:textAlignment="center"/>
+            app:layout_constraintBottom_toTopOf="@+id/confirm_btStartMixing"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/confirm_tvDescriptionTitle" />
 
         <ImageButton
             android:id="@+id/confirm_btStartMixing"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/cocktail_startmixing_bt"
+            android:layout_marginBottom="29dp"
             android:background="@null"
-            android:layout_marginTop="@dimen/_100sdp"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/confirm_tvDescription"
+            app:srcCompat="@drawable/cocktail_startmixing_bt" />
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
