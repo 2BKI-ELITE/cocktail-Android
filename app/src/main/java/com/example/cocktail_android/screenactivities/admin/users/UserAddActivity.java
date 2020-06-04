@@ -51,6 +51,9 @@ public class UserAddActivity extends AppCompatActivity implements View.OnClickLi
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 break;
+
+            default:
+                break;
         }
     }
 

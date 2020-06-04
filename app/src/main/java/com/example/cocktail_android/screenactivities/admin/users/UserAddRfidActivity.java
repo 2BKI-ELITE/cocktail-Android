@@ -3,6 +3,7 @@ package com.example.cocktail_android.screenactivities.admin.users;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,6 +26,7 @@ public class UserAddRfidActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_admin_users_add_rfid);
 
         MachineController.currentActivity = "admin_users_add_rfid";
+
         UserAddAuthController.start();
     }
 

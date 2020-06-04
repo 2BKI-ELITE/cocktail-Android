@@ -33,6 +33,9 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
 
         final ImageButton mUserEditButton = findViewById(R.id.user_btEditUser);
         mUserEditButton.setOnClickListener(this);
+
+        final ImageButton backButton = findViewById(R.id.user_btBack);
+        backButton.setOnClickListener(this);
     }
 
     @Override
@@ -41,6 +44,10 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.user_btAddUser:
                 Intent intent1 = new Intent(UserActivity.this, UserAddRfidActivity.class);
                 startActivity(intent1);
+                break;
+
+            case R.id.user_btBack:
+                onBackPressed();
                 break;
 
             case R.id.user_btEditUser:

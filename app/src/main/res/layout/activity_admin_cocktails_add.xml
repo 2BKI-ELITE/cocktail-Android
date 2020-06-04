@@ -33,7 +33,7 @@
             android:id="@+id/addcocktail_tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="%CocktailTitle%"
+            android:text="Cocktail hinzufügen"
             android:textColor="?attr/textcolorPrimary"
             android:textSize="@dimen/_20sdp"
             app:layout_constraintBottom_toBottomOf="parent"

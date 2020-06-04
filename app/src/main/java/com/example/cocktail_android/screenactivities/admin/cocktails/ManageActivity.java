@@ -3,6 +3,8 @@ package com.example.cocktail_android.screenactivities.admin.cocktails;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,10 +17,12 @@ import com.example.cocktail_android.objects.Cocktail;
 import com.example.cocktail_android.redis.controllers.CocktailController;
 import com.example.cocktail_android.redis.controllers.MachineController;
 import com.example.cocktail_android.screenactivities.admin.AdminPanelActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class ManageActivity extends AppCompatActivity {
+public class ManageActivity extends AppCompatActivity implements View.OnClickListener {
+
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -44,6 +48,12 @@ public class ManageActivity extends AppCompatActivity {
             exampleList.add(CocktailController.convertToManageItem(cocktails.get(i)));
         }
 
+        final FloatingActionButton addButton = findViewById(R.id.manageview_btAdd);
+        addButton.setOnClickListener(this);
+
+        final ImageButton backButton = findViewById(R.id.manageview_btBack);
+        backButton.setOnClickListener(this);
+
         mRecyclerView = findViewById(R.id.manageview_rv);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
@@ -51,6 +61,23 @@ public class ManageActivity extends AppCompatActivity {
 
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(mLayoutManager);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.manageview_btAdd:
+                Intent intent = new Intent(ManageActivity.this, CocktailAddActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.manageview_btBack:
+                onBackPressed();
+                break;
+
+            default:
+                break;
+        }
     }
 
     @Override

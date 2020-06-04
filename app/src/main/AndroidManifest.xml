@@ -86,6 +86,9 @@
             android:name=".screenactivities.admin.cocktails.CocktailEditActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".screenactivities.admin.cocktails.CocktailAddActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".screenactivities.MaintenanceLoginActivity"
             android:screenOrientation="portrait" />
         <activity

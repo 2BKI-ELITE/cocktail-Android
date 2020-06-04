@@ -36,6 +36,9 @@ public class CleaningActivity extends AppCompatActivity implements View.OnClickL
         final ImageButton mBtStart = findViewById(R.id.cleanscreen_btStart);
         mBtStart.setOnClickListener(this);
 
+        final ImageButton backButton = findViewById(R.id.cleanscreen_btBack);
+        backButton.setOnClickListener(this);
+
         CocktailController.setButtonBlur(getApplicationContext());
     }
 
@@ -44,6 +47,10 @@ public class CleaningActivity extends AppCompatActivity implements View.OnClickL
         switch (view.getId()) {
             case R.id.cleanscreen_btStart:
                 MachineController.cleanMachine();
+                break;
+
+            case R.id.cleanscreen_btBack:
+                onBackPressed();
                 break;
 
             default:

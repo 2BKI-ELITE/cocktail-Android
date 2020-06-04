@@ -42,44 +42,53 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    <TextView
-        android:id="@+id/editcocktail_tvName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
-        android:layout_marginBottom="8dp"
-        android:text="Name"
-        android:textColor="?attr/textcolorSecondary"
-        app:layout_constraintBottom_toTopOf="@+id/editcocktail_llName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/editcocktail_tvDescription"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editcocktail_llName"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="29dp"
         android:layout_marginLeft="29dp"
         android:layout_marginEnd="29dp"
         android:layout_marginRight="29dp"
         android:layout_marginBottom="529dp"
-        android:background="@drawable/shapeshadow_white"
-        android:orientation="vertical"
+        android:layout_marginTop="70dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editcocktail_tvName">
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView2"
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-    </LinearLayout>
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editcocktail_llDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginLeft="29dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginRight="29dp"
+        android:layout_marginBottom="529dp"
+        android:layout_marginTop="120dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="Beschreibung"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@id/editcocktail_llName">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--TextView
         android:id="@+id/editcocktail_tvDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -112,88 +121,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView" />
-    </LinearLayout>
+    </LinearLayout-->
 
-    <TextView
-        android:id="@+id/editcocktail_tvPreview"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginBottom="8dp"
-        android:text="Vorschaubild"
-        android:textColor="?attr/textcolorSecondary"
-        app:layout_constraintBottom_toTopOf="@+id/editcocktail_llPreview"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/editcocktail_llPreview"
-        app:layout_constraintTop_toBottomOf="@+id/editcocktail_llDescription" />
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:id="@+id/editcocktail_llPreview"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginLeft="29dp"
-        android:layout_marginEnd="29dp"
-        android:layout_marginRight="29dp"
-        android:layout_marginBottom="101dp"
-        android:background="@drawable/shapeshadow_white"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editcocktail_tvPreview">
-
-
-        <ImageView
-            android:id="@+id/editcocktail_imageView"
-            android:layout_width="@dimen/_30sdp"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/editcocktail_btSave"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/_27sdp"
-            app:srcCompat="@drawable/test_cocktail_pic" />
-
-        <Button
-            android:id="@+id/editcocktail_btChoose"
-            android:layout_width="@dimen/_112sdp"
-            android:layout_height="@dimen/_32sdp"
-            android:layout_alignLeft="@id/editcocktail_btRemove"
-            android:layout_marginTop="@dimen/_12sdp"
-            android:background="@drawable/shapeshadow_greenish"
-            android:text="Bild auswählen"
-            android:textColor="@android:color/background_light"
-            android:textSize="@dimen/_8sdp" />
-
-
-        <Button
-            android:id="@+id/editcocktail_btRemove"
-            android:layout_width="@dimen/_112sdp"
-            android:layout_height="@dimen/_32sdp"
-
-            android:layout_below="@id/editcocktail_btChoose"
-            android:layout_marginLeft="@dimen/_89sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_toRightOf="@id/editcocktail_imageView"
-            android:background="@drawable/shapeshadow_redish"
-            android:text="Bild entfernen"
-            android:textColor="@android:color/background_light"
-            android:textSize="@dimen/_8sdp" />
-
-
-    </RelativeLayout>
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="18dp"
-        android:layout_marginRight="18dp"
-        android:layout_marginBottom="19dp"
-        android:background="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editcocktail_llPreview"
-        app:srcCompat="@drawable/cocktail_confirmedit_button" />
+            android:backgroundTint="#3498DB"
+            app:borderWidth="0dp"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="16dp"
+            app:srcCompat="@drawable/cocktail_checkmark_bt"/>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

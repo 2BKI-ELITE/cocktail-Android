@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +32,9 @@ public class CleaningFinishedActivity extends AppCompatActivity implements View.
         MachineController.currentActivity = "admin_clean_finished";
 
         findViewById(R.id.cleaningfinishedscreen_btFinish).setOnClickListener(this);
+
+        final ImageButton backButton = findViewById(R.id.cleaningfinishedscreen_btBack);
+        backButton.setOnClickListener(this);
 
         Ingredient ingredient1 = IngredientController.getIngredientByPump(1);
         if(ingredient1 != null)
@@ -79,8 +83,22 @@ public class CleaningFinishedActivity extends AppCompatActivity implements View.
                 startActivity(intent);
                 break;
 
+            case R.id.cleaningfinishedscreen_btBack:
+                onBackPressed();
+                break;
+
             default:
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, AdminPanelActivity.class);
+
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        startActivity(intent);
     }
 }
