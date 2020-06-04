@@ -8,19 +8,39 @@
     android:background="?attr/backgroundcolor">
 
 
-    <TextView
-        android:id="@+id/cocktaildetails_tvTitle"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cocktaildetails_clTitle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
-        android:layout_marginBottom="27dp"
-        android:text="_Cocktailname_"
-        android:textColor="?attr/textcolorPrimary"
-        android:textSize="@dimen/_20sdp"
-        app:layout_constraintBottom_toTopOf="@+id/cocktaildetails_ivImage"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/cocktaildetails_btBack"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:paddingLeft="@dimen/_20sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/cocktail_back_bt" />
+
+        <TextView
+            android:id="@+id/cocktaildetails_tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="%CocktailName%"
+            android:textColor="?attr/textcolorPrimary"
+            android:textSize="@dimen/_20sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <ImageView
@@ -32,7 +52,7 @@
         app:layout_constraintBottom_toTopOf="@+id/tvDescriptionTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cocktaildetails_tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/cocktaildetails_clTitle"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView

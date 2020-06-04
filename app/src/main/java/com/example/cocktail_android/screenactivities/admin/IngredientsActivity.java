@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 import com.example.cocktail_android.objects.Cocktail;
 import com.example.cocktail_android.objects.Ingredient;
@@ -18,7 +21,8 @@ import com.example.cocktail_android.recycler.ingredients.IngredientsItem;
 
 import java.util.ArrayList;
 
-public class IngredientsActivity extends AppCompatActivity {
+public class IngredientsActivity extends AppCompatActivity implements View.OnClickListener {
+
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -51,5 +55,30 @@ public class IngredientsActivity extends AppCompatActivity {
 
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(mLayoutManager);
+
+        final ImageButton backButton = findViewById(R.id.ingredientsview_btBack);
+        backButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.ingredientsview_btBack:
+                onBackPressed();
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, AdminPanelActivity.class);
+
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        startActivity(intent);
     }
 }

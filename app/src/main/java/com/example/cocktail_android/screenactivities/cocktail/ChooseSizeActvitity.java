@@ -60,6 +60,10 @@ public class ChooseSizeActvitity extends AppCompatActivity implements View.OnCli
         final ImageButton mBtBigSize = findViewById(R.id.confirm_bigSize);
         mBtBigSize.setOnClickListener(this);
 
+        // Listener for back button
+        final ImageButton backButton = findViewById(R.id.cocktaildetails_btBack);
+        backButton.setOnClickListener(this);
+
         List<Ingredient> ingredientList = new ArrayList<>(cocktail.getIngredients().keySet());
         StringBuilder builder = new StringBuilder();
 
@@ -124,6 +128,10 @@ public class ChooseSizeActvitity extends AppCompatActivity implements View.OnCli
                 intent2.putExtra("cocktailId", cocktail.getCocktailId().toString());
                 intent2.putExtra("size", CocktailSize.NORMAL.toString());
                 startActivity(intent2);
+                break;
+
+            case R.id.cocktaildetails_btBack:
+                onBackPressed();
                 break;
 
             default:

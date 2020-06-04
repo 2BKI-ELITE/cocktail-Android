@@ -3,6 +3,7 @@ package com.example.cocktail_android.screenactivities.admin;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,12 +30,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_admin_login);
 
         MachineController.currentActivity = "admin_login";
+
+        final ImageButton backButton = findViewById(R.id.rfidlogin_btBack);
+        backButton.setOnClickListener(this);
     }
 
 
     @Override
     public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.rfidlogin_btBack:
+                onBackPressed();
+                break;
 
+            default:
+                break;
+        }
     }
 
     @Override
