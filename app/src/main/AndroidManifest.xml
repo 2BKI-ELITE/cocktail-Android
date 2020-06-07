@@ -84,7 +84,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".screenactivities.admin.cocktails.CocktailEditActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".screenactivities.admin.cocktails.CocktailAddActivity"
             android:screenOrientation="portrait" />
