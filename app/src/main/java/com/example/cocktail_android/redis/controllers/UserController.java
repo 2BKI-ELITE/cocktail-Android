@@ -92,7 +92,7 @@ public class UserController {
      */
     public static void deleteUser(User user) {
         try {
-            final PreparedStatement statement = DatabaseManager.getConnection().prepareStatement("DELETE * FROM users WHERE userId = ?");
+            final PreparedStatement statement = DatabaseManager.getConnection().prepareStatement("DELETE FROM users WHERE userId = ?");
             statement.setString(1, user.getUserId());
             statement.execute();
         } catch (SQLException ex) {

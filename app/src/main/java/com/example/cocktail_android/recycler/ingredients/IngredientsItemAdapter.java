@@ -1,5 +1,6 @@
 package com.example.cocktail_android.recycler.ingredients;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cocktail_android.R;
+import com.example.cocktail_android.screenactivities.admin.cocktails.CocktailEditActivity;
+import com.example.cocktail_android.screenactivities.admin.ingredients.IngredientEditActivity;
 
 import java.util.ArrayList;
 
@@ -26,6 +29,13 @@ public class IngredientsItemAdapter extends RecyclerView.Adapter<IngredientsItem
             mPump = itemView.findViewById(R.id.ingredientsItem__tvPump);
             mAmount = itemView.findViewById(R.id.ingredientsItem_amount);
             mProgress = itemView.findViewById(R.id.ingredientsItem_stats_progressbar);
+
+            itemView.setOnClickListener(v -> {
+                final Intent intent = new Intent(itemView.getContext(), IngredientEditActivity.class);
+
+                intent.putExtra("ingredientPosition", this.getAdapterPosition());
+                itemView.getContext().startActivity(intent);
+            });
         }
     }
 

@@ -9,7 +9,7 @@
     android:background="?attr/backgroundcolor">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/editcocktail_clTitle"
+        android:id="@+id/editingredient_clTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
@@ -19,21 +19,21 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/editcocktail_btBack"
+            android:id="@+id/editingredient_btBack"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:background="@null"
             android:paddingLeft="@dimen/_20sdp"
-            app:layout_constraintBottom_toBottomOf="@+id/editcocktail_tvTitle"
+            app:layout_constraintBottom_toBottomOf="@+id/editingredient_tvTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/cocktail_back_bt" />
 
         <TextView
-            android:id="@+id/editcocktail_tvTitle"
+            android:id="@+id/editingredient_tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:text="%CocktailTitle%"
+            android:text="%IngredientTitle%"
             android:textColor="?attr/textcolorPrimary"
             android:textSize="@dimen/_20sdp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -41,7 +41,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/editcocktail_tvSubtitle"
+            android:id="@+id/editingredient_tvSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bearbeiten"
@@ -50,132 +50,128 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editcocktail_tvTitle" />
+            app:layout_constraintTop_toBottomOf="@id/editingredient_tvTitle" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editcocktail_tilName"
+        android:id="@+id/editingredient_tilName"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="29dp"
+        android:hint="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editingredient_clTitle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editingredient_tietName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:inputType="text"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editingredient_tilPump"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="29dp"
         android:layout_marginLeft="29dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="@dimen/_15sdp"
         android:layout_marginEnd="29dp"
         android:layout_marginRight="29dp"
         android:layout_marginBottom="529dp"
-        android:hint="Name"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:hint="Pumpe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/editingredient_tilName">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <AutoCompleteTextView
+            android:id="@+id/editingredient_actvPump"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:focusable="false"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editcocktail_tilDescription"
+        android:id="@+id/editingredient_tilLevel"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="29dp"
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_marginEnd="29dp"
-        android:hint="Beschreibung"
+        android:hint="Aktueller Füllstand in ml"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editcocktail_tilName">
+        app:layout_constraintTop_toBottomOf="@id/editingredient_tilPump">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editingredient_tietLevel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:lines="4"
-            android:maxLines="4"
-            android:scrollbars="vertical" />
+            android:inputType="number"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/editcocktail_tvPreview"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editingredient_tilCapacity"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
+        android:layout_marginStart="29dp"
         android:layout_marginTop="@dimen/_15sdp"
-        android:layout_marginBottom="8dp"
-        android:text="Vorschaubild"
-        android:textColor="?attr/textcolorSecondary"
-        app:layout_constraintBottom_toTopOf="@+id/editcocktail_llPreview"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/editcocktail_llPreview"
-        app:layout_constraintTop_toBottomOf="@+id/editcocktail_tilDescription" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/editcocktail_llPreview"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
         android:layout_marginEnd="29dp"
-        android:layout_marginRight="29dp"
-        android:layout_marginBottom="101dp"
-        android:background="@drawable/border"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/_10sdp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton"
-        app:layout_constraintEnd_toEndOf="@+id/coordinatorLayout"
-        app:layout_constraintStart_toStartOf="@+id/editcocktail_tilDescription"
-        app:layout_constraintTop_toBottomOf="@+id/editcocktail_tvPreview">
-
-
-        <ImageView
-            android:id="@+id/editcocktail_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_27sdp"
-            android:maxHeight="@dimen/_30sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:srcCompat="@drawable/test_cocktail_pic" />
-
-        <Button
-            android:id="@+id/editcocktail_btChoose"
-            android:layout_width="@dimen/_112sdp"
-            android:layout_height="@dimen/_32sdp"
-            android:layout_marginTop="@dimen/_12sdp"
-            android:background="@drawable/shapeshadow_greenish"
-            android:text="Bild auswählen"
-            android:textColor="@android:color/background_light"
-            android:textSize="@dimen/_8sdp"
-            app:layout_constraintLeft_toLeftOf="@id/editcocktail_btRemove"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-        <Button
-            android:id="@+id/editcocktail_btRemove"
-            android:layout_width="@dimen/_112sdp"
-            android:layout_height="@dimen/_32sdp"
-            android:layout_below="@id/editcocktail_btChoose"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:layout_toRightOf="@id/editcocktail_imageView"
-            android:background="@drawable/shapeshadow_redish"
-            android:text="Bild entfernen"
-            android:textColor="@android:color/background_light"
-            android:textSize="@dimen/_8sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editcocktail_btChoose" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ListView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:entries="@array/test_array"
-        android:footerDividersEnabled="true"
+        android:hint="Füllkapazität in ml"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editcocktail_llPreview" />
+        app:layout_constraintTop_toBottomOf="@id/editingredient_tilLevel">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editingredient_tietCapacity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/editingredient_clAlcohol"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="29dp"
+        android:background="@drawable/border"
+        android:elevation="@dimen/_2sdp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editingredient_tilCapacity">
+
+        <TextView
+            android:id="@+id/editingredient_tvAlcohol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:text="Alkoholhaltig"
+            android:textColor="?attr/textcolorSecondary"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Switch
+            android:id="@+id/editingredient_swAlcohol"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="@dimen/_210sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayout"
@@ -185,7 +181,7 @@
         tools:layout_editor_absoluteY="0dp">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/editcocktail_btSave"
+            android:id="@+id/editingredient_btSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
@@ -194,5 +190,19 @@
             app:borderWidth="0dp"
             app:srcCompat="@drawable/cocktail_checkmark_bt"
             app:tint="#ffffff" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/editingredient_btDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|bottom"
+            android:layout_margin="0dp"
+            android:backgroundTint="#c0392b"
+            app:fabSize="mini"
+            app:layout_anchor="@id/editingredient_btSave"
+            app:layout_anchorGravity="left"
+            app:borderWidth="0dp"
+            app:srcCompat="@drawable/cocktail_delete_icon"
+            app:tint="#ffffff"/>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

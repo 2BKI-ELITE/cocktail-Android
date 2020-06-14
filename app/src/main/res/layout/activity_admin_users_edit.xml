@@ -127,11 +127,26 @@
             android:id="@+id/usereditscreen_ibConfirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#3498DB"
-            app:borderWidth="0dp"
             android:layout_gravity="bottom|right"
             android:layout_margin="16dp"
-            app:srcCompat="@drawable/cocktail_checkmark_bt"/>
+            android:backgroundTint="#3498DB"
+            app:borderWidth="0dp"
+            app:srcCompat="@drawable/cocktail_checkmark_bt"
+            app:tint="#ffffff" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/usereditscreen_ibDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|bottom"
+            android:layout_margin="0dp"
+            android:backgroundTint="#c0392b"
+            app:fabSize="mini"
+            app:layout_anchor="@id/usereditscreen_ibConfirm"
+            app:layout_anchorGravity="left"
+            app:borderWidth="0dp"
+            app:srcCompat="@drawable/cocktail_delete_icon"
+            app:tint="#ffffff"/>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </LinearLayout>

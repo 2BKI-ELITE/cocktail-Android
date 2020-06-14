@@ -68,6 +68,7 @@
             app:borderWidth="0dp"
             android:layout_gravity="bottom|right"
             android:layout_margin="16dp"
-            app:srcCompat="@drawable/cocktail_add_bt"/>
+            app:srcCompat="@drawable/cocktail_add_bt"
+            app:tint="#ffffff" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

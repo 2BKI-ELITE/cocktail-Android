@@ -13,6 +13,7 @@ import com.example.cocktail_android.redis.controllers.MachineController;
 import com.example.cocktail_android.screenactivities.MainActivity;
 import com.example.cocktail_android.screenactivities.admin.cleaning.CleaningActivity;
 import com.example.cocktail_android.screenactivities.admin.cocktails.ManageActivity;
+import com.example.cocktail_android.screenactivities.admin.ingredients.IngredientsActivity;
 import com.example.cocktail_android.screenactivities.admin.users.UserActivity;
 
 public class AdminPanelActivity extends AppCompatActivity implements View.OnClickListener {

@@ -1,4 +1,4 @@
-package com.example.cocktail_android.screenactivities.admin;
+package com.example.cocktail_android.screenactivities.admin.ingredients;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,6 +18,7 @@ import com.example.cocktail_android.redis.controllers.CocktailController;
 import com.example.cocktail_android.redis.controllers.IngredientController;
 import com.example.cocktail_android.redis.controllers.MachineController;
 import com.example.cocktail_android.recycler.ingredients.IngredientsItem;
+import com.example.cocktail_android.screenactivities.admin.AdminPanelActivity;
 
 import java.util.ArrayList;
 
@@ -58,11 +59,23 @@ public class IngredientsActivity extends AppCompatActivity implements View.OnCli
 
         final ImageButton backButton = findViewById(R.id.ingredientsview_btBack);
         backButton.setOnClickListener(this);
+
+        final ImageButton addButton = findViewById(R.id.ingredientsview_btAdd);
+        addButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.ingredientsview_btAdd:
+                Intent intent = new Intent(this, IngredientAddActivity.class);
+
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                startActivity(intent);
+                break;
+
             case R.id.ingredientsview_btBack:
                 onBackPressed();
                 break;

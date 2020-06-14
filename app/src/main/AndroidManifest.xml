@@ -32,7 +32,13 @@
             android:name=".screenactivities.cocktail.ChooseSizeActvitity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".screenactivities.admin.IngredientsActivity"
+            android:name=".screenactivities.admin.ingredients.IngredientsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".screenactivities.admin.ingredients.IngredientAddActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".screenactivities.admin.ingredients.IngredientEditActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".screenactivities.admin.PieChartActitivty"

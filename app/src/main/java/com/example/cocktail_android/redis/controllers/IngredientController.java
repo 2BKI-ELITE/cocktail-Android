@@ -59,11 +59,11 @@ public class IngredientController {
                 statement1.setString(2, ingredient.getName());
                 statement1.setBoolean(3, ingredient.containsAlcohol());
                 statement1.setInt(4, ingredient.getPump());
-                statement1.setInt(5, ingredient.getFillLevel());
-                statement1.setInt(6, ingredient.getFillCapacity());
+                statement1.setInt(5, ingredient.getFillLevelLocal());
+                statement1.setInt(6, ingredient.getFillCapacityLocal());
                 statement1.execute();
 
-                final PreparedStatement statement2 = DatabaseManager.getConnection().prepareStatement("DELETE * FROM ingredients WHERE pump = ? AND ingredientId != ?");
+                final PreparedStatement statement2 = DatabaseManager.getConnection().prepareStatement("DELETE FROM ingredients WHERE pump = ? AND ingredientId != ?");
                 statement2.setInt(1, ingredient.getPump());
                 statement2.setString(2, ingredient.getIngredientId().toString());
                 statement2.execute();
@@ -89,11 +89,12 @@ public class IngredientController {
                 statement1.setString(1, ingredient.getName());
                 statement1.setBoolean(2, ingredient.containsAlcohol());
                 statement1.setInt(3, ingredient.getPump());
-                statement1.setInt(4, ingredient.getFillLevel());
-                statement1.setInt(5, ingredient.getFillCapacity());
+                statement1.setInt(4, ingredient.getFillLevelLocal());
+                statement1.setInt(5, ingredient.getFillCapacityLocal());
                 statement1.setString(6, ingredient.getIngredientId().toString());
+                statement1.execute();
 
-                final PreparedStatement statement2 = DatabaseManager.getConnection().prepareStatement("DELETE * FROM ingredients WHERE pump = ? AND ingredientId != ?");
+                final PreparedStatement statement2 = DatabaseManager.getConnection().prepareStatement("DELETE FROM ingredients WHERE pump = ? AND ingredientId != ?");
                 statement2.setInt(1, ingredient.getPump());
                 statement2.setString(2, ingredient.getIngredientId().toString());
                 statement2.execute();
@@ -115,7 +116,9 @@ public class IngredientController {
     public static void deleteIngredient(Context context, Ingredient ingredient) {
         if(ingredients.containsKey(ingredient.getIngredientId())) {
             try {
-                DatabaseManager.getConnection().prepareStatement("DELETE * FROM `ingredients` WHERE `ingredientId`='" + ingredient.getIngredientId() + "'");
+                final PreparedStatement statement = DatabaseManager.getConnection().prepareStatement("DELETE FROM ingredients WHERE ingredientId = ?");
+                statement.setString(1, ingredient.getIngredientId().toString());
+                statement.execute();
 
                 getIngredients();
                 CocktailController.getCocktails(context);
@@ -125,6 +128,11 @@ public class IngredientController {
         }
     }
 
+    /**
+     * Searches ingredient by pump and returns corresponding ingredient.
+     * @param pump Pump No.
+     * @return Ingredient Is null when no ingredient corresponds to pump.
+     */
     public static Ingredient getIngredientByPump(int pump) {
         Ingredient ingredient = null;
         try {

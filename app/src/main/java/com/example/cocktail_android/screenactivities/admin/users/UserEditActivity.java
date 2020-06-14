@@ -17,6 +17,8 @@ import com.example.cocktail_android.redis.controllers.UserController;
 
 public class UserEditActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
@@ -29,7 +31,7 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_users_edit);
 
-        User user = UserController.getUser(getIntent().getStringExtra("rfidCode"));
+        user = UserController.getUser(getIntent().getStringExtra("rfidCode"));
 
         ((TextView) findViewById(R.id.usereditscreen_rfidCode)).setText(user.getUserId());
         ((Switch) findViewById(R.id.usereditscreen_swAge)).setChecked(user.isAdult());
@@ -39,6 +41,9 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
 
         final ImageButton mConfirmBt = findViewById(R.id.usereditscreen_ibConfirm);
         mConfirmBt.setOnClickListener(this);
+
+        final ImageButton mDeleteBt = findViewById(R.id.usereditscreen_ibDelete);
+        mDeleteBt.setOnClickListener(this);
     }
 
     @Override
@@ -54,6 +59,14 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
+                break;
+
+            case R.id.usereditscreen_ibDelete:
+                UserController.deleteUser(user);
+                Intent intent2 = new Intent(getApplicationContext(), UserActivity.class);
+                intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent2.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent2);
                 break;
         }
     }

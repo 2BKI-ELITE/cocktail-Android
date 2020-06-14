@@ -74,6 +74,14 @@ public class Ingredient {
     }
 
     /**
+     * Returns local ingredient fill level
+     * @return int Returns level in ml.
+     */
+    public int getFillLevelLocal() {
+        return fillLevel;
+    }
+
+    /**
      * Returns ingredient fill capacity.
      * @return int Returns capacity in ml.
      */
@@ -86,5 +94,13 @@ public class Ingredient {
         } catch (SQLException ignored) {}
 
         return 0;
+    }
+
+    /**
+     * Returns local ingredient fill capacity.
+     * @return int Returns capacity in ml.
+     */
+    public int getFillCapacityLocal() {
+        return fillCapacity;
     }
 }

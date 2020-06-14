@@ -1,10 +1,10 @@
 <resources>
 
     <!-- LIGHT MODE -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowDisablePreview">true</item>
 
-        <item name="colorPrimary">#ECF0F1</item>
+        <item name="colorPrimary">#000000</item>
         <item name="colorPrimaryDark">#000000</item>
         <item name="colorAccent">#000000</item>
         <item name="backgroundcolor">#ecf0f1</item>
@@ -17,10 +17,10 @@
     </style>
 
     <!-- DARK MODE -->
-    <style name="darktheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="darktheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowDisablePreview">true</item>
 
-        <item name="colorPrimary">#000000</item>
+        <item name="colorPrimary">#ffffff</item>
         <item name="colorPrimaryDark">#000000</item>
         <item name="colorAccent">#ffffff</item>
         <item name="backgroundcolor">#2c3e50</item>
@@ -31,4 +31,5 @@
         <item name="buttoncolor">#000000</item>
         <item name="formColor">#1e2b38</item>
     </style>
+
 </resources>
