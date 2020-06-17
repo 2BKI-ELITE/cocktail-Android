@@ -1,17 +1,16 @@
 package com.example.cocktail_android.screenactivities.admin.cleaning;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.cocktail_android.R;
 import com.example.cocktail_android.redis.controllers.CocktailController;
 import com.example.cocktail_android.redis.controllers.MachineController;
-import com.example.cocktail_android.screenactivities.MainActivity;
 import com.example.cocktail_android.screenactivities.admin.AdminPanelActivity;
 
 public class CleaningActivity extends AppCompatActivity implements View.OnClickListener {

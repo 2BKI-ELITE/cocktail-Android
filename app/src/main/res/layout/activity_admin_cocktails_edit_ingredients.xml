@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout7"
+    android:id="@+id/relativeLayout4"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/backgroundcolor"
-    tools:context=".screenactivities.admin.cocktails.ManageActivity">
-
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/manageview_clTitle"
+        android:id="@+id/editcocktailingredients_clTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
@@ -21,59 +17,53 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/manageview_btBack"
+            android:id="@+id/editcocktailingredients_btBack"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:background="@null"
             android:paddingLeft="@dimen/_20sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/editcocktailingredients_tvTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/cocktail_back_bt" />
 
         <TextView
-            android:id="@+id/manageview_tvTitle"
+            android:id="@+id/editcocktailingredients_tvTitle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cocktails verwalten"
+            android:layout_height="0dp"
+            android:text="Zutaten verwalten"
             android:textColor="?attr/textcolorPrimary"
             android:textSize="@dimen/_20sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/manageview_rv"
-        android:layout_width="0dp"
+        android:id="@+id/rv_item_list"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@null"
-        android:padding="4dp"
-        android:scrollbars="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="@dimen/_15sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/manageview_clTitle">
-
-
-    </androidx.recyclerview.widget.RecyclerView>
+        app:layout_constraintTop_toBottomOf="@+id/editcocktailingredients_clTitle" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/manageview_btAdd"
+            android:id="@+id/editcocktailingredients_btAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#3498DB"
-            app:borderWidth="0dp"
             android:layout_gravity="bottom|right"
             android:layout_margin="16dp"
+            android:backgroundTint="#3498DB"
+            app:borderWidth="0dp"
             app:srcCompat="@drawable/cocktail_add_bt"
             app:tint="#ffffff" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

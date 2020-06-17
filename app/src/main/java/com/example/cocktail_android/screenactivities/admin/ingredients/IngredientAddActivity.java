@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.Switch;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,7 +19,6 @@ import com.example.cocktail_android.redis.controllers.IngredientController;
 import com.example.cocktail_android.redis.controllers.MachineController;
 import com.google.android.material.textfield.TextInputEditText;
 
-import java.util.ArrayList;
 import java.util.UUID;
 
 public class IngredientAddActivity extends AppCompatActivity implements View.OnClickListener {

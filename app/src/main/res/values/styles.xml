@@ -12,7 +12,6 @@
         <item name="textcolorPrimary">#2c3e50</item>
         <item name="textcolorSecondary">#707070</item>
         <item name="tintcolor">#ffffff</item>
-        <item name="buttoncolor">#000000</item>
         <item name="formColor">#ffffff</item>
     </style>
 
@@ -28,7 +27,6 @@
         <item name="textcolorPrimary">#ffffff</item>
         <item name="textcolorSecondary">#ECF0F1</item>
         <item name="tintcolor">#ffffff</item>
-        <item name="buttoncolor">#000000</item>
         <item name="formColor">#1e2b38</item>
     </style>
 

@@ -1,7 +1,5 @@
 package com.example.cocktail_android.objects;
 
-import android.provider.ContactsContract;
-
 import com.example.cocktail_android.mysql.DatabaseManager;
 
 import java.sql.ResultSet;

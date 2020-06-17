@@ -1,24 +1,21 @@
 package com.example.cocktail_android.screenactivities.cocktail;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.ImageButton;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cocktail_android.R;
 import com.example.cocktail_android.enums.CocktailSize;
 import com.example.cocktail_android.objects.Cocktail;
 import com.example.cocktail_android.redis.controllers.CocktailController;
 import com.example.cocktail_android.redis.controllers.MachineController;
-import com.example.cocktail_android.screenactivities.cocktail.ChooseSizeActvitity;
 
 import java.util.UUID;
 
 public class ConfirmCocktailActivity extends AppCompatActivity {
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

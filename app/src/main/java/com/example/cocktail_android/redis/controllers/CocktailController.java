@@ -119,14 +119,18 @@ public class CocktailController {
                 InputStream input = connection.getInputStream();
                 bitmap = BitmapFactory.decodeStream(input);
             } else {
-                bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.test_cocktail_pic);
+                bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.cocktails_cocktail_icon);
             }
         } catch (IOException ex) {
             ex.printStackTrace();
-            bitmap = BitmapFactory.decodeResource(context.getResources(),R.drawable.test_cocktail_pic);
+            bitmap = BitmapFactory.decodeResource(context.getResources(),R.drawable.cocktails_cocktail_icon);
         }
 
         return bitmap;
+    }
+
+    public static Bitmap getDefaultBitmap(Context context, UUID cocktailId) {
+        return BitmapFactory.decodeResource(context.getResources(), R.drawable.cocktails_cocktail_icon);
     }
 
     /**

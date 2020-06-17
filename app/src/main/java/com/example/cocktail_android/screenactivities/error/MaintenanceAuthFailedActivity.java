@@ -1,6 +1,5 @@
 package com.example.cocktail_android.screenactivities.error;
 
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
@@ -8,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cocktail_android.R;
 import com.example.cocktail_android.redis.controllers.MachineController;
-import com.example.cocktail_android.screenactivities.MainActivity;
 
 public class MaintenanceAuthFailedActivity extends AppCompatActivity {
 

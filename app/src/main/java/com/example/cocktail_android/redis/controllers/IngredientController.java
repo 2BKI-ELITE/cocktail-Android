@@ -4,12 +4,12 @@ import android.content.Context;
 
 import com.example.cocktail_android.mysql.DatabaseManager;
 import com.example.cocktail_android.objects.Ingredient;
+import com.example.cocktail_android.recycler.cocktailIngredients.CocktailIngredientsItem;
 import com.example.cocktail_android.recycler.ingredients.IngredientsItem;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.UUID;
 
@@ -43,6 +43,10 @@ public class IngredientController {
      */
     public static IngredientsItem convertToIngredientItem(Ingredient ingredient) {
         return new IngredientsItem(ingredient.getFillLevel(), ingredient.getFillCapacity(), ingredient.getName(), ingredient.getPump());
+    }
+
+    public static CocktailIngredientsItem convertToCocktailIngredientItem(Ingredient ingredient, int amount) {
+        return new CocktailIngredientsItem(ingredient, amount);
     }
 
     /**
@@ -138,6 +142,23 @@ public class IngredientController {
         try {
             final PreparedStatement statement = DatabaseManager.getConnection().prepareStatement("SELECT * FROM ingredients WHERE `pump` = ?");
             statement.setInt(1, pump);
+            final ResultSet resultSet = statement.executeQuery();
+
+            while(resultSet.next())
+                ingredient = new Ingredient(UUID.fromString(resultSet.getString("ingredientId")), resultSet.getString("name"), resultSet.getBoolean("containsAlcohol"), resultSet.getInt("pump"), resultSet.getInt("fillLevel"), resultSet.getInt("fillCapacity"));
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return ingredient;
+    }
+
+    public static Ingredient getIngredientByName(String name) {
+        Ingredient ingredient = null;
+
+        try {
+            final PreparedStatement statement = DatabaseManager.getConnection().prepareStatement("SELECT * FROM ingredients WHERE name = ?");
+            statement.setString(1, name);
             final ResultSet resultSet = statement.executeQuery();
 
             while(resultSet.next())

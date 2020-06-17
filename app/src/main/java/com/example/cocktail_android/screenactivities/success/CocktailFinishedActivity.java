@@ -3,7 +3,6 @@ package com.example.cocktail_android.screenactivities.success;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 

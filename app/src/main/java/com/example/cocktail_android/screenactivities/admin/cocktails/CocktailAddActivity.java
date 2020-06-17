@@ -5,15 +5,10 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cocktail_android.R;
-import com.example.cocktail_android.objects.Cocktail;
-import com.example.cocktail_android.redis.controllers.CocktailController;
-
-import java.util.ArrayList;
 
 public class CocktailAddActivity extends AppCompatActivity implements View.OnClickListener {
 

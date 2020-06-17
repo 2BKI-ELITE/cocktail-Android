@@ -11,9 +11,8 @@ import com.example.cocktail_android.R;
 import com.example.cocktail_android.enums.CocktailSize;
 import com.example.cocktail_android.objects.Cocktail;
 import com.example.cocktail_android.redis.controllers.CocktailController;
-import com.example.cocktail_android.redis.controllers.auth.ConfirmAgeController;
 import com.example.cocktail_android.redis.controllers.MachineController;
-import com.example.cocktail_android.screenactivities.admin.cocktails.ManageActivity;
+import com.example.cocktail_android.redis.controllers.auth.ConfirmAgeController;
 
 import java.util.UUID;
 

@@ -203,6 +203,7 @@
             app:layout_anchorGravity="left"
             app:borderWidth="0dp"
             app:srcCompat="@drawable/cocktail_delete_icon"
+            app:maxImageSize="@dimen/_12sdp"
             app:tint="#ffffff"/>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
